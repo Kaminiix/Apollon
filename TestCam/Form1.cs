@@ -15,13 +15,13 @@ using ZXing.QrCode;
 
 namespace TestCam
 {
-    public partial class Form1 : Form
+    public partial class Appolon : Form
     {
         FilterInfoCollection MijnFilterInfoCollection;
         VideoCaptureDevice MijnDevice;
         BarcodeReader Reader = new BarcodeReader();
 
-        public Form1()
+        public Appolon()
         {
             InitializeComponent();
         }
