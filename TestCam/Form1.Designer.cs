@@ -51,7 +51,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(488, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(490, 24);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(259, 218);
             this.pictureBox2.TabIndex = 1;
@@ -96,7 +96,7 @@
             // 
             // btnConfig
             // 
-            this.btnConfig.Location = new System.Drawing.Point(12, 12);
+            this.btnConfig.Location = new System.Drawing.Point(51, 12);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(130, 23);
             this.btnConfig.TabIndex = 6;
