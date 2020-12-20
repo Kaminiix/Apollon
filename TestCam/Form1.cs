@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
 
 namespace TestCam
 {
@@ -16,6 +19,7 @@ namespace TestCam
     {
         FilterInfoCollection MijnFilterInfoCollection;
         VideoCaptureDevice MijnDevice;
+        BarcodeReader Reader = new BarcodeReader();
 
         public Form1()
         {
@@ -28,6 +32,7 @@ namespace TestCam
             MijnDevice.NewFrame += MijnDevice_NewFrame;
             MijnDevice.Start();
         }
+
 
         private void MijnDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -50,6 +55,12 @@ namespace TestCam
             {
                 MijnDevice.Stop();
             }
+        }
+
+        private void btnTake_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = (Bitmap)pbox.Image.Clone();
+            lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
         }
     }
 }
