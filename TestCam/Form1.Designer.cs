@@ -1,6 +1,6 @@
 ﻿namespace TestCam
 {
-    partial class Form1
+    partial class Appolon
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appolon));
             this.pbox = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cboxInputs = new System.Windows.Forms.ComboBox();
@@ -123,7 +124,7 @@
             this.lblComment.TabIndex = 8;
             this.lblComment.Text = "label2";
             // 
-            // Form1
+            // Appolon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -137,8 +138,9 @@
             this.Controls.Add(this.cboxInputs);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pbox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Appolon";
+            this.Text = "Appolon";
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
