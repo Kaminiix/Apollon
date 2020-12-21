@@ -96,7 +96,8 @@
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnConfig
-            // 
+            //
+            /*
             this.btnConfig.Location = new System.Drawing.Point(12, 12);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(130, 23);
@@ -104,6 +105,7 @@
             this.btnConfig.Text = "Config";
             this.btnConfig.UseVisualStyleBackColor = true;
             this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            */
             // 
             // btnTake
             // 
