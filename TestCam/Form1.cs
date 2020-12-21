@@ -24,6 +24,11 @@ namespace TestCam
         Timer MijnTimer = new Timer();
         SettingsForm settingsForm = new SettingsForm();
 
+        Image SettingsDark = Image.FromFile(@"..\..\Icons\SettingsBold_Dark.png");
+        Image SettingsLight = Image.FromFile(@"..\..\Icons\SettingsBold.png");
+        private void Appolon_Load(object sender, EventArgs e)
+        {
+        }
         public Appolon()
         {
             InitializeComponent();
@@ -124,6 +129,22 @@ namespace TestCam
             {
                 lblComment.Text = "Geen Webcam";
             }
+        }
+
+       
+
+        private void btnSettings_MouseLeave(object sender, EventArgs e)
+        {
+            btnSettings.Image = SettingsLight;
+
+        }
+
+       
+
+        private void btnSettings_MouseEnter(object sender, EventArgs e)
+        {
+            btnSettings.Image = SettingsDark;
+
         }
     }
 }
