@@ -13,6 +13,7 @@ using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
 
+
 namespace TestCam
 {
     public partial class Appolon : Form
@@ -20,10 +21,25 @@ namespace TestCam
         FilterInfoCollection MijnFilterInfoCollection;
         VideoCaptureDevice MijnDevice;
         BarcodeReader Reader = new BarcodeReader();
+        Timer MijnTimer = new Timer();
 
         public Appolon()
         {
             InitializeComponent();
+            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
+            {
+                cboxInputs.Items.Add(DeFilterInfo.Name);
+                MijnDevice = new VideoCaptureDevice();
+            }
+            try
+            {
+                cboxInputs.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                lblComment.Text = "Geen Webcam";
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -31,22 +47,39 @@ namespace TestCam
             MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
             MijnDevice.NewFrame += MijnDevice_NewFrame;
             MijnDevice.Start();
+            MijnTimer.Tick += MijnTimer_Tick;
+            //interval du timer
+            MijnTimer.Interval = 500;
+            MijnTimer.Start();
         }
 
+        private void MijnTimer_Tick(object sender, EventArgs e)
+        {
+            if (lblComment.Text == "Tick")
+            {
+                lblComment.Text = "Tack";
+            }
+            else
+            {
+                lblComment.Text = "Tick";
+            }
+
+            pictureBox2.Image = pbox.Image;
+
+            try
+            {
+                lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
+            }
+            catch (Exception)
+            {
+                lblComment.Text = "Geen QRcode";
+            }
+        }
 
         private void MijnDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             pbox.Image = (Bitmap)eventArgs.Frame.Clone();
-        }
-
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
-            {
-                cboxInputs.Items.Add(DeFilterInfo.Name);
-                MijnDevice = new VideoCaptureDevice();
-            }
+            
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -55,12 +88,13 @@ namespace TestCam
             {
                 MijnDevice.Stop();
             }
+            MijnTimer.Stop();
         }
 
         private void btnTake_Click(object sender, EventArgs e)
         {
-            pictureBox2.Image = (Bitmap)pbox.Image.Clone();
-            lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
+            //pictureBox2.Image = (Bitmap)pbox.Image.Clone();
+            //lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
         }
     }
 }
