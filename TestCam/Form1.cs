@@ -24,6 +24,12 @@ namespace TestCam
         public Appolon()
         {
             InitializeComponent();
+            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
+            {
+                cboxInputs.Items.Add(DeFilterInfo.Name);
+                MijnDevice = new VideoCaptureDevice();
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -39,15 +45,7 @@ namespace TestCam
             pbox.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
-        private void btnConfig_Click(object sender, EventArgs e)
-        {
-            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
-            {
-                cboxInputs.Items.Add(DeFilterInfo.Name);
-                MijnDevice = new VideoCaptureDevice();
-            }
-        }
+
 
         private void btnStop_Click(object sender, EventArgs e)
         {
@@ -60,7 +58,7 @@ namespace TestCam
         private void btnTake_Click(object sender, EventArgs e)
         {
             pictureBox2.Image = (Bitmap)pbox.Image.Clone();
-            lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
+            //lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
         }
     }
 }

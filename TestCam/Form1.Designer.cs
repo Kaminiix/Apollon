@@ -35,7 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
-            this.btnConfig = new System.Windows.Forms.Button();
             this.btnTake = new System.Windows.Forms.Button();
             this.lblComment = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
@@ -95,16 +94,6 @@
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // btnConfig
-            // 
-            this.btnConfig.Location = new System.Drawing.Point(51, 12);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(130, 23);
-            this.btnConfig.TabIndex = 6;
-            this.btnConfig.Text = "Config";
-            this.btnConfig.UseVisualStyleBackColor = true;
-            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
-            // 
             // btnTake
             // 
             this.btnTake.Location = new System.Drawing.Point(564, 307);
@@ -131,7 +120,6 @@
             this.ClientSize = new System.Drawing.Size(797, 594);
             this.Controls.Add(this.lblComment);
             this.Controls.Add(this.btnTake);
-            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label1);
@@ -156,7 +144,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnTake;
         private System.Windows.Forms.Label lblComment;
     }
