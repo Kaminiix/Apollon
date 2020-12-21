@@ -89,7 +89,7 @@
             // 
             this.btnStop.Location = new System.Drawing.Point(545, 53);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(150, 45);
+            this.btnStop.Size = new System.Drawing.Size(150, 36);
             this.btnStop.TabIndex = 5;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
