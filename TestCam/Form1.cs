@@ -40,6 +40,7 @@ namespace TestCam
             MijnDevice.NewFrame += MijnDevice_NewFrame;
             MijnDevice.Start();
             MijnTimer.Tick += MijnTimer_Tick;
+            //interval du timer
             MijnTimer.Interval = 500;
             MijnTimer.Start();
         }
@@ -54,7 +55,17 @@ namespace TestCam
             {
                 lblComment.Text = "Tick";
             }
+
             pictureBox2.Image = pbox.Image;
+
+            try
+            {
+                lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
+            }
+            catch (Exception)
+            {
+                lblComment.Text = "Geen QRcode";
+            }
         }
 
         private void MijnDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
