@@ -84,7 +84,29 @@ namespace TestCam
             //lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
         }
 
+        /*
         private void btnSettings_Click(object sender, EventArgs e)
+        {
+            settingsForm.Show();
+            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
+            {
+                settingsForm.cboxInputs.Items.Add(DeFilterInfo.Name);
+                MijnDevice = new VideoCaptureDevice();
+            }
+
+            try
+            {
+                settingsForm.cboxInputs.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                lblComment.Text = "Geen Webcam";
+            }
+        }
+        */
+
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
             settingsForm.Show();
             MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
