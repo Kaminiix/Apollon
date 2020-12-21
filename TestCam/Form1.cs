@@ -32,6 +32,14 @@ namespace TestCam
                 cboxInputs.Items.Add(DeFilterInfo.Name);
                 MijnDevice = new VideoCaptureDevice();
             }
+            try
+            {
+                cboxInputs.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                lblComment.Text = "Geen Webcam";
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
