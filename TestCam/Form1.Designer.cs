@@ -38,6 +38,7 @@
             this.btnTake = new System.Windows.Forms.Button();
             this.lblComment = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
+            this.btnSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             // cboxInputs
             // 
             this.cboxInputs.FormattingEnabled = true;
-            this.cboxInputs.Location = new System.Drawing.Point(232, 14);
+            this.cboxInputs.Location = new System.Drawing.Point(114, 26);
             this.cboxInputs.Name = "cboxInputs";
             this.cboxInputs.Size = new System.Drawing.Size(222, 21);
             this.cboxInputs.TabIndex = 2;
@@ -69,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(183, 17);
+            this.label1.Location = new System.Drawing.Point(65, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 3;
@@ -123,11 +124,22 @@
             this.lblResult.TabIndex = 9;
             this.lblResult.Text = "label2";
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Location = new System.Drawing.Point(360, 26);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnSettings.TabIndex = 10;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // Appolon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 594);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lblComment);
             this.Controls.Add(this.btnTake);
@@ -158,6 +170,7 @@
         private System.Windows.Forms.Button btnTake;
         private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
 

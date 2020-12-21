@@ -22,24 +22,12 @@ namespace TestCam
         VideoCaptureDevice MijnDevice;
         BarcodeReader Reader = new BarcodeReader();
         Timer MijnTimer = new Timer();
+        SettingsForm settingsForm = new SettingsForm();
 
         public Appolon()
         {
             InitializeComponent();
-            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
-            {
-                cboxInputs.Items.Add(DeFilterInfo.Name);
-                MijnDevice = new VideoCaptureDevice();
-            }
-            try
-            {
-                cboxInputs.SelectedIndex = 0;
-            }
-            catch (Exception)
-            {
-                lblComment.Text = "Geen Webcam";
-            }
+           
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -95,6 +83,10 @@ namespace TestCam
         {
             //pictureBox2.Image = (Bitmap)pbox.Image.Clone();
             //lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
+        }
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            settingsForm.Show();
         }
     }
 }
