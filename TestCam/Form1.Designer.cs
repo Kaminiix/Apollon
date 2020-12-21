@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.btnTake = new System.Windows.Forms.Button();
             this.lblComment = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
@@ -51,7 +52,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(490, 24);
+            this.pictureBox2.Location = new System.Drawing.Point(513, 181);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(259, 218);
             this.pictureBox2.TabIndex = 1;
@@ -60,7 +61,7 @@
             // cboxInputs
             // 
             this.cboxInputs.FormattingEnabled = true;
-            this.cboxInputs.Location = new System.Drawing.Point(178, 57);
+            this.cboxInputs.Location = new System.Drawing.Point(232, 14);
             this.cboxInputs.Name = "cboxInputs";
             this.cboxInputs.Size = new System.Drawing.Size(222, 21);
             this.cboxInputs.TabIndex = 2;
@@ -68,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(96, 60);
+            this.label1.Location = new System.Drawing.Point(150, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 3;
@@ -76,9 +77,9 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(564, 268);
+            this.btnStart.Location = new System.Drawing.Point(545, 14);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(130, 23);
+            this.btnStart.Size = new System.Drawing.Size(150, 33);
             this.btnStart.TabIndex = 4;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -86,19 +87,29 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(564, 351);
+            this.btnStop.Location = new System.Drawing.Point(545, 53);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(130, 23);
+            this.btnStop.Size = new System.Drawing.Size(150, 45);
             this.btnStop.TabIndex = 5;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
+            // btnConfig
+            // 
+            this.btnConfig.Location = new System.Drawing.Point(12, 12);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(130, 23);
+            this.btnConfig.TabIndex = 6;
+            this.btnConfig.Text = "Config";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            // 
             // btnTake
             // 
-            this.btnTake.Location = new System.Drawing.Point(564, 307);
+            this.btnTake.Location = new System.Drawing.Point(513, 414);
             this.btnTake.Name = "btnTake";
-            this.btnTake.Size = new System.Drawing.Size(130, 23);
+            this.btnTake.Size = new System.Drawing.Size(259, 42);
             this.btnTake.TabIndex = 7;
             this.btnTake.Text = "TakePicture";
             this.btnTake.UseVisualStyleBackColor = true;
@@ -120,6 +131,7 @@
             this.ClientSize = new System.Drawing.Size(797, 594);
             this.Controls.Add(this.lblComment);
             this.Controls.Add(this.btnTake);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label1);
@@ -144,6 +156,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnTake;
         private System.Windows.Forms.Label lblComment;
     }
