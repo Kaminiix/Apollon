@@ -36,7 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 64);
+            this.label1.Location = new System.Drawing.Point(67, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 5;
@@ -45,14 +45,14 @@
             // cboxInputs
             // 
             this.cboxInputs.FormattingEnabled = true;
-            this.cboxInputs.Location = new System.Drawing.Point(119, 61);
+            this.cboxInputs.Location = new System.Drawing.Point(116, 54);
             this.cboxInputs.Name = "cboxInputs";
             this.cboxInputs.Size = new System.Drawing.Size(222, 21);
             this.cboxInputs.TabIndex = 4;
             // 
             // btnCloseSettings
             // 
-            this.btnCloseSettings.Location = new System.Drawing.Point(399, 58);
+            this.btnCloseSettings.Location = new System.Drawing.Point(377, 52);
             this.btnCloseSettings.Name = "btnCloseSettings";
             this.btnCloseSettings.Size = new System.Drawing.Size(75, 23);
             this.btnCloseSettings.TabIndex = 6;
@@ -69,7 +69,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboxInputs);
             this.Name = "SettingsForm";
-            this.Text = "Form2";
+            this.Text = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,7 +78,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cboxInputs;
         private System.Windows.Forms.Button btnCloseSettings;
+        internal System.Windows.Forms.ComboBox cboxInputs;
     }
 }

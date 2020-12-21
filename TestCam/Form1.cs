@@ -18,8 +18,8 @@ namespace TestCam
 {
     public partial class Appolon : Form
     {
-        FilterInfoCollection MijnFilterInfoCollection;
-        VideoCaptureDevice MijnDevice;
+        public static FilterInfoCollection MijnFilterInfoCollection;
+        public static VideoCaptureDevice MijnDevice;
         BarcodeReader Reader = new BarcodeReader();
         Timer MijnTimer = new Timer();
         SettingsForm settingsForm = new SettingsForm();
@@ -27,12 +27,11 @@ namespace TestCam
         public Appolon()
         {
             InitializeComponent();
-           
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
+            //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
             MijnDevice.NewFrame += MijnDevice_NewFrame;
             MijnDevice.Start();
             MijnTimer.Tick += MijnTimer_Tick;
@@ -84,9 +83,25 @@ namespace TestCam
             //pictureBox2.Image = (Bitmap)pbox.Image.Clone();
             //lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
         }
+
         private void btnSettings_Click(object sender, EventArgs e)
         {
             settingsForm.Show();
+            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
+            {
+                settingsForm.cboxInputs.Items.Add(DeFilterInfo.Name);
+                MijnDevice = new VideoCaptureDevice();
+            }
+
+            try
+            {
+                settingsForm.cboxInputs.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                lblComment.Text = "Geen Webcam";
+            }
         }
     }
 }
