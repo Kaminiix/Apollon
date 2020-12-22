@@ -117,12 +117,14 @@ namespace TestCam
             MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
             {
-                settingsForm.cboxInputs.Items.Add(DeFilterInfo.Name);
+                settingsForm.lbCameras.Items.Add(DeFilterInfo.Name);
+                //settingsForm.cboxInputs.Items.Add(DeFilterInfo.Name);
                 MijnDevice = new VideoCaptureDevice();
             }
 
             try
             {
+                settingsForm.lbCameras.SelectedIndex = 0;
                 settingsForm.cboxInputs.SelectedIndex = 0;
             }
             catch (Exception)
@@ -144,6 +146,11 @@ namespace TestCam
         private void btnSettings_MouseEnter(object sender, EventArgs e)
         {
             btnSettings.Image = SettingsDark;
+
+        }
+
+        private void Appolon_Load_1(object sender, EventArgs e)
+        {
 
         }
     }

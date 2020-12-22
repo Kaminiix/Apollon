@@ -135,6 +135,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Appolon";
             this.Text = "Appolon";
+            this.Load += new System.EventHandler(this.Appolon_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();

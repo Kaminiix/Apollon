@@ -33,13 +33,14 @@
             this.cboxInputs = new System.Windows.Forms.ComboBox();
             this.btnCloseSettings = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbCameras = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 57);
+            this.label1.Location = new System.Drawing.Point(97, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 5;
@@ -48,18 +49,19 @@
             // cboxInputs
             // 
             this.cboxInputs.FormattingEnabled = true;
-            this.cboxInputs.Location = new System.Drawing.Point(116, 54);
+            this.cboxInputs.Location = new System.Drawing.Point(151, 26);
             this.cboxInputs.Name = "cboxInputs";
             this.cboxInputs.Size = new System.Drawing.Size(222, 21);
             this.cboxInputs.TabIndex = 4;
+            this.cboxInputs.Visible = false;
             // 
             // btnCloseSettings
             // 
-            this.btnCloseSettings.Location = new System.Drawing.Point(377, 52);
+            this.btnCloseSettings.Location = new System.Drawing.Point(407, 56);
             this.btnCloseSettings.Name = "btnCloseSettings";
             this.btnCloseSettings.Size = new System.Drawing.Size(75, 23);
             this.btnCloseSettings.TabIndex = 6;
-            this.btnCloseSettings.Text = "Close";
+            this.btnCloseSettings.Text = "Confirm";
             this.btnCloseSettings.UseVisualStyleBackColor = true;
             this.btnCloseSettings.Click += new System.EventHandler(this.btnCloseSettings_Click);
             // 
@@ -74,17 +76,28 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // lbCameras
+            // 
+            this.lbCameras.FormattingEnabled = true;
+            this.lbCameras.Location = new System.Drawing.Point(151, 61);
+            this.lbCameras.Name = "lbCameras";
+            this.lbCameras.Size = new System.Drawing.Size(222, 95);
+            this.lbCameras.TabIndex = 8;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 165);
+            this.Controls.Add(this.lbCameras);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseSettings);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboxInputs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsForm";
             this.Text = "Settings";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -97,5 +110,6 @@
         private System.Windows.Forms.Button btnCloseSettings;
         internal System.Windows.Forms.ComboBox cboxInputs;
         private System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.ListBox lbCameras;
     }
 }
