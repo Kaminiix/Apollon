@@ -21,6 +21,7 @@ namespace TestCam
         {
             //Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
             Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
+            Appolon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);            
             this.Hide();
         }
 

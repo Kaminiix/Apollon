@@ -21,7 +21,7 @@ namespace TestCam
         public static FilterInfoCollection MijnFilterInfoCollection;
         public static VideoCaptureDevice MijnDevice;
         BarcodeReader Reader = new BarcodeReader();
-        Timer MijnTimer = new Timer();
+        internal static Timer MijnTimer = new Timer();
         SettingsForm settingsForm = new SettingsForm();
 
         Image SettingsDark = Image.FromFile(@"..\..\Icons\SettingsBold_Dark.png");
@@ -40,8 +40,6 @@ namespace TestCam
             MijnDevice.NewFrame += MijnDevice_NewFrame;
             MijnDevice.Start();
             MijnTimer.Tick += MijnTimer_Tick;
-            //interval du timer
-            MijnTimer.Interval = 500;
             MijnTimer.Start();
         }
 
@@ -58,13 +56,14 @@ namespace TestCam
 
             pictureBox2.Image = pbox.Image;
 
+
             try
             {
                 lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
             }
             catch (Exception)
             {
-                lblComment.Text = "Geen QRcode";
+                lblResult.Text = "Geen QRcode";
             }
         }
 
@@ -114,6 +113,7 @@ namespace TestCam
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             settingsForm.Show();
+            settingsForm.lbCameras.Items.Clear();
             MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
             {
@@ -152,6 +152,11 @@ namespace TestCam
         private void Appolon_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MijnDevice.Stop();
         }
     }
 }

@@ -34,7 +34,10 @@
             this.btnCloseSettings = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbCameras = new System.Windows.Forms.ListBox();
+            this.txtbRefreshRate = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbRefreshRate)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +52,7 @@
             // cboxInputs
             // 
             this.cboxInputs.FormattingEnabled = true;
-            this.cboxInputs.Location = new System.Drawing.Point(151, 26);
+            this.cboxInputs.Location = new System.Drawing.Point(407, 12);
             this.cboxInputs.Name = "cboxInputs";
             this.cboxInputs.Size = new System.Drawing.Size(222, 21);
             this.cboxInputs.TabIndex = 4;
@@ -84,11 +87,49 @@
             this.lbCameras.Size = new System.Drawing.Size(222, 95);
             this.lbCameras.TabIndex = 8;
             // 
+            // txtbRefreshRate
+            // 
+            this.txtbRefreshRate.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.txtbRefreshRate.Location = new System.Drawing.Point(151, 35);
+            this.txtbRefreshRate.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtbRefreshRate.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.txtbRefreshRate.Name = "txtbRefreshRate";
+            this.txtbRefreshRate.Size = new System.Drawing.Size(49, 20);
+            this.txtbRefreshRate.TabIndex = 9;
+            this.txtbRefreshRate.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(75, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Refresh rate";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 165);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtbRefreshRate);
             this.Controls.Add(this.lbCameras);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseSettings);
@@ -99,6 +140,7 @@
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtbRefreshRate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +153,7 @@
         internal System.Windows.Forms.ComboBox cboxInputs;
         private System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.ListBox lbCameras;
+        private System.Windows.Forms.NumericUpDown txtbRefreshRate;
+        private System.Windows.Forms.Label label2;
     }
 }
