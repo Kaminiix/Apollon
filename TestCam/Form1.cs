@@ -60,6 +60,20 @@ namespace TestCam
             try
             {
                 lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
+                bool newLeeling = true;
+                for (int i = 0; i < lbLeerlingen.Items.Count; i++)
+                {
+                    if (lbLeerlingen.Items[i].ToString() == lblResult.Text)
+                    {
+                        newLeeling = false;
+                    }
+                }
+                if (newLeeling)
+                {
+                    lbLeerlingen.Items.Add(lblResult.Text);
+                    DataGridLeerlingen.Rows.Add(lblResult.Text, lblResult.Text, lblResult.Text);
+                }
+
             }
             catch (Exception)
             {
@@ -157,6 +171,15 @@ namespace TestCam
         private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
         {
             MijnDevice.Stop();
+        }
+
+        private void btnPower_Click(object sender, EventArgs e)
+        {
+            //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
+            MijnDevice.NewFrame += MijnDevice_NewFrame;
+            MijnDevice.Start();
+            MijnTimer.Tick += MijnTimer_Tick;
+            MijnTimer.Start();
         }
     }
 }

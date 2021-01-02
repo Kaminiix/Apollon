@@ -37,9 +37,17 @@
             this.lblComment = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.PictureBox();
+            this.lbLeerlingen = new System.Windows.Forms.ListBox();
+            this.DataGridLeerlingen = new System.Windows.Forms.DataGridView();
+            this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPower = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPower)).BeginInit();
             this.SuspendLayout();
             // 
             // pbox
@@ -52,7 +60,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(513, 181);
+            this.pictureBox2.Location = new System.Drawing.Point(513, 95);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(259, 218);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,7 +89,7 @@
             // 
             // btnTake
             // 
-            this.btnTake.Location = new System.Drawing.Point(513, 414);
+            this.btnTake.Location = new System.Drawing.Point(513, 319);
             this.btnTake.Name = "btnTake";
             this.btnTake.Size = new System.Drawing.Size(259, 42);
             this.btnTake.TabIndex = 7;
@@ -110,9 +118,9 @@
             // btnSettings
             // 
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(39, 14);
+            this.btnSettings.Location = new System.Drawing.Point(63, 14);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(44, 45);
+            this.btnSettings.Size = new System.Drawing.Size(45, 45);
             this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnSettings.TabIndex = 11;
             this.btnSettings.TabStop = false;
@@ -120,11 +128,61 @@
             this.btnSettings.MouseEnter += new System.EventHandler(this.btnSettings_MouseEnter);
             this.btnSettings.MouseLeave += new System.EventHandler(this.btnSettings_MouseLeave);
             // 
+            // lbLeerlingen
+            // 
+            this.lbLeerlingen.FormattingEnabled = true;
+            this.lbLeerlingen.Location = new System.Drawing.Point(716, 395);
+            this.lbLeerlingen.MultiColumn = true;
+            this.lbLeerlingen.Name = "lbLeerlingen";
+            this.lbLeerlingen.Size = new System.Drawing.Size(56, 160);
+            this.lbLeerlingen.TabIndex = 12;
+            // 
+            // DataGridLeerlingen
+            // 
+            this.DataGridLeerlingen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridLeerlingen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Voornaam,
+            this.Naam,
+            this.Klas});
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(351, 406);
+            this.DataGridLeerlingen.Name = "DataGridLeerlingen";
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(344, 150);
+            this.DataGridLeerlingen.TabIndex = 13;
+            // 
+            // Voornaam
+            // 
+            this.Voornaam.HeaderText = "Voornaam";
+            this.Voornaam.Name = "Voornaam";
+            // 
+            // Naam
+            // 
+            this.Naam.HeaderText = "Naam";
+            this.Naam.Name = "Naam";
+            // 
+            // Klas
+            // 
+            this.Klas.HeaderText = "Klas";
+            this.Klas.Name = "Klas";
+            // 
+            // btnPower
+            // 
+            this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
+            this.btnPower.Location = new System.Drawing.Point(12, 14);
+            this.btnPower.Name = "btnPower";
+            this.btnPower.Size = new System.Drawing.Size(45, 45);
+            this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPower.TabIndex = 14;
+            this.btnPower.TabStop = false;
+            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
+            // 
             // Appolon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 594);
+            this.Controls.Add(this.btnPower);
+            this.Controls.Add(this.DataGridLeerlingen);
+            this.Controls.Add(this.lbLeerlingen);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lblComment);
@@ -141,6 +199,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPower)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +216,12 @@
         private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.PictureBox btnSettings;
+        private System.Windows.Forms.ListBox lbLeerlingen;
+        private System.Windows.Forms.DataGridView DataGridLeerlingen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
+        private System.Windows.Forms.PictureBox btnPower;
     }
 }
 
