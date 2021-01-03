@@ -37,12 +37,12 @@
             this.lblComment = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.PictureBox();
-            this.lbLeerlingen = new System.Windows.Forms.ListBox();
             this.DataGridLeerlingen = new System.Windows.Forms.DataGridView();
-            this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPower = new System.Windows.Forms.PictureBox();
+            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -75,6 +75,7 @@
             this.btnStart.TabIndex = 4;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Visible = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
@@ -85,7 +86,7 @@
             this.btnStop.TabIndex = 5;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.btnStop.Visible = false;
             // 
             // btnTake
             // 
@@ -128,41 +129,18 @@
             this.btnSettings.MouseEnter += new System.EventHandler(this.btnSettings_MouseEnter);
             this.btnSettings.MouseLeave += new System.EventHandler(this.btnSettings_MouseLeave);
             // 
-            // lbLeerlingen
-            // 
-            this.lbLeerlingen.FormattingEnabled = true;
-            this.lbLeerlingen.Location = new System.Drawing.Point(716, 395);
-            this.lbLeerlingen.MultiColumn = true;
-            this.lbLeerlingen.Name = "lbLeerlingen";
-            this.lbLeerlingen.Size = new System.Drawing.Size(56, 160);
-            this.lbLeerlingen.TabIndex = 12;
-            // 
             // DataGridLeerlingen
             // 
             this.DataGridLeerlingen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridLeerlingen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Voornaam,
             this.Naam,
-            this.Klas});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(351, 406);
+            this.Voornaam,
+            this.Klas,
+            this.ID});
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(292, 407);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(344, 150);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(423, 150);
             this.DataGridLeerlingen.TabIndex = 13;
-            // 
-            // Voornaam
-            // 
-            this.Voornaam.HeaderText = "Voornaam";
-            this.Voornaam.Name = "Voornaam";
-            // 
-            // Naam
-            // 
-            this.Naam.HeaderText = "Naam";
-            this.Naam.Name = "Naam";
-            // 
-            // Klas
-            // 
-            this.Klas.HeaderText = "Klas";
-            this.Klas.Name = "Klas";
             // 
             // btnPower
             // 
@@ -175,6 +153,27 @@
             this.btnPower.TabStop = false;
             this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
             // 
+            // Naam
+            // 
+            this.Naam.HeaderText = "Naam";
+            this.Naam.Name = "Naam";
+            // 
+            // Voornaam
+            // 
+            this.Voornaam.HeaderText = "Voornaam";
+            this.Voornaam.Name = "Voornaam";
+            // 
+            // Klas
+            // 
+            this.Klas.HeaderText = "Klas";
+            this.Klas.Name = "Klas";
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
             // Appolon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,7 +181,6 @@
             this.ClientSize = new System.Drawing.Size(797, 594);
             this.Controls.Add(this.btnPower);
             this.Controls.Add(this.DataGridLeerlingen);
-            this.Controls.Add(this.lbLeerlingen);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lblComment);
@@ -195,7 +193,6 @@
             this.Name = "Appolon";
             this.Text = "Appolon";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Appolon_FormClosing);
-            this.Load += new System.EventHandler(this.Appolon_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
@@ -216,12 +213,12 @@
         private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.PictureBox btnSettings;
-        private System.Windows.Forms.ListBox lbLeerlingen;
         private System.Windows.Forms.DataGridView DataGridLeerlingen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
         private System.Windows.Forms.PictureBox btnPower;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }
 
