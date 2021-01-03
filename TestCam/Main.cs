@@ -66,11 +66,10 @@ namespace TestCam
             try
             {
                 leerling TestLeerling = MakeLeerling(Reader.Decode((Bitmap)pictureBox2.Image).ToString());
-                //lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
                 bool newLeeling = true;
-                for (int i = 0; i < LijstLeerlingen.Count; i++)
+                foreach (leerling DeLeerling in LijstLeerlingen)
                 {
-                    if (LijstLeerlingen[i].GetID() == TestLeerling.GetID())
+                    if (DeLeerling.GetID() == TestLeerling.GetID())
                     {
                         newLeeling = false;
                     }
@@ -83,10 +82,6 @@ namespace TestCam
                     {
                         DataGridLeerlingen.Rows.Add(LijstLeerlingen[i].Naam, LijstLeerlingen[i].Voornaam, LijstLeerlingen[i].Klas, LijstLeerlingen[i].GetID());
                     }
-
-                    //lbLeerlingen.Items.Add(lblResult.Text);
-                    //DataGridLeerlingen.Rows.Add(lblResult.Text, lblResult.Text, lblResult.Text);
-
                 }
                 lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
 
@@ -102,13 +97,6 @@ namespace TestCam
             pbox.Image = (Bitmap)eventArgs.Frame.Clone();   
         }
 
-
-        private void btnTake_Click(object sender, EventArgs e)
-        {
-            //pictureBox2.Image = (Bitmap)pbox.Image.Clone();
-            //lblComment.Text = Reader.Decode((Bitmap)pbox.Image.Clone()).ToString();
-        }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             settingsForm.Show();
@@ -117,14 +105,12 @@ namespace TestCam
             foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
             {
                 settingsForm.lbCameras.Items.Add(DeFilterInfo.Name);
-                //settingsForm.cboxInputs.Items.Add(DeFilterInfo.Name);
                 MijnDevice = new VideoCaptureDevice();
             }
 
             try
             {
                 settingsForm.lbCameras.SelectedIndex = 0;
-                settingsForm.cboxInputs.SelectedIndex = 0;
             }
             catch (Exception)
             {
@@ -137,15 +123,11 @@ namespace TestCam
         private void btnSettings_MouseLeave(object sender, EventArgs e)
         {
             btnSettings.Image = SettingsLight;
-
         }
-
-
 
         private void btnSettings_MouseEnter(object sender, EventArgs e)
         {
             btnSettings.Image = SettingsDark;
-
         }
 
         private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
@@ -156,13 +138,11 @@ namespace TestCam
             }
         }
 
-        int Switch = 0;
-
         private void btnPower_Click(object sender, EventArgs e)
         {
             if (Appolon.MijnDevice != null)
             {
-                if (Switch % 2 == 0)
+                if (!MijnDevice.IsRunning)
                 {
 
                     //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
@@ -171,6 +151,7 @@ namespace TestCam
                     MijnTimer.Tick += MijnTimer_Tick;
                     MijnTimer.Start();
                     btnPower.Image = PowerOn;
+                    DataGridLeerlingen.Visible = true;
                 }
                 else
                 {
@@ -178,7 +159,6 @@ namespace TestCam
                     MijnDevice.Stop();
                     MijnTimer.Stop();
                 }
-                Switch++;
             }
             
         }
@@ -193,15 +173,15 @@ namespace TestCam
             bool KlasStarted = false;
             bool VoornaamStarted = false;
 
-            for (int i = 0; i < charInput.Length; i++)
+            foreach (char Letter in charInput)
             {
                 if (!KlasStarted)
                 {
                     if (!VoornaamStarted)
                     {
-                        if (charInput[i] != ';')
+                        if (Letter != ';')
                         {
-                            strNaam += charInput[i];
+                            strNaam += Letter;
                         }
                         else
                         {
@@ -210,9 +190,9 @@ namespace TestCam
                     }
                     else
                     {
-                        if (charInput[i] != ';')
+                        if (Letter != ';')
                         {
-                            strVoornaam += charInput[i];
+                            strVoornaam += Letter;
                         }
                         else
                         {
@@ -222,10 +202,9 @@ namespace TestCam
                 }
                 else
                 {
-                    strKlas += charInput[i];
+                    strKlas += Letter;
                 }
             }
-
             return new leerling(strVoornaam,strNaam, strKlas);
         }
 

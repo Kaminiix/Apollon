@@ -62,7 +62,6 @@
             this.pictureBox2.Location = new System.Drawing.Point(513, 95);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(259, 218);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -100,7 +99,7 @@
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(51, 527);
+            this.lblResult.Location = new System.Drawing.Point(48, 530);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(35, 13);
             this.lblResult.TabIndex = 9;
@@ -129,8 +128,9 @@
             this.ID});
             this.DataGridLeerlingen.Location = new System.Drawing.Point(292, 407);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(423, 150);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(427, 175);
             this.DataGridLeerlingen.TabIndex = 13;
+            this.DataGridLeerlingen.Visible = false;
             // 
             // Naam
             // 
@@ -198,7 +198,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.DataGridView DataGridLeerlingen;
@@ -207,6 +206,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
         private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        internal System.Windows.Forms.Label lblComment;
     }
 }
 
