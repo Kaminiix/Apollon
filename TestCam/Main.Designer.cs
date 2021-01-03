@@ -33,7 +33,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
-            this.btnTake = new System.Windows.Forms.Button();
             this.lblComment = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.PictureBox();
@@ -88,16 +87,6 @@
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Visible = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnTake
-            // 
-            this.btnTake.Location = new System.Drawing.Point(513, 319);
-            this.btnTake.Name = "btnTake";
-            this.btnTake.Size = new System.Drawing.Size(259, 42);
-            this.btnTake.TabIndex = 7;
-            this.btnTake.Text = "TakePicture";
-            this.btnTake.UseVisualStyleBackColor = true;
-            this.btnTake.Click += new System.EventHandler(this.btnTake_Click);
             // 
             // lblComment
             // 
@@ -185,7 +174,6 @@
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lblComment);
-            this.Controls.Add(this.btnTake);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.pictureBox2);
@@ -210,7 +198,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Button btnTake;
         private System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.PictureBox btnSettings;
