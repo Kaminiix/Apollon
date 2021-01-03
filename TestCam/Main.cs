@@ -189,8 +189,20 @@ namespace TestCam
                     MijnTimer.Stop();
                 }
             }
-            
+            else
+            {
+                MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                foreach (FilterInfo EenFilterInfo in MijnFilterInfoCollection)
+                {
+                    // if 3 first letters are USB
+                    if (EenFilterInfo.Name.Substring(0,3) == "USB")
+                    {
+                        MijnDevice = new VideoCaptureDevice(EenFilterInfo.MonikerString);
+                    }
+                }
+            }
         }
+
 
         static public leerling MakeLeerling(string strInput)
         {   // Format: Naam;Voornaam;Klas
@@ -269,7 +281,5 @@ namespace TestCam
             
 
         }
-      
-
     }
 }

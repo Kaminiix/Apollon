@@ -57,15 +57,16 @@
             // 
             this.pbox.Location = new System.Drawing.Point(12, 84);
             this.pbox.Name = "pbox";
-            this.pbox.Size = new System.Drawing.Size(390, 315);
+            this.pbox.Size = new System.Drawing.Size(344, 263);
             this.pbox.TabIndex = 0;
             this.pbox.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(513, 95);
+            this.pictureBox2.Location = new System.Drawing.Point(500, 107);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(259, 218);
+            this.pictureBox2.Size = new System.Drawing.Size(272, 191);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -132,9 +133,9 @@
             this.Voornaam,
             this.Klas,
             this.ID});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(292, 407);
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(358, 347);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(427, 175);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(427, 235);
             this.DataGridLeerlingen.TabIndex = 13;
             // 
             // Naam
