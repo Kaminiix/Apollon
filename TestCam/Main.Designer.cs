@@ -42,11 +42,15 @@
             this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPower = new System.Windows.Forms.PictureBox();
+            this.btnSave = new System.Windows.Forms.PictureBox();
+            this.btnLoad = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).BeginInit();
             this.SuspendLayout();
             // 
             // pbox
@@ -130,7 +134,6 @@
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
             this.DataGridLeerlingen.Size = new System.Drawing.Size(427, 175);
             this.DataGridLeerlingen.TabIndex = 13;
-            this.DataGridLeerlingen.Visible = false;
             // 
             // Naam
             // 
@@ -164,11 +167,35 @@
             this.btnPower.TabStop = false;
             this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(114, 14);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(45, 45);
+            this.btnSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSave.TabIndex = 15;
+            this.btnSave.TabStop = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
+            this.btnLoad.Location = new System.Drawing.Point(165, 14);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(45, 45);
+            this.btnLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnLoad.TabIndex = 16;
+            this.btnLoad.TabStop = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // Appolon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 594);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPower);
             this.Controls.Add(this.DataGridLeerlingen);
             this.Controls.Add(this.btnSettings);
@@ -187,6 +214,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,6 +236,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         internal System.Windows.Forms.Label lblComment;
+        private System.Windows.Forms.PictureBox btnSave;
+        private System.Windows.Forms.PictureBox btnLoad;
     }
 }
 

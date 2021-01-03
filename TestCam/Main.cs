@@ -12,6 +12,8 @@ using AForge.Video.DirectShow;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
+using System.IO;
+using Newtonsoft.Json;
 
 
 namespace TestCam
@@ -24,6 +26,7 @@ namespace TestCam
         internal static Timer MijnTimer = new Timer();
         SettingsForm settingsForm = new SettingsForm();
         List<leerling> LijstLeerlingen = new List<leerling>();
+        internal static bool AutosaveEnabled = false;
 
         //preload resource images
         Image SettingsDark = Image.FromFile(@"..\..\Icons\SettingsBold_Dark.png");
@@ -82,6 +85,15 @@ namespace TestCam
                     {
                         DataGridLeerlingen.Rows.Add(LijstLeerlingen[i].Naam, LijstLeerlingen[i].Voornaam, LijstLeerlingen[i].Klas, LijstLeerlingen[i].GetID());
                     }
+
+                    //AUTO SAVE
+                    if (AutosaveEnabled)
+                    {
+                        string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
+                        File.WriteAllText(@"..\..\AutosaveData.json", Data);
+                    }
+
+
                 }
                 lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
 
@@ -151,7 +163,7 @@ namespace TestCam
                     MijnTimer.Tick += MijnTimer_Tick;
                     MijnTimer.Start();
                     btnPower.Image = PowerOn;
-                    DataGridLeerlingen.Visible = true;
+                    //DataGridLeerlingen.Visible = true;
                 }
                 else
                 {
@@ -211,6 +223,31 @@ namespace TestCam
         private void btnStop_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
+            File.WriteAllText(@"..\..\Data.json", Data);
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(@"..\..\AutosaveData.json"))
+            {
+                string LoadingData = File.ReadAllText(@"..\..\AutosaveData.json");
+                LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
+                DataGridLeerlingen.Rows.Clear();
+                foreach (leerling EenLeerling in LijstLeerlingen)
+                {
+                    DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam,
+                        EenLeerling.Klas, EenLeerling.GetID());
+                }
+            }
+            else
+            {
+                lblResult.Text = "Autosave does not exist";
+            }
         }
     }
 }

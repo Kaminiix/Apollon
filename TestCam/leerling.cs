@@ -32,11 +32,6 @@ namespace TestCam
             strKlas = strKlasInput;
         }
 
-        public string Klas
-        {
-            get { return strKlas; }
-            set { strKlas = value; }
-        }
 
         public string Naam
         {
@@ -48,6 +43,11 @@ namespace TestCam
         {
             get { return strVoornaam; }
             set { strVoornaam = value; }
+        }
+        public string Klas
+        {
+            get { return strKlas; }
+            set { strKlas = value; }
         }
 
         public string GetID()

@@ -25,6 +25,14 @@ namespace TestCam
                 Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
                 Appolon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);
             }
+            if (cbAutosave.Checked)
+            {
+                Appolon.AutosaveEnabled = true;
+            }
+            else
+            {
+                Appolon.AutosaveEnabled = false;
+            }
                   
             this.Hide();
         }

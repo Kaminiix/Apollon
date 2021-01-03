@@ -35,6 +35,8 @@
             this.lbCameras = new System.Windows.Forms.ListBox();
             this.txtbRefreshRate = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.cbAutosave = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbRefreshRate)).BeginInit();
             this.SuspendLayout();
@@ -113,11 +115,22 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Refresh rate";
             // 
+            // cbAutosave
+            // 
+            this.cbAutosave.AutoSize = true;
+            this.cbAutosave.Location = new System.Drawing.Point(407, 85);
+            this.cbAutosave.Name = "cbAutosave";
+            this.cbAutosave.Size = new System.Drawing.Size(74, 17);
+            this.cbAutosave.TabIndex = 11;
+            this.cbAutosave.Text = "Auto save";
+            this.cbAutosave.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 165);
+            this.Controls.Add(this.cbAutosave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtbRefreshRate);
             this.Controls.Add(this.lbCameras);
@@ -143,5 +156,7 @@
         internal System.Windows.Forms.ListBox lbCameras;
         private System.Windows.Forms.NumericUpDown txtbRefreshRate;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.CheckBox cbAutosave;
     }
 }
