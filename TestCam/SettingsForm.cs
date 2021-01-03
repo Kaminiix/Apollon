@@ -19,9 +19,13 @@ namespace TestCam
 
         private void btnCloseSettings_Click(object sender, EventArgs e)
         {
-            //Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
-            Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
-            Appolon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);            
+            if (Appolon.MijnDevice != null)
+            {
+                //Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
+                Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
+                Appolon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);
+            }
+                  
             this.Hide();
         }
 

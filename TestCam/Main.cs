@@ -160,22 +160,27 @@ namespace TestCam
 
         private void btnPower_Click(object sender, EventArgs e)
         {
-            if (Switch % 2 == 0)
+            if (Appolon.MijnDevice != null)
             {
-                //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
-                MijnDevice.NewFrame += MijnDevice_NewFrame;
-                MijnDevice.Start();
-                MijnTimer.Tick += MijnTimer_Tick;
-                MijnTimer.Start();
-                btnPower.Image = PowerOn;
+                if (Switch % 2 == 0)
+                {
+
+                    //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
+                    MijnDevice.NewFrame += MijnDevice_NewFrame;
+                    MijnDevice.Start();
+                    MijnTimer.Tick += MijnTimer_Tick;
+                    MijnTimer.Start();
+                    btnPower.Image = PowerOn;
+                }
+                else
+                {
+                    btnPower.Image = PowerOff;
+                    MijnDevice.Stop();
+                    MijnTimer.Stop();
+                }
+                Switch++;
             }
-            else
-            {
-                btnPower.Image = PowerOff;
-                MijnDevice.Stop();
-                MijnTimer.Stop();
-            }
-            Switch++;
+            
         }
 
         static public leerling MakeLeerling(string strInput)
