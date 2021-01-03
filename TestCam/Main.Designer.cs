@@ -38,11 +38,11 @@
             this.lblResult = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.DataGridLeerlingen = new System.Windows.Forms.DataGridView();
-            this.btnPower = new System.Windows.Forms.PictureBox();
             this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPower = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -87,6 +87,7 @@
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Visible = false;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnTake
             // 
@@ -142,17 +143,6 @@
             this.DataGridLeerlingen.Size = new System.Drawing.Size(423, 150);
             this.DataGridLeerlingen.TabIndex = 13;
             // 
-            // btnPower
-            // 
-            this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
-            this.btnPower.Location = new System.Drawing.Point(12, 14);
-            this.btnPower.Name = "btnPower";
-            this.btnPower.Size = new System.Drawing.Size(45, 45);
-            this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnPower.TabIndex = 14;
-            this.btnPower.TabStop = false;
-            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
-            // 
             // Naam
             // 
             this.Naam.HeaderText = "Naam";
@@ -173,6 +163,17 @@
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
+            // 
+            // btnPower
+            // 
+            this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
+            this.btnPower.Location = new System.Drawing.Point(12, 14);
+            this.btnPower.Name = "btnPower";
+            this.btnPower.Size = new System.Drawing.Size(45, 45);
+            this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPower.TabIndex = 14;
+            this.btnPower.TabStop = false;
+            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
             // 
             // Appolon
             // 

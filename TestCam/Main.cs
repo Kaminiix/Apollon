@@ -228,5 +228,10 @@ namespace TestCam
 
             return new leerling(strVoornaam,strNaam, strKlas);
         }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
