@@ -27,6 +27,8 @@ namespace TestCam
         SettingsForm settingsForm = new SettingsForm();
         List<leerling> LijstLeerlingen = new List<leerling>();
         internal static bool AutosaveEnabled = false;
+        internal static bool DevmodeEnabled = false;
+
 
         //preload resource images
         Image SettingsDark = Image.FromFile(@"..\..\Icons\SettingsBold_Dark.png");
@@ -54,6 +56,19 @@ namespace TestCam
 
         private void MijnTimer_Tick(object sender, EventArgs e)
         {
+            //Devmode
+            if (DevmodeEnabled)
+            {
+                lblComment.Visible = true;
+                lblResult.Visible = true;
+
+            }
+            else
+            {
+                lblComment.Visible = false;
+                lblResult.Visible = false;
+            }
+
             if (lblComment.Text == "Tick")
             {
                 lblComment.Text = "Tack";
@@ -92,6 +107,8 @@ namespace TestCam
                         string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
                         File.WriteAllText(@"..\..\AutosaveData.json", Data);
                     }
+                   
+
 
 
                 }
@@ -233,6 +250,7 @@ namespace TestCam
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+
             if (File.Exists(@"..\..\AutosaveData.json"))
             {
                 string LoadingData = File.ReadAllText(@"..\..\AutosaveData.json");
@@ -248,6 +266,10 @@ namespace TestCam
             {
                 lblResult.Text = "Autosave does not exist";
             }
+            
+
         }
+      
+
     }
 }

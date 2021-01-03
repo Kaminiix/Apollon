@@ -94,20 +94,22 @@
             // lblComment
             // 
             this.lblComment.AutoSize = true;
-            this.lblComment.Location = new System.Drawing.Point(48, 543);
+            this.lblComment.Location = new System.Drawing.Point(48, 538);
             this.lblComment.Name = "lblComment";
-            this.lblComment.Size = new System.Drawing.Size(35, 13);
+            this.lblComment.Size = new System.Drawing.Size(61, 13);
             this.lblComment.TabIndex = 8;
-            this.lblComment.Text = "label2";
+            this.lblComment.Text = "lblComment";
+            this.lblComment.Visible = false;
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(48, 530);
+            this.lblResult.Location = new System.Drawing.Point(48, 515);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(35, 13);
+            this.lblResult.Size = new System.Drawing.Size(47, 13);
             this.lblResult.TabIndex = 9;
-            this.lblResult.Text = "label2";
+            this.lblResult.Text = "lblResult";
+            this.lblResult.Visible = false;
             // 
             // btnSettings
             // 
@@ -227,7 +229,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.DataGridView DataGridLeerlingen;
         private System.Windows.Forms.PictureBox btnPower;
@@ -238,6 +239,7 @@
         internal System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.PictureBox btnSave;
         private System.Windows.Forms.PictureBox btnLoad;
+        public System.Windows.Forms.Label lblResult;
     }
 }
 

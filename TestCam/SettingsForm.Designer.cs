@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.cbAutosave = new System.Windows.Forms.CheckBox();
+            this.cBoxDev = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbRefreshRate)).BeginInit();
             this.SuspendLayout();
@@ -125,11 +126,22 @@
             this.cbAutosave.Text = "Auto save";
             this.cbAutosave.UseVisualStyleBackColor = true;
             // 
+            // cBoxDev
+            // 
+            this.cBoxDev.AutoSize = true;
+            this.cBoxDev.Location = new System.Drawing.Point(407, 107);
+            this.cBoxDev.Name = "cBoxDev";
+            this.cBoxDev.Size = new System.Drawing.Size(75, 17);
+            this.cBoxDev.TabIndex = 12;
+            this.cBoxDev.Text = "Dev mode";
+            this.cBoxDev.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 165);
+            this.Controls.Add(this.cBoxDev);
             this.Controls.Add(this.cbAutosave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtbRefreshRate);
@@ -158,5 +170,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.CheckBox cbAutosave;
+        private System.Windows.Forms.CheckBox cBoxDev;
     }
 }

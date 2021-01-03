@@ -12,6 +12,7 @@ namespace TestCam
 {
     public partial class SettingsForm : Form
     {
+
         public SettingsForm()
         {
             InitializeComponent();
@@ -33,8 +34,17 @@ namespace TestCam
             {
                 Appolon.AutosaveEnabled = false;
             }
-                  
+            if (cBoxDev.Checked)
+            {
+                Appolon.DevmodeEnabled = true;
+            }
+            else
+            {
+                Appolon.DevmodeEnabled = false;
+            }
             this.Hide();
+   
+
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
