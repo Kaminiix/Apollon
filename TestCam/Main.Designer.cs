@@ -169,6 +169,8 @@
             this.btnPower.TabIndex = 14;
             this.btnPower.TabStop = false;
             this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
+            this.btnPower.MouseEnter += new System.EventHandler(this.btnPower_MouseEnter);
+            this.btnPower.MouseLeave += new System.EventHandler(this.btnPower_MouseLeave);
             // 
             // btnSave
             // 
@@ -180,6 +182,8 @@
             this.btnSave.TabIndex = 15;
             this.btnSave.TabStop = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
             // 
             // btnLoad
             // 
@@ -191,6 +195,8 @@
             this.btnLoad.TabIndex = 16;
             this.btnLoad.TabStop = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnLoad.MouseEnter += new System.EventHandler(this.btnLoad_MouseEnter);
+            this.btnLoad.MouseLeave += new System.EventHandler(this.btnLoad_MouseLeave);
             // 
             // Appolon
             // 

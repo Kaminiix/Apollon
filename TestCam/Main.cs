@@ -28,6 +28,7 @@ namespace TestCam
         List<leerling> LijstLeerlingen = new List<leerling>();
         internal static bool AutosaveEnabled = false;
         internal static bool DevmodeEnabled = false;
+        internal static bool IsStarted = false;
 
 
         //preload resource images
@@ -35,6 +36,15 @@ namespace TestCam
         Image SettingsLight = Image.FromFile(@"..\..\Icons\SettingsBold.png");
         Image PowerOn = Image.FromFile(@"..\..\Icons\PowerBtnRotated.png");
         Image PowerOff = Image.FromFile(@"..\..\Icons\PowerBtn.png");
+
+        Image SaveLight = Image.FromFile(@"..\..\Icons\Save.png");
+        Image SaveDark = Image.FromFile(@"..\..\Icons\SaveDarker.png");
+        Image LoadLight = Image.FromFile(@"..\..\Icons\Load.png");
+        Image LoadDark = Image.FromFile(@"..\..\Icons\LoadDarker.png");
+        Image PowerBtnLight = Image.FromFile(@"..\..\Icons\PowerBtn.png");
+        Image PowerBtnDark = Image.FromFile(@"..\..\Icons\PowerBtnDarker.png");
+        Image PowerBtnRotatedLight = Image.FromFile(@"..\..\Icons\PowerBtnRotated.png");
+        Image PowerBtnRotatedDark = Image.FromFile(@"..\..\Icons\PowerBtnRotatedDarker.png");
 
         private void Appolon_Load(object sender, EventArgs e)
         {
@@ -173,6 +183,7 @@ namespace TestCam
             {
                 if (!MijnDevice.IsRunning)
                 {
+                    IsStarted = true;
 
                     //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
                     MijnDevice.NewFrame += MijnDevice_NewFrame;
@@ -184,6 +195,8 @@ namespace TestCam
                 }
                 else
                 {
+                    IsStarted = false;
+
                     btnPower.Image = PowerOff;
                     MijnDevice.Stop();
                     MijnTimer.Stop();
@@ -278,8 +291,68 @@ namespace TestCam
             {
                 lblResult.Text = "Autosave does not exist";
             }
-            
+
+
 
         }
+
+        private void btnSave_MouseEnter(object sender, EventArgs e)
+        {
+            btnSave.Image = SaveDark;
+
+        }
+
+        private void btnSave_MouseLeave(object sender, EventArgs e)
+        {
+            btnSave.Image = SaveLight;
+
+        }
+
+        private void btnLoad_MouseEnter(object sender, EventArgs e)
+        {
+            btnLoad.Image = LoadDark;
+        }
+
+        private void btnLoad_MouseLeave(object sender, EventArgs e)
+        {
+            btnLoad.Image = LoadLight;
+
+        }
+
+        private void btnPower_MouseEnter(object sender, EventArgs e)
+        {
+
+            if (IsStarted)
+            {
+                btnPower.Image = PowerBtnRotatedDark;
+            }
+            else
+            {
+                btnPower.Image = PowerBtnDark;
+
+            }
+
+        }
+
+
+        private void btnPower_MouseLeave(object sender, EventArgs e)
+        {
+
+            if (IsStarted)
+            {
+                btnPower.Image = PowerBtnRotatedLight;
+
+            }
+            else
+            {
+                btnPower.Image = PowerBtnLight;
+
+
+            }
+
+        }
+
+      
     }
 }
+
