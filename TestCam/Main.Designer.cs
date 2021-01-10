@@ -37,13 +37,17 @@
             this.lblResult = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.DataGridLeerlingen = new System.Windows.Forms.DataGridView();
-            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPower = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.PictureBox();
             this.btnLoad = new System.Windows.Forms.PictureBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.lblError = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reden = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -51,11 +55,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbox
             // 
-            this.pbox.Location = new System.Drawing.Point(12, 84);
+            this.pbox.Location = new System.Drawing.Point(12, 70);
             this.pbox.Name = "pbox";
             this.pbox.Size = new System.Drawing.Size(344, 263);
             this.pbox.TabIndex = 0;
@@ -132,32 +137,12 @@
             this.Naam,
             this.Voornaam,
             this.Klas,
+            this.Reden,
             this.ID});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(358, 347);
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(276, 339);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(427, 235);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(494, 235);
             this.DataGridLeerlingen.TabIndex = 13;
-            // 
-            // Naam
-            // 
-            this.Naam.HeaderText = "Naam";
-            this.Naam.Name = "Naam";
-            // 
-            // Voornaam
-            // 
-            this.Voornaam.HeaderText = "Voornaam";
-            this.Voornaam.Name = "Voornaam";
-            // 
-            // Klas
-            // 
-            this.Klas.HeaderText = "Klas";
-            this.Klas.Name = "Klas";
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
             // 
             // btnPower
             // 
@@ -198,11 +183,66 @@
             this.btnLoad.MouseEnter += new System.EventHandler(this.btnLoad_MouseEnter);
             this.btnLoad.MouseLeave += new System.EventHandler(this.btnLoad_MouseLeave);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StripProgressBar,
+            this.lblError});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 577);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(782, 22);
+            this.statusStrip1.TabIndex = 19;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StripProgressBar
+            // 
+            this.StripProgressBar.Name = "StripProgressBar";
+            this.StripProgressBar.Size = new System.Drawing.Size(100, 16);
+            // 
+            // lblError
+            // 
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 17);
+            // 
+            // Naam
+            // 
+            this.Naam.HeaderText = "Naam";
+            this.Naam.Name = "Naam";
+            // 
+            // Voornaam
+            // 
+            this.Voornaam.HeaderText = "Voornaam";
+            this.Voornaam.Name = "Voornaam";
+            // 
+            // Klas
+            // 
+            this.Klas.HeaderText = "Klas";
+            this.Klas.Name = "Klas";
+            // 
+            // Reden
+            // 
+            this.Reden.HeaderText = "Reden";
+            this.Reden.Items.AddRange(new object[] {
+            "reden 1",
+            "reden 2",
+            "reden 3",
+            "reden 4"});
+            this.Reden.Name = "Reden";
+            // 
+            // ID
+            // 
+            this.ID.FillWeight = 50F;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
             // Appolon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 594);
+            this.ClientSize = new System.Drawing.Size(782, 599);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPower);
@@ -225,6 +265,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,14 +281,18 @@
         private System.Windows.Forms.PictureBox btnSettings;
         private System.Windows.Forms.DataGridView DataGridLeerlingen;
         private System.Windows.Forms.PictureBox btnPower;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         internal System.Windows.Forms.Label lblComment;
         private System.Windows.Forms.PictureBox btnSave;
         private System.Windows.Forms.PictureBox btnLoad;
         public System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripProgressBar StripProgressBar;
+        private System.Windows.Forms.ToolStripStatusLabel lblError;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Reden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }
 

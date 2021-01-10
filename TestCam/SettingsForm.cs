@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AForge.Video.DirectShow;
 
 namespace TestCam
 {
@@ -34,7 +35,7 @@ namespace TestCam
             if (Appolon.MijnDevice != null)
             {
                 //Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
-                Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
+                Appolon.MijnDevice = new VideoCaptureDevice(Appolon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
                 Appolon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);
             }
             if (cbAutosave.Checked)
@@ -61,6 +62,17 @@ namespace TestCam
         private void SettingsForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbAutosave_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAutosave.Checked)
+            {
+                if (folderBrowser.ShowDialog() == DialogResult.OK)
+                {
+                    Appolon.SavePath = folderBrowser.SelectedPath;
+                }
+            }
         }
     }
 }

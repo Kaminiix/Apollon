@@ -35,9 +35,10 @@
             this.lbCameras = new System.Windows.Forms.ListBox();
             this.txtbRefreshRate = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.cbAutosave = new System.Windows.Forms.CheckBox();
             this.cBoxDev = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbRefreshRate)).BeginInit();
             this.SuspendLayout();
@@ -47,9 +48,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(109, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Camera:";
+            this.label1.Text = "Cameras:";
             // 
             // btnCloseSettings
             // 
@@ -125,6 +126,7 @@
             this.cbAutosave.TabIndex = 11;
             this.cbAutosave.Text = "Auto save";
             this.cbAutosave.UseVisualStyleBackColor = true;
+            this.cbAutosave.CheckedChanged += new System.EventHandler(this.cbAutosave_CheckedChanged);
             // 
             // cBoxDev
             // 
@@ -136,11 +138,21 @@
             this.cBoxDev.Text = "Dev mode";
             this.cBoxDev.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(235, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "ms";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 165);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cBoxDev);
             this.Controls.Add(this.cbAutosave);
             this.Controls.Add(this.label2);
@@ -168,8 +180,9 @@
         internal System.Windows.Forms.ListBox lbCameras;
         private System.Windows.Forms.NumericUpDown txtbRefreshRate;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowser;
         private System.Windows.Forms.CheckBox cbAutosave;
         private System.Windows.Forms.CheckBox cBoxDev;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -11,6 +11,7 @@ namespace TestCam
         private string strVoornaam;
         private string strNaam;
         private string strKlas;
+        private string strReden;
 
         public leerling()
         {
@@ -48,6 +49,11 @@ namespace TestCam
         {
             get { return strKlas; }
             set { strKlas = value; }
+        }
+        public string Reden
+        {
+            get { return strReden; }
+            set { strReden = value; }
         }
 
         public string GetID()

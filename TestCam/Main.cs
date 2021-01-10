@@ -29,6 +29,7 @@ namespace TestCam
         internal static bool AutosaveEnabled = false;
         internal static bool DevmodeEnabled = false;
         internal static bool IsStarted = false;
+        internal static string SavePath = "";
 
 
         //preload resource images
@@ -36,7 +37,6 @@ namespace TestCam
         Image SettingsLight = Image.FromFile(@"..\..\Icons\SettingsBold.png");
         Image PowerOn = Image.FromFile(@"..\..\Icons\PowerBtnRotated.png");
         Image PowerOff = Image.FromFile(@"..\..\Icons\PowerBtn.png");
-
         Image SaveLight = Image.FromFile(@"..\..\Icons\Save.png");
         Image SaveDark = Image.FromFile(@"..\..\Icons\SaveDarker.png");
         Image LoadLight = Image.FromFile(@"..\..\Icons\Load.png");
@@ -45,6 +45,7 @@ namespace TestCam
         Image PowerBtnDark = Image.FromFile(@"..\..\Icons\PowerBtnDarker.png");
         Image PowerBtnRotatedLight = Image.FromFile(@"..\..\Icons\PowerBtnRotated.png");
         Image PowerBtnRotatedDark = Image.FromFile(@"..\..\Icons\PowerBtnRotatedDarker.png");
+
 
         private void Appolon_Load(object sender, EventArgs e)
         {
@@ -71,7 +72,6 @@ namespace TestCam
             {
                 lblComment.Visible = true;
                 lblResult.Visible = true;
-
             }
             else
             {
@@ -94,36 +94,30 @@ namespace TestCam
             try
             {
                 leerling TestLeerling = MakeLeerling(Reader.Decode((Bitmap)pictureBox2.Image).ToString());
+                TestLeerling.Reden = "reden 1";
                 bool newLeeling = true;
                 foreach (leerling DeLeerling in LijstLeerlingen)
                 {
                     if (DeLeerling.GetID() == TestLeerling.GetID())
-                    {
                         newLeeling = false;
-                    }
                 }
                 if (newLeeling)
                 {
                     LijstLeerlingen.Add(TestLeerling);
                     DataGridLeerlingen.Rows.Clear();
-                    for (int i = 0; i < LijstLeerlingen.Count; i++)
+                    foreach (leerling EenLeerling in LijstLeerlingen)
                     {
-                        DataGridLeerlingen.Rows.Add(LijstLeerlingen[i].Naam, LijstLeerlingen[i].Voornaam, LijstLeerlingen[i].Klas, LijstLeerlingen[i].GetID());
+                        DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam, EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
                     }
 
                     //AUTO SAVE
                     if (AutosaveEnabled)
                     {
                         string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
-                        File.WriteAllText(@"..\..\AutosaveData.json", Data);
+                        File.WriteAllText(SavePath + @"/AutosaveData.json", Data);
                     }
-                   
-
-
-
                 }
                 lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
-
             }
             catch (Exception)
             {
@@ -172,9 +166,7 @@ namespace TestCam
         private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MijnDevice.IsRunning)
-            {
                 MijnDevice.Stop();
-            }
         }
 
         private void btnPower_Click(object sender, EventArgs e)
@@ -184,19 +176,15 @@ namespace TestCam
                 if (!MijnDevice.IsRunning)
                 {
                     IsStarted = true;
-
-                    //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
                     MijnDevice.NewFrame += MijnDevice_NewFrame;
                     MijnDevice.Start();
                     MijnTimer.Tick += MijnTimer_Tick;
                     MijnTimer.Start();
                     btnPower.Image = PowerOn;
-                    //DataGridLeerlingen.Visible = true;
                 }
                 else
                 {
                     IsStarted = false;
-
                     btnPower.Image = PowerOff;
                     MijnDevice.Stop();
                     MijnTimer.Stop();
@@ -216,48 +204,27 @@ namespace TestCam
             }
         }
 
-
         static public leerling MakeLeerling(string strInput)
         {   // Format: Naam;Voornaam;Klas
-
             char[] charInput = strInput.ToCharArray();
-            string strNaam = "";
-            string strVoornaam = "";
-            string strKlas = "";
-            bool KlasStarted = false;
-            bool VoornaamStarted = false;
+            string strNaam = "", strVoornaam = "", strKlas = "";
+            bool KlasStarted = false, VoornaamStarted = false;
 
             foreach (char Letter in charInput)
             {
                 if (!KlasStarted)
-                {
                     if (!VoornaamStarted)
-                    {
                         if (Letter != ';')
-                        {
                             strNaam += Letter;
-                        }
                         else
-                        {
                             VoornaamStarted = true;
-                        }
-                    }
                     else
-                    {
                         if (Letter != ';')
-                        {
                             strVoornaam += Letter;
-                        }
                         else
-                        {
                             KlasStarted = true;
-                        }
-                    }
-                }
                 else
-                {
                     strKlas += Letter;
-                }
             }
             return new leerling(strVoornaam,strNaam, strKlas);
         }
@@ -269,43 +236,48 @@ namespace TestCam
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
-            File.WriteAllText(@"..\..\Data.json", Data);
+            if (SavePath != "")
+            {
+                string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
+                File.WriteAllText( SavePath + @"/Data.json", Data);
+            }
+            else
+            {
+                lblComment.Text = "Geen path enable auto save to chose a path";
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
 
-            if (File.Exists(@"..\..\AutosaveData.json"))
+            if (File.Exists(SavePath + @"/AutosaveData.json"))
             {
-                string LoadingData = File.ReadAllText(@"..\..\AutosaveData.json");
+                lblError.Text = "";
+                string LoadingData = File.ReadAllText(SavePath + @"/AutosaveData.json");
                 LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
                 DataGridLeerlingen.Rows.Clear();
+                StripProgressBar.Maximum = LijstLeerlingen.Count;
                 foreach (leerling EenLeerling in LijstLeerlingen)
                 {
+                    StripProgressBar.PerformStep();
                     DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam,
-                        EenLeerling.Klas, EenLeerling.GetID());
+                        EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
                 }
             }
             else
             {
-                lblResult.Text = "Autosave does not exist";
+                lblError.Text = "Autosave does not exist";
             }
-
-
-
         }
 
         private void btnSave_MouseEnter(object sender, EventArgs e)
         {
             btnSave.Image = SaveDark;
-
         }
 
         private void btnSave_MouseLeave(object sender, EventArgs e)
         {
             btnSave.Image = SaveLight;
-
         }
 
         private void btnLoad_MouseEnter(object sender, EventArgs e)
@@ -316,43 +288,24 @@ namespace TestCam
         private void btnLoad_MouseLeave(object sender, EventArgs e)
         {
             btnLoad.Image = LoadLight;
-
         }
 
         private void btnPower_MouseEnter(object sender, EventArgs e)
         {
-
             if (IsStarted)
-            {
                 btnPower.Image = PowerBtnRotatedDark;
-            }
             else
-            {
                 btnPower.Image = PowerBtnDark;
-
-            }
-
         }
 
 
         private void btnPower_MouseLeave(object sender, EventArgs e)
         {
-
             if (IsStarted)
-            {
                 btnPower.Image = PowerBtnRotatedLight;
-
-            }
             else
-            {
                 btnPower.Image = PowerBtnLight;
-
-
-            }
-
         }
-
       
     }
 }
-
