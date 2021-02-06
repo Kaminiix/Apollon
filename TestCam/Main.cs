@@ -18,7 +18,7 @@ using Newtonsoft.Json;
 
 namespace TestCam
 {
-    public partial class Appolon : Form
+    public partial class Apollon : Form
     {
         public static FilterInfoCollection MijnFilterInfoCollection;
         public static VideoCaptureDevice MijnDevice;
@@ -51,7 +51,7 @@ namespace TestCam
         {
 
         }
-        public Appolon()
+        public Apollon()
         {
             InitializeComponent();
         }
@@ -63,6 +63,13 @@ namespace TestCam
             MijnDevice.Start();
             MijnTimer.Tick += MijnTimer_Tick;
             MijnTimer.Start();
+
+            DataGridViewComboBoxColumn MijnComboBoxColumn = new DataGridViewComboBoxColumn();
+            MijnComboBoxColumn.HeaderText = "Reden";
+            MijnComboBoxColumn.DataSource = SavePath;
+            DataGridLeerlingen.Columns.Add(MijnComboBoxColumn);
+            lblError.Text = "Column made";
+
         }
 
         private void MijnTimer_Tick(object sender, EventArgs e)
@@ -94,7 +101,7 @@ namespace TestCam
             try
             {
                 leerling TestLeerling = MakeLeerling(Reader.Decode((Bitmap)pictureBox2.Image).ToString());
-                TestLeerling.Reden = "reden 1";
+                TestLeerling.Reden = "Te laat";
                 bool newLeeling = true;
                 foreach (leerling DeLeerling in LijstLeerlingen)
                 {
@@ -171,7 +178,14 @@ namespace TestCam
 
         private void btnPower_Click(object sender, EventArgs e)
         {
-            if (Appolon.MijnDevice != null)
+            lbReden.Items.Clear();
+            foreach (string Reden in ImportReden(@"C:\Users\Asiimov\Documents\Reden.txt"))
+            {
+                lbReden.Items.Add(Reden);
+            }
+            lblError.Text = "Column made";
+
+            if (Apollon.MijnDevice != null)
             {
                 if (!MijnDevice.IsRunning)
                 {
@@ -229,6 +243,27 @@ namespace TestCam
             return new leerling(strVoornaam,strNaam, strKlas);
         }
 
+        static public List<string> ImportReden(string strInputPath)
+        {
+            List<string> Reden = new List<string>();
+            char[] Chars = File.ReadAllText(strInputPath).ToCharArray();
+            string strWord = "";
+            foreach (char Letter in Chars)
+            {
+                if (Letter != ',')
+                {
+                    strWord += Letter;
+                }
+                else
+                {
+                    Reden.Add(strWord);
+                    strWord = "";
+                }
+            }
+
+            return Reden;
+        }
+
         private void btnStop_Click(object sender, EventArgs e)
         {
 
@@ -270,26 +305,23 @@ namespace TestCam
             }
         }
 
+        // Animations
         private void btnSave_MouseEnter(object sender, EventArgs e)
         {
             btnSave.Image = SaveDark;
         }
-
         private void btnSave_MouseLeave(object sender, EventArgs e)
         {
             btnSave.Image = SaveLight;
         }
-
         private void btnLoad_MouseEnter(object sender, EventArgs e)
         {
             btnLoad.Image = LoadDark;
         }
-
         private void btnLoad_MouseLeave(object sender, EventArgs e)
         {
             btnLoad.Image = LoadLight;
         }
-
         private void btnPower_MouseEnter(object sender, EventArgs e)
         {
             if (IsStarted)
@@ -297,8 +329,6 @@ namespace TestCam
             else
                 btnPower.Image = PowerBtnDark;
         }
-
-
         private void btnPower_MouseLeave(object sender, EventArgs e)
         {
             if (IsStarted)
@@ -306,6 +336,22 @@ namespace TestCam
             else
                 btnPower.Image = PowerBtnLight;
         }
-      
+
+        private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
+            foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
+            {
+                LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
+            }
+
+            DataGridLeerlingen.Rows.Clear();
+            foreach (leerling EenLeerling in LijstLeerlingen)
+            {
+                DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam, EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
+            }
+            lblError.Text = "Reden Changed";
+
+        }
     }
 }

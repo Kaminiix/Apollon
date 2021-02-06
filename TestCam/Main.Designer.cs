@@ -1,6 +1,6 @@
 ﻿namespace TestCam
 {
-    partial class Appolon
+    partial class Apollon
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appolon));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Apollon));
             this.pbox = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
@@ -46,8 +46,9 @@
             this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reden = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Reden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbReden = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -141,7 +142,7 @@
             this.ID});
             this.DataGridLeerlingen.Location = new System.Drawing.Point(276, 339);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(494, 235);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(494, 238);
             this.DataGridLeerlingen.TabIndex = 13;
             // 
             // btnPower
@@ -188,9 +189,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StripProgressBar,
             this.lblError});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 577);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 582);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(782, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(788, 22);
             this.statusStrip1.TabIndex = 19;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -222,11 +223,6 @@
             // Reden
             // 
             this.Reden.HeaderText = "Reden";
-            this.Reden.Items.AddRange(new object[] {
-            "reden 1",
-            "reden 2",
-            "reden 3",
-            "reden 4"});
             this.Reden.Name = "Reden";
             // 
             // ID
@@ -237,11 +233,21 @@
             this.ID.ReadOnly = true;
             this.ID.Width = 50;
             // 
-            // Appolon
+            // lbReden
+            // 
+            this.lbReden.FormattingEnabled = true;
+            this.lbReden.Location = new System.Drawing.Point(150, 339);
+            this.lbReden.Name = "lbReden";
+            this.lbReden.Size = new System.Drawing.Size(120, 238);
+            this.lbReden.TabIndex = 20;
+            this.lbReden.SelectedIndexChanged += new System.EventHandler(this.lbReden_SelectedIndexChanged);
+            // 
+            // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 599);
+            this.ClientSize = new System.Drawing.Size(788, 604);
+            this.Controls.Add(this.lbReden);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnSave);
@@ -255,7 +261,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pbox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Appolon";
+            this.Name = "Apollon";
             this.Text = "Appolon";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Appolon_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
@@ -291,8 +297,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
         private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
         private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Reden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reden;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.ListBox lbReden;
     }
 }
 

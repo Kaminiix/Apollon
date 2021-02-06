@@ -32,27 +32,27 @@ namespace TestCam
 
         private void btnCloseSettings_Click(object sender, EventArgs e)
         {
-            if (Appolon.MijnDevice != null)
+            if (Apollon.MijnDevice != null)
             {
                 //Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
-                Appolon.MijnDevice = new VideoCaptureDevice(Appolon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
-                Appolon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);
+                Apollon.MijnDevice = new VideoCaptureDevice(Apollon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
+                Apollon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);
             }
             if (cbAutosave.Checked)
             {
-                Appolon.AutosaveEnabled = true;
+                Apollon.AutosaveEnabled = true;
             }
             else
             {
-                Appolon.AutosaveEnabled = false;
+                Apollon.AutosaveEnabled = false;
             }
             if (cBoxDev.Checked)
             {
-                Appolon.DevmodeEnabled = true;
+                Apollon.DevmodeEnabled = true;
             }
             else
             {
-                Appolon.DevmodeEnabled = false;
+                Apollon.DevmodeEnabled = false;
             }
             this.Hide();
    
@@ -68,11 +68,21 @@ namespace TestCam
         {
             if (cbAutosave.Checked)
             {
-                if (folderBrowser.ShowDialog() == DialogResult.OK)
+                if (Apollon.SavePath == "")
                 {
-                    Appolon.SavePath = folderBrowser.SelectedPath;
+                    if (folderBrowser.ShowDialog() == DialogResult.OK)
+                    {
+                        Apollon.SavePath = folderBrowser.SelectedPath;
+                    }
                 }
             }
+        }
+
+        private void txtbPath_Click(object sender, EventArgs e)
+        {
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+                Apollon.SavePath = folderBrowser.SelectedPath;
+                txtbPath.Text = Apollon.SavePath;
         }
     }
 }

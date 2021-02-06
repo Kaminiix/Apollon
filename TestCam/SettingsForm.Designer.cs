@@ -39,6 +39,8 @@
             this.cbAutosave = new System.Windows.Forms.CheckBox();
             this.cBoxDev = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtbPath = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtbRefreshRate)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +90,7 @@
             0,
             0,
             0});
-            this.txtbRefreshRate.Location = new System.Drawing.Point(185, 30);
+            this.txtbRefreshRate.Location = new System.Drawing.Point(180, 30);
             this.txtbRefreshRate.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -141,17 +143,36 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(235, 32);
+            this.label3.Location = new System.Drawing.Point(229, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(20, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "ms";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(271, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Path: ";
+            // 
+            // txtbPath
+            // 
+            this.txtbPath.Location = new System.Drawing.Point(301, 29);
+            this.txtbPath.Name = "txtbPath";
+            this.txtbPath.Size = new System.Drawing.Size(233, 20);
+            this.txtbPath.TabIndex = 15;
+            this.txtbPath.Click += new System.EventHandler(this.txtbPath_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 165);
+            this.Controls.Add(this.txtbPath);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cBoxDev);
             this.Controls.Add(this.cbAutosave);
@@ -184,5 +205,7 @@
         private System.Windows.Forms.CheckBox cbAutosave;
         private System.Windows.Forms.CheckBox cBoxDev;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtbPath;
     }
 }

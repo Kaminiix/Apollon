@@ -16,7 +16,7 @@ namespace TestCam
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Appolon());
+            Application.Run(new Apollon());
         }
     }
 }
