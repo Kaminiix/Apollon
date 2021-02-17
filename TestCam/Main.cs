@@ -160,15 +160,7 @@ namespace TestCam
 
        
 
-        private void btnSettings_MouseLeave(object sender, EventArgs e)
-        {
-            btnSettings.Image = SettingsLight;
-        }
-
-        private void btnSettings_MouseEnter(object sender, EventArgs e)
-        {
-            btnSettings.Image = SettingsDark;
-        }
+      
 
         private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -179,7 +171,7 @@ namespace TestCam
         private void btnPower_Click(object sender, EventArgs e)
         {
             lbReden.Items.Clear();
-            foreach (string Reden in ImportReden(@"C:\Users\Asiimov\Documents\Reden.txt"))
+            foreach (string Reden in ImportReden(@"C:\Users\Dalil\Downloads\Reden.txt"))
             {
                 lbReden.Items.Add(Reden);
             }
@@ -309,21 +301,26 @@ namespace TestCam
         private void btnSave_MouseEnter(object sender, EventArgs e)
         {
             btnSave.Image = SaveDark;
+            pnlSave.BackColor = Color.FromArgb(50, 51, 69);
         }
         private void btnSave_MouseLeave(object sender, EventArgs e)
         {
             btnSave.Image = SaveLight;
+            pnlSave.BackColor = Color.FromArgb(57, 58, 78);
         }
         private void btnLoad_MouseEnter(object sender, EventArgs e)
         {
             btnLoad.Image = LoadDark;
+            pnlLoad.BackColor = Color.FromArgb(50, 51, 69);
         }
         private void btnLoad_MouseLeave(object sender, EventArgs e)
         {
             btnLoad.Image = LoadLight;
+            pnlLoad.BackColor = Color.FromArgb(57, 58, 78);
         }
         private void btnPower_MouseEnter(object sender, EventArgs e)
         {
+            pnlPower.BackColor = Color.FromArgb(50, 51, 69);
             if (IsStarted)
                 btnPower.Image = PowerBtnRotatedDark;
             else
@@ -331,12 +328,22 @@ namespace TestCam
         }
         private void btnPower_MouseLeave(object sender, EventArgs e)
         {
+            pnlPower.BackColor = Color.FromArgb(57, 58, 78);
             if (IsStarted)
                 btnPower.Image = PowerBtnRotatedLight;
             else
                 btnPower.Image = PowerBtnLight;
         }
-
+        private void btnSettings_MouseEnter(object sender, EventArgs e)
+        {
+            btnSettings.Image = SettingsDark;
+            pnlSettings.BackColor = Color.FromArgb(50, 51, 69);
+        }
+        private void btnSettings_MouseLeave(object sender, EventArgs e)
+        {
+            btnSettings.Image = SettingsLight;
+            pnlSettings.BackColor = Color.FromArgb(57, 58, 78);
+        }
         private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
         {
             //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
