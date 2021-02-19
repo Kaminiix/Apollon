@@ -56,6 +56,7 @@
             // 
             // btnCloseSettings
             // 
+            this.btnCloseSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCloseSettings.Location = new System.Drawing.Point(407, 56);
             this.btnCloseSettings.Name = "btnCloseSettings";
             this.btnCloseSettings.Size = new System.Drawing.Size(75, 23);
@@ -170,6 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(58)))), ((int)(((byte)(78)))));
             this.ClientSize = new System.Drawing.Size(546, 165);
             this.Controls.Add(this.txtbPath);
             this.Controls.Add(this.label4);
@@ -182,6 +184,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCloseSettings);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.Snow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsForm";
             this.Text = "Settings";
