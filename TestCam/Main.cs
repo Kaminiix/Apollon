@@ -10,8 +10,6 @@ using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using ZXing;
-using ZXing.Common;
-using ZXing.QrCode;
 using System.IO;
 using Newtonsoft.Json;
 
@@ -69,7 +67,6 @@ namespace TestCam
             MijnComboBoxColumn.DataSource = SavePath;
             DataGridLeerlingen.Columns.Add(MijnComboBoxColumn);
             lblError.Text = "Column made";
-
         }
 
         private void MijnTimer_Tick(object sender, EventArgs e)
@@ -157,25 +154,33 @@ namespace TestCam
                 lblComment.Text = "Geen Webcam";
             }
         }
-
-       
-
       
 
         private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MijnDevice.IsRunning)
+            if (IsStarted)
+            {
                 MijnDevice.Stop();
+            }
         }
 
         private void btnPower_Click(object sender, EventArgs e)
         {
             lbReden.Items.Clear();
-            foreach (string Reden in ImportReden(@"C:\Users\Dalil\Downloads\Reden.txt"))
+
+            if (SavePath != "")
             {
-                lbReden.Items.Add(Reden);
+                foreach (string Reden in ImportReden(SavePath))
+                {
+                    lbReden.Items.Add(Reden);
+                }
+                lblError.Text = "Column made";
             }
-            lblError.Text = "Column made";
+            else
+            {
+                lblError.Text = "No reden.txt found";
+            }
+
 
             if (Apollon.MijnDevice != null)
             {
@@ -198,6 +203,7 @@ namespace TestCam
             }
             else
             {
+                MessageBox.Show("Configuration not made yet");
                 MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
                 foreach (FilterInfo EenFilterInfo in MijnFilterInfoCollection)
                 {
@@ -256,27 +262,39 @@ namespace TestCam
             return Reden;
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (SavePath != "")
             {
                 string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
                 File.WriteAllText( SavePath + @"/Data.json", Data);
+                lblError.Text = "Data exported to " + SavePath + @"\Data.json";
             }
             else
             {
-                lblComment.Text = "Geen path enable auto save to chose a path";
+                lblComment.Text = "No such path selected";
             }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
 
+            if (MijnFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                lblError.Text = "";
+                string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
+                LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
+                DataGridLeerlingen.Rows.Clear();
+                StripProgressBar.Maximum = LijstLeerlingen.Count;
+                foreach (leerling EenLeerling in LijstLeerlingen)
+                {
+                    StripProgressBar.PerformStep();
+                    DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam,
+                        EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
+                }
+            }
+
+        /* OLD WAY bad because looking for autosavedata.json
             if (File.Exists(SavePath + @"/AutosaveData.json"))
             {
                 lblError.Text = "";
@@ -295,6 +313,8 @@ namespace TestCam
             {
                 lblError.Text = "Autosave does not exist";
             }
+        */
+
         }
 
         // Animations
@@ -358,7 +378,6 @@ namespace TestCam
                 DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam, EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
             }
             lblError.Text = "Reden Changed";
-
         }
     }
 }

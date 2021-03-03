@@ -54,6 +54,7 @@
             this.pnlLoad = new System.Windows.Forms.Panel();
             this.btnLoad = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.MijnFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
@@ -95,7 +96,6 @@
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Visible = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnStop
             // 
@@ -106,7 +106,6 @@
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Visible = false;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // lblComment
             // 
@@ -314,6 +313,10 @@
             this.panel1.Size = new System.Drawing.Size(815, 78);
             this.panel1.TabIndex = 21;
             // 
+            // MijnFileDialog
+            // 
+            this.MijnFileDialog.FileName = "Data";
+            // 
             // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,6 +383,7 @@
         private System.Windows.Forms.Panel pnlLoad;
         private System.Windows.Forms.PictureBox btnLoad;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.OpenFileDialog MijnFileDialog;
     }
 }
 
