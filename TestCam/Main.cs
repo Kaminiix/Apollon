@@ -244,7 +244,7 @@ namespace TestCam
         static public List<string> ImportReden(string strInputPath)
         {
             List<string> Reden = new List<string>();
-            char[] Chars = File.ReadAllText(strInputPath).ToCharArray();
+            char[] Chars = File.ReadAllText(strInputPath + @"/reden.txt").ToCharArray();
             string strWord = "";
             foreach (char Letter in Chars)
             {
