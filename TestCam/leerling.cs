@@ -12,12 +12,14 @@ namespace TestCam
         private string strNaam;
         private string strKlas;
         private string strReden;
+        private DateTime varTelaatkomst;
 
         public leerling()
         {
             strVoornaam = "onbekend";
             strNaam = "onbekend";
             strKlas = "onbekend";
+            varTelaatkomst = DateTime.Now;
         }
 
         /// <summary>
@@ -31,6 +33,7 @@ namespace TestCam
             strVoornaam = strVoornaamInput;
             strNaam = strNaamInput;
             strKlas = strKlasInput;
+            varTelaatkomst = DateTime.Now;
         }
 
 
@@ -54,6 +57,12 @@ namespace TestCam
         {
             get { return strReden; }
             set { strReden = value; }
+        }
+
+        public DateTime Telaatkomst
+        {
+            get { return varTelaatkomst; }
+            set { varTelaatkomst = value; }
         }
 
         public string GetID()

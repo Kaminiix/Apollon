@@ -36,11 +36,6 @@
             this.lblComment = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
             this.DataGridLeerlingen = new System.Windows.Forms.DataGridView();
-            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.lblError = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,6 +50,13 @@
             this.btnLoad = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MijnFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Voornaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tijd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MijnBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
@@ -137,38 +139,12 @@
             this.Voornaam,
             this.Klas,
             this.Reden,
+            this.Tijd,
             this.ID});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(228, 346);
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(233, 346);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(544, 238);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(553, 238);
             this.DataGridLeerlingen.TabIndex = 13;
-            // 
-            // Naam
-            // 
-            this.Naam.HeaderText = "Naam";
-            this.Naam.Name = "Naam";
-            // 
-            // Voornaam
-            // 
-            this.Voornaam.HeaderText = "Voornaam";
-            this.Voornaam.Name = "Voornaam";
-            // 
-            // Klas
-            // 
-            this.Klas.HeaderText = "Klas";
-            this.Klas.Name = "Klas";
-            // 
-            // Reden
-            // 
-            this.Reden.HeaderText = "Reden";
-            this.Reden.Name = "Reden";
-            // 
-            // ID
-            // 
-            this.ID.FillWeight = 80F;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
             // 
             // statusStrip1
             // 
@@ -317,6 +293,41 @@
             // 
             this.MijnFileDialog.FileName = "Data";
             // 
+            // Naam
+            // 
+            this.Naam.HeaderText = "Naam";
+            this.Naam.Name = "Naam";
+            // 
+            // Voornaam
+            // 
+            this.Voornaam.HeaderText = "Voornaam";
+            this.Voornaam.Name = "Voornaam";
+            // 
+            // Klas
+            // 
+            this.Klas.HeaderText = "Klas";
+            this.Klas.Name = "Klas";
+            this.Klas.Width = 70;
+            // 
+            // Reden
+            // 
+            this.Reden.HeaderText = "Reden";
+            this.Reden.Name = "Reden";
+            // 
+            // Tijd
+            // 
+            this.Tijd.HeaderText = "Tijd";
+            this.Tijd.Name = "Tijd";
+            this.Tijd.Width = 70;
+            // 
+            // ID
+            // 
+            this.ID.FillWeight = 80F;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 70;
+            // 
             // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,7 +346,7 @@
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Apollon";
-            this.Text = "Appolon";
+            this.Text = "Apollon";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Appolon_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -369,11 +380,6 @@
         private System.Windows.Forms.ToolStripProgressBar StripProgressBar;
         private System.Windows.Forms.ToolStripStatusLabel lblError;
         private System.Windows.Forms.ListBox lbReden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Reden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.Panel pnlPower;
         private System.Windows.Forms.PictureBox btnPower;
         private System.Windows.Forms.Panel pnlSettings;
@@ -384,6 +390,13 @@
         private System.Windows.Forms.PictureBox btnLoad;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.OpenFileDialog MijnFileDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Voornaam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tijd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.FolderBrowserDialog MijnBrowserDialog;
     }
 }
 
