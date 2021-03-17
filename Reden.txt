@@ -1,0 +1,8 @@
+Te laat,
+Trein te laat,
+Bus te laat,
+File,
+Verslapen,
+Te laat vertrokken,
+Bus gemist,
+Tram gemist

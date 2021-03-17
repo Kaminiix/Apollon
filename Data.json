@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "Naam": "Shona Welo",
+    "Voornaam": "Lopaka Djunganumbe",
+    "Klas": "2Ac",
+    "Reden": "Te laat vertrokken",
+    "Telaatkomst": "2021-03-17T21:06:19.6671067+01:00"
+  },
+  {
+    "Naam": "Michael-André",
+    "Voornaam": "Ileka Sansa",
+    "Klas": "5HA",
+    "Reden": "File",
+    "Telaatkomst": "2021-03-17T21:06:28.1591073+01:00"
+  },
+  {
+    "Naam": "Ghijselinck",
+    "Voornaam": "Emma",
+    "Klas": "6BI",
+    "Reden": "Bus te laat",
+    "Telaatkomst": "2021-03-17T21:06:29.6501085+01:00"
+  },
+  {
+    "Naam": "Khanfous",
+    "Voornaam": "Abdelhafid",
+    "Klas": "6IBa",
+    "Reden": "nVerslapen",
+    "Telaatkomst": "2021-03-17T21:06:30.6591091+01:00"
+  },
+  {
+    "Naam": "Chibani",
+    "Voornaam": "Dalil",
+    "Klas": "6IBa",
+    "Reden": "nBus gemist",
+    "Telaatkomst": "2021-03-17T21:06:52.6501084+01:00"
+  }
+]
