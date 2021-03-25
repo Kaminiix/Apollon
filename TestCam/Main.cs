@@ -25,10 +25,12 @@ namespace TestCam
         internal static Timer MijnTimer = new Timer();
         SettingsForm settingsForm = new SettingsForm();
         List<leerling> LijstLeerlingen = new List<leerling>();
+        List<string> LijstReden = new List<string>();
         internal static bool AutosaveEnabled = false;
         internal static bool DevmodeEnabled = false;
         internal static bool IsStarted = false;
         internal static string SavePath = "";
+        string RedenPath = "";
 
 
         //preload resource images
@@ -76,7 +78,7 @@ namespace TestCam
             lblComment.Visible = DevmodeEnabled;
             lblResult.Visible = DevmodeEnabled;
 
-
+            /*
             if (lblComment.Text == "Tick")
             {
                 lblComment.Text = "Tack";
@@ -85,6 +87,7 @@ namespace TestCam
             {
                 lblComment.Text = "Tick";
             }
+            */
 
             //Make a copy of the frame on the picturebox on the right
             pictureBox2.Image = pbox.Image;
@@ -163,26 +166,30 @@ namespace TestCam
 
         private void btnPower_Click(object sender, EventArgs e)
         {
-            lbReden.Items.Clear();
+            
 
-            if (SavePath != "")
+            if (File.Exists(SavePath + @"\reden.txt"))
             {
-                foreach (string Reden in ImportReden(SavePath + @"/reden.txt"))
+                lbReden.Items.Clear();
+                foreach (string eenReden in ImportReden(SavePath + @"/reden.txt"))
                 {
-                    lbReden.Items.Add(Reden);
+                    lbReden.Items.Add(eenReden);
+                    LijstReden.Add(eenReden);
                 }
                 lblError.Text = "Reden imported";
             }
-            else
+            else if (LijstReden.Count == 0)
             {   //No reden.txt found open FolderDialog to find directory to 
                 if (MessageBox.Show("Do you have a reden.txt to import?", "No reden.txt found", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (MijnBrowserDialog.ShowDialog() == DialogResult.OK)
+                    if (MijnFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        SavePath = MijnBrowserDialog.SelectedPath;
-                        foreach (string Reden in ImportReden(SavePath + @"/reden.txt"))
+                        //SavePath = MijnBrowserDialog.SelectedPath;
+
+                        foreach (string eenReden in ImportReden(MijnFileDialog.FileName))
                         {
-                            lbReden.Items.Add(Reden);
+                            lbReden.Items.Add(eenReden);
+                            LijstReden.Add(eenReden);
                         }
                         lblError.Text = "Reden imported";
                     }
@@ -311,6 +318,7 @@ namespace TestCam
                 string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
                 File.WriteAllText(SavePath + @"/Data.json", Data);
                 lblError.Text = "Data exported to " + SavePath + @"\Data.json";
+                lblComment.Text = LijstLeerlingen[2].Reden;
             }
             else
             {
@@ -414,7 +422,11 @@ namespace TestCam
             //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
             foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
             {
-                LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
+                if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
+                {
+                    //LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
+                    LijstLeerlingen[Row.Index].Reden = LijstReden[lbReden.SelectedIndex];
+                }
             }
 
             DataGridLeerlingen.Rows.Clear();

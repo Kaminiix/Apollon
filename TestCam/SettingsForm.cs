@@ -38,25 +38,11 @@ namespace TestCam
                 Apollon.MijnDevice = new VideoCaptureDevice(Apollon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
                 Apollon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);
             }
-            if (cbAutosave.Checked)
-            {
-                Apollon.AutosaveEnabled = true;
-            }
-            else
-            {
-                Apollon.AutosaveEnabled = false;
-            }
-            if (cBoxDev.Checked)
-            {
-                Apollon.DevmodeEnabled = true;
-            }
-            else
-            {
-                Apollon.DevmodeEnabled = false;
-            }
-            this.Hide();
-   
 
+            Apollon.AutosaveEnabled = cbAutosave.Checked;
+            Apollon.DevmodeEnabled = cBoxDev.Checked;
+
+            this.Hide();
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
