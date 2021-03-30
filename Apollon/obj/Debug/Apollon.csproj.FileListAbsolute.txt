@@ -1,0 +1,14 @@
+D:\Docs\VS\Apollon\Apollon\bin\Debug\Apollon.exe.config
+D:\Docs\VS\Apollon\Apollon\bin\Debug\Apollon.exe
+D:\Docs\VS\Apollon\Apollon\bin\Debug\Apollon.pdb
+D:\Docs\VS\Apollon\Apollon\obj\Debug\MainWindow.g.cs
+D:\Docs\VS\Apollon\Apollon\obj\Debug\App.g.cs
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon_MarkupCompile.cache
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon_MarkupCompile.lref
+D:\Docs\VS\Apollon\Apollon\obj\Debug\MainWindow.baml
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon.g.resources
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon.Properties.Resources.resources
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon.csproj.GenerateResource.cache
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon.csproj.CoreCompileInputs.cache
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon.exe
+D:\Docs\VS\Apollon\Apollon\obj\Debug\Apollon.pdb
