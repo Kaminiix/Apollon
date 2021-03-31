@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Docs\VS\Apollon\Apollon\obj\Debug\
+D:\Docs\VS\Git\Apollon\Apollon\obj\Debug\
 Apollon
 none
 false
 DEBUG;TRACE
-D:\Docs\VS\Apollon\Apollon\App.xaml
-11151548125
+D:\Docs\VS\Git\Apollon\Apollon\App.xaml
+2-649523810
 
-5-2017746502
+61649743925
 13152784993
-MainWindow.xaml;
+MainWindow.xaml;SettingsWindow.xaml;
 
 False
 

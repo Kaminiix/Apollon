@@ -24,5 +24,11 @@ namespace Apollon
         {
             InitializeComponent();
         }
+
+        private void btnSettings_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SettingsWindow SettingsForm = new SettingsWindow();
+            SettingsForm.Show();
+        }
     }
 }
