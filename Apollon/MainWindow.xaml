@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="DataGridLeerling" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="500" Margin="132,214,0,0">
+        <DataGrid Name="DataGridLeerling" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="500" Margin="132,214,0,0" >
             <DataGrid.Columns>
-                <DataGridTextColumn Width="130" Header="Naam"/>
-                <DataGridTextColumn Width="130" Header="Voornaam"/>
-                <DataGridTextColumn Width="60" Header="Klas"/>
-                <DataGridTextColumn Width="110" Header="Reden"/>
-                <DataGridTextColumn Width="100" Header="Tijd"/>
+                <DataGridTextColumn Width="130" Header="Naam" Binding="{Binding Naam}"/>
+                <DataGridTextColumn Width="130" Header="Voornaam" Binding="{Binding Voornaam}"/>
+                <DataGridTextColumn Width="60" Header="Klas" Binding="{Binding Klas}"/>
+                <DataGridTextColumn Width="110" Header="Reden" Binding="{Binding Reden}"/>
+                <DataGridTextColumn Width="100" Header="Tijd" Binding="{Binding TelaatkomstString}"/>
             </DataGrid.Columns>
         </DataGrid>
         <ListBox Name="lbReden" HorizontalAlignment="Left" Height="185" Margin="10,214,0,0" VerticalAlignment="Top" Width="102"/>
