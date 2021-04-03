@@ -5,9 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Apollon"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid Name="DataGridLeerling" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="500" Margin="132,214,0,0" >
+        Title="MainWindow" Height="582.75" Width="796" Background="#FF393A4E">
+    <Grid Width="796" Margin="0,0,-2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="75*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="DataGridLeerling" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="500" Margin="45,241,0,0" Background="#FFABABAB" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" >
             <DataGrid.Columns>
                 <DataGridTextColumn Width="130" Header="Naam" Binding="{Binding Naam}"/>
                 <DataGridTextColumn Width="130" Header="Voornaam" Binding="{Binding Voornaam}"/>
@@ -16,35 +26,16 @@
                 <DataGridTextColumn Width="100" Header="Tijd" Binding="{Binding TelaatkomstString}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ListBox Name="lbReden" HorizontalAlignment="Left" Height="185" Margin="10,214,0,0" VerticalAlignment="Top" Width="102"/>
-        <Image Name="CamFrame" HorizontalAlignment="Left" Height="165" Margin="10,28,0,0" VerticalAlignment="Top" Width="244"/>
-        <Image Name="btnSettings" HorizontalAlignment="Left" Height="36" Margin="746,10,0,0" VerticalAlignment="Top" Width="36" Source="SettingsBold_Dark.png" MouseDown="btnSettings_MouseDown" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <RotateTransform x:Name="ImageTransform" Angle="0" />
-            </Image.RenderTransform>
-            <Image.Triggers>
-                <EventTrigger RoutedEvent="Control.MouseEnter">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1.0" To="0.8" Duration="0:0:.2" />
-                            <DoubleAnimation Storyboard.TargetName="ImageTransform" 
-                                             Storyboard.TargetProperty="(RotateTransform.Angle)" 
-                                             From="0" To="10" Duration="0:0:.2"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="Control.MouseLeave">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From=".8" To="1" Duration="0:0:.2" />
-                            <DoubleAnimation Storyboard.TargetName="ImageTransform" 
-                                             Storyboard.TargetProperty="(RotateTransform.Angle)"
-                                             From="10" To="0" Duration="0:0:.2"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Image.Triggers>
-        </Image>
+        <ListBox Name="lbReden" HorizontalAlignment="Left" Height="185" Margin="76,241,0,0" VerticalAlignment="Top" Width="102" Grid.Row="1"/>
+        <Image Name="CamFrame" HorizontalAlignment="Left" Height="165" Margin="79,33,0,0" VerticalAlignment="Top" Width="244" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button Name="btnPower" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Background="#FF393A4E" BorderBrush="Black" Foreground="{x:Null}" Grid.ColumnSpan="2" MouseLeave="imgPower_MouseLeave" MouseEnter="imgPower_MouseEnter"/>
+        <Button Name="btnSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Background="#FF393A4E" MouseDown="btnSettings_MouseDown" BorderBrush="Black" Grid.ColumnSpan="2" Grid.Column="1" MouseEnter="imgSettings_MouseEnter" MouseLeave="imgSettings_MouseLeave"/>
+        <Button Name="btnSave" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="100" Background="#FF393A4E" Grid.Column="2" BorderBrush="Black" Grid.ColumnSpan="2" MouseEnter="imgSave_MouseEnter" MouseLeave="imgSave_MouseLeave"/>
+        <Button Name="btnLoad" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Height="100" Background="#FF393A4E" Grid.Column="3" BorderBrush="Black" MouseEnter="imgLoad_MouseEnter" MouseLeave="imgLoad_MouseLeave"/>
+        <Image Name="imgSettings" Grid.Column="1" Margin="65,13,65,17" Source="SettingsBold.png" Stretch="Fill" MouseDown="btnSettings_MouseDown" MouseEnter="imgSettings_MouseEnter" MouseLeave="imgSettings_MouseLeave"/>
+        <Image Name="imgPower" Margin="65,13,65,17" Source="PowerBtn.png" Stretch="Fill" MouseEnter="imgPower_MouseEnter" MouseLeave="imgPower_MouseLeave"/>
+        <Image Name="imgSave" Grid.Column="2" Margin="65,13,65,17" Source="Save.png" Stretch="Fill" MouseEnter="imgSave_MouseEnter" MouseLeave="imgSave_MouseLeave"/>
+        <Image Name="imgLoad" Grid.Column="3" Margin="65,13,65,17" Source="Load.png" Stretch="Fill" MouseEnter="imgLoad_MouseEnter" MouseLeave="imgLoad_MouseLeave"/>
 
     </Grid>
 </Window>

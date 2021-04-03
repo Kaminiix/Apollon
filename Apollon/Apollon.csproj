@@ -105,5 +105,20 @@
   <ItemGroup>
     <Resource Include="SettingsBold_Dark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Webcam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SettingsBold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="PowerBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Load.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

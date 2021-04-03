@@ -30,5 +30,55 @@ namespace Apollon
             SettingsWindow SettingsForm = new SettingsWindow();
             SettingsForm.Show();
         }
+
+
+        /* Animations */
+        private void imgLoad_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnLoad.Background = new SolidColorBrush(Color.FromArgb(255,54,54,66));
+        }
+
+        private void imgLoad_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnLoad.Background = new SolidColorBrush(Color.FromArgb(255, 57, 58, 78));
+
+        }
+       
+
+        private void imgSave_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnSave.Background = new SolidColorBrush(Color.FromArgb(255, 54, 54, 66));
+
+        }
+        private void imgSave_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnSave.Background = new SolidColorBrush(Color.FromArgb(255, 57, 58, 78));
+
+        }
+        
+        private void imgSettings_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnSettings.Background = new SolidColorBrush(Color.FromArgb(255, 54, 54, 66));
+
+        }
+        private void imgSettings_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnSettings.Background = new SolidColorBrush(Color.FromArgb(255, 57, 58, 78));
+
+        }
+        
+        private void imgPower_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnPower.Background = new SolidColorBrush(Color.FromArgb(255, 54, 54, 66));
+
+        }
+
+        private void imgPower_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnPower.Background = new SolidColorBrush(Color.FromArgb(255, 57, 58, 78));
+
+        }
+
+       
     }
 }
