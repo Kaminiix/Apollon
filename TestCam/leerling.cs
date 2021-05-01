@@ -33,6 +33,7 @@ namespace TestCam
             strVoornaam = strVoornaamInput;
             strNaam = strNaamInput;
             strKlas = strKlasInput;
+            strReden = "Te laat";
             varTelaatkomst = DateTime.Now;
         }
 
@@ -67,7 +68,7 @@ namespace TestCam
 
         public string GetID()
         {
-            return strNaam.Substring(0, 3) + strVoornaam.Substring(0, 3) + strKlas.Substring(0, 1);
+            return (strNaam.Substring(0, 3) + strVoornaam.Substring(0, 3) + strKlas.Substring(0, 1)).ToLower();
         }
 
         public string GetInfos()

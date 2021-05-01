@@ -46,6 +46,10 @@ namespace TestCam
         Image PowerBtnDark = Image.FromFile(@"..\..\Icons\PowerBtnDarker.png");
         Image PowerBtnRotatedLight = Image.FromFile(@"..\..\Icons\PowerBtnRotated.png");
         Image PowerBtnRotatedDark = Image.FromFile(@"..\..\Icons\PowerBtnRotatedDarker.png");
+        Image UserAdd = Image.FromFile(@"..\..\Icons\UserAdd.png");
+        Image UserAddDarker = Image.FromFile(@"..\..\Icons\UserAddDarker.png");
+        Image Add = Image.FromFile(@"..\..\Icons\Add.png");
+        Image AddHover = Image.FromFile(@"..\..\Icons\AddHover.png");
 
 
         private void Appolon_Load(object sender, EventArgs e)
@@ -57,6 +61,7 @@ namespace TestCam
             InitializeComponent();
         }
 
+        /*
         private void btnStart_Click(object sender, EventArgs e)
         {
             //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
@@ -71,6 +76,7 @@ namespace TestCam
             DataGridLeerlingen.Columns.Add(MijnComboBoxColumn);
             lblError.Text = "Column made";
         }
+        */
 
         private void MijnTimer_Tick(object sender, EventArgs e)
         {
@@ -90,12 +96,13 @@ namespace TestCam
             */
 
             //Make a copy of the frame on the picturebox on the right
-            pictureBox2.Image = pbox.Image;
+            Image TickFrame = pbox.Image;
+            //pictureBox2.Image = pbox.Image;
 
             //Try to read the qr code through the frame
             try
             {
-                leerling TestLeerling = MakeLeerling(Reader.Decode((Bitmap)pictureBox2.Image).ToString());
+                leerling TestLeerling = MakeLeerling(Reader.Decode((Bitmap)TickFrame).ToString());
                 TestLeerling.Reden = "Te laat";
                 bool newLeeling = true;
                 foreach (leerling DeLeerling in LijstLeerlingen)
@@ -121,7 +128,7 @@ namespace TestCam
                     }
                 }
 
-                lblResult.Text = Reader.Decode((Bitmap)pictureBox2.Image).ToString();
+                lblResult.Text = Reader.Decode((Bitmap)TickFrame).ToString();
             }
             catch (Exception) //No QR code found within the frame
             {
@@ -131,7 +138,7 @@ namespace TestCam
 
         private void MijnDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            pbox.Image = (Bitmap)eventArgs.Frame.Clone();   
+            pbox.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -154,7 +161,7 @@ namespace TestCam
                 lblComment.Text = "Geen Webcam";
             }
         }
-      
+
 
         private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -166,7 +173,7 @@ namespace TestCam
 
         private void btnPower_Click(object sender, EventArgs e)
         {
-            
+
 
             if (File.Exists(SavePath + @"\reden.txt"))
             {
@@ -257,7 +264,7 @@ namespace TestCam
                 foreach (FilterInfo EenFilterInfo in MijnFilterInfoCollection)
                 { //Auto selects a capture device if one is starting with usb
                     // if 3 first letters are USB
-                    if (EenFilterInfo.Name.Substring(0,3) == "USB")
+                    if (EenFilterInfo.Name.Substring(0, 3) == "USB")
                     {
                         MijnDevice = new VideoCaptureDevice(EenFilterInfo.MonikerString);
                     }
@@ -281,13 +288,13 @@ namespace TestCam
                             VoornaamStarted = true;
                     else
                         if (Letter != ';')
-                            strVoornaam += Letter;
-                        else
-                            KlasStarted = true;
+                        strVoornaam += Letter;
+                    else
+                        KlasStarted = true;
                 else
                     strKlas += Letter;
             }
-            return new leerling(strVoornaam,strNaam, strKlas);
+            return new leerling(strVoornaam, strNaam, strKlas);
         }
 
         static public List<string> ImportReden(string strInputPath)
@@ -334,37 +341,106 @@ namespace TestCam
                 lblError.Text = "";
                 string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
                 LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
-                DataGridLeerlingen.Rows.Clear();
-                StripProgressBar.Maximum = LijstLeerlingen.Count;
-                foreach (leerling EenLeerling in LijstLeerlingen)
+                UpdateDataGrid();
+            }
+
+            /* OLD WAY bad because looking for autosavedata.json
+                if (File.Exists(SavePath + @"/AutosaveData.json"))
                 {
-                    StripProgressBar.PerformStep();
-                    DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam, EenLeerling.Klas,
-                        EenLeerling.Reden, EenLeerling.Telaatkomst.ToString("HH:mm"), EenLeerling.GetID());
+                    lblError.Text = "";
+                    string LoadingData = File.ReadAllText(SavePath + @"/AutosaveData.json");
+                    LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
+                    DataGridLeerlingen.Rows.Clear();
+                    StripProgressBar.Maximum = LijstLeerlingen.Count;
+                    foreach (leerling EenLeerling in LijstLeerlingen)
+                    {
+                        StripProgressBar.PerformStep();
+                        DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam,
+                            EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
+                    }
+                }
+                else
+                {
+                    lblError.Text = "Autosave does not exist";
+                }
+            */
+
+        }
+        private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
+            foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
+            {
+                if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
+                {
+                    //LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
+                    LijstLeerlingen[Row.Index].Reden = LijstReden[lbReden.SelectedIndex];
                 }
             }
 
-        /* OLD WAY bad because looking for autosavedata.json
-            if (File.Exists(SavePath + @"/AutosaveData.json"))
+            UpdateDataGrid();
+            lblError.Text = "Reden Changed";
+        }
+        private void btnMakeLln_Click(object sender, EventArgs e)
+        {
+            if (txtbNaamInput.Text == "")
             {
-                lblError.Text = "";
-                string LoadingData = File.ReadAllText(SavePath + @"/AutosaveData.json");
-                LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
-                DataGridLeerlingen.Rows.Clear();
-                StripProgressBar.Maximum = LijstLeerlingen.Count;
-                foreach (leerling EenLeerling in LijstLeerlingen)
-                {
-                    StripProgressBar.PerformStep();
-                    DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam,
-                        EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
-                }
+                lblError.Text = "Naam Input empty";
+            }
+            else if (txtbVoornaamInput.Text == "")
+            {
+                lblError.Text = "Voornaam Input empty";
+            }
+            else if (txtbKlasInput.Text == "")
+            {
+                lblError.Text = "Klas Input empty";
             }
             else
             {
-                lblError.Text = "Autosave does not exist";
-            }
-        */
+                lblError.Text = "";
 
+                //Make the first letter uppercase, Best way i could figure out :/ maybe not the best
+                string firstletter = txtbNaamInput.Text.First<char>().ToString().ToUpper();
+                string[] words = { firstletter, txtbNaamInput.Text.Substring(1) };
+                txtbNaamInput.Text = string.Join("",words);
+
+                firstletter = txtbVoornaamInput.Text.First<char>().ToString().ToUpper();
+                string[] wordss = { firstletter, txtbVoornaamInput.Text.Substring(1) };
+                txtbVoornaamInput.Text = string.Join("", wordss);
+
+
+                if (MessageBox.Show("Wil je (" + txtbNaamInput.Text + " " + txtbVoornaamInput.Text + " " + txtbKlasInput.Text + ") toevoegen?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    leerling Testleerling = new leerling(txtbVoornaamInput.Text, txtbNaamInput.Text, txtbKlasInput.Text);
+                    bool newLeerling = true;
+                    //Check if leerling is already in list
+                    foreach (leerling DeLeerling in LijstLeerlingen)
+                    {   // Check through all existing Leerlingen if the ID already exist which in theory should be unique
+                        if (DeLeerling.GetID() == Testleerling.GetID())
+                            newLeerling = false;
+                    }
+                    if (newLeerling)
+                    {
+                        LijstLeerlingen.Add(new leerling(txtbVoornaamInput.Text, txtbNaamInput.Text, txtbKlasInput.Text));
+                        UpdateDataGrid();
+                        txtbKlasInput.Clear();
+                        txtbNaamInput.Clear();
+                        txtbVoornaamInput.Clear();
+                    }
+                }
+            }
+        }
+
+        public void UpdateDataGrid()
+        {
+            DataGridLeerlingen.Rows.Clear();
+            StripProgressBar.Maximum = LijstLeerlingen.Count;
+            foreach (leerling EenLeerling in LijstLeerlingen)
+            {
+                StripProgressBar.Maximum = LijstLeerlingen.Count;
+                DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam, EenLeerling.Klas,
+                    EenLeerling.Reden, EenLeerling.Telaatkomst.ToString("HH:mm"), EenLeerling.GetID());
+            }
         }
 
         // Animations
@@ -417,25 +493,42 @@ namespace TestCam
             btnSettings.Image = SettingsLight;
             pnlSettings.BackColor = ColorDarker;
         }
-        private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAddLln_MouseEnter(object sender, EventArgs e)
         {
-            //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
-            foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
-            {
-                if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
-                {
-                    //LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
-                    LijstLeerlingen[Row.Index].Reden = LijstReden[lbReden.SelectedIndex];
-                }
-            }
-
-            DataGridLeerlingen.Rows.Clear();
-            foreach (leerling EenLeerling in LijstLeerlingen)
-            {
-                DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam, EenLeerling.Klas,
-                    EenLeerling.Reden, EenLeerling.Telaatkomst.ToString("HH:mm"), EenLeerling.GetID());
-            }
-            lblError.Text = "Reden Changed";
+            btnAddLln.Image = UserAddDarker;
         }
+
+        private void btnAddLln_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddLln.Image = UserAdd;
+        }
+        private void btnMakeLln_MouseEnter(object sender, EventArgs e)
+        {
+            btnMakeLln.Image = AddHover;
+        }
+
+        private void btnMakeLln_MouseLeave(object sender, EventArgs e)
+        {
+            btnMakeLln.Image = Add;
+        }
+
+        private void btnAddLln_Click(object sender, EventArgs e)
+        {
+            if (btnMakeLln.Visible)
+            {
+                btnMakeLln.Visible = false;
+                txtbKlasInput.Visible = false;
+                txtbNaamInput.Visible = false;
+                txtbVoornaamInput.Visible = false;
+            }
+            else
+            {
+                btnMakeLln.Visible = true;
+                txtbKlasInput.Visible = true;
+                txtbNaamInput.Visible = true;
+                txtbVoornaamInput.Visible = true;
+            }
+        }
+
     }
 }
