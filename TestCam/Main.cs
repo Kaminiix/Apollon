@@ -450,26 +450,21 @@ namespace TestCam
         private void btnSave_MouseEnter(object sender, EventArgs e)
         {
             btnSave.Image = SaveDark;
-            pnlSave.BackColor = ColorDark;
         }
         private void btnSave_MouseLeave(object sender, EventArgs e)
         {
             btnSave.Image = SaveLight;
-            pnlSave.BackColor = ColorDarker;
         }
         private void btnLoad_MouseEnter(object sender, EventArgs e)
         {
             btnLoad.Image = LoadDark;
-            pnlLoad.BackColor = ColorDark;
         }
         private void btnLoad_MouseLeave(object sender, EventArgs e)
         {
             btnLoad.Image = LoadLight;
-            pnlLoad.BackColor = ColorDarker;
         }
         private void btnPower_MouseEnter(object sender, EventArgs e)
         {
-            pnlPower.BackColor = ColorDark;
             if (IsStarted)
                 btnPower.Image = PowerBtnRotatedDark;
             else
@@ -477,7 +472,6 @@ namespace TestCam
         }
         private void btnPower_MouseLeave(object sender, EventArgs e)
         {
-            pnlPower.BackColor = ColorDarker;
             if (IsStarted)
                 btnPower.Image = PowerBtnRotatedLight;
             else
@@ -486,12 +480,10 @@ namespace TestCam
         private void btnSettings_MouseEnter(object sender, EventArgs e)
         {
             btnSettings.Image = SettingsDark;
-            pnlSettings.BackColor = ColorDark;
         }
         private void btnSettings_MouseLeave(object sender, EventArgs e)
         {
             btnSettings.Image = SettingsLight;
-            pnlSettings.BackColor = ColorDarker;
         }
         private void btnAddLln_MouseEnter(object sender, EventArgs e)
         {
