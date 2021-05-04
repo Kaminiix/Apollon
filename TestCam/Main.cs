@@ -539,6 +539,7 @@ namespace TestCam
 
         private void btnSmartschool_Click(object sender, EventArgs e)
         {
+            smartschoolForm.Lijstleerlingen = LijstLeerlingen;
             smartschoolForm.Show();
 
         }

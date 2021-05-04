@@ -36,6 +36,8 @@ namespace Apollon
             this.Klas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reden = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tijd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@ namespace Apollon
             this.Klas,
             this.Reden,
             this.Tijd});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(128, 81);
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(246, 190);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
             this.DataGridLeerlingen.Size = new System.Drawing.Size(533, 238);
             this.DataGridLeerlingen.TabIndex = 31;
@@ -89,17 +91,42 @@ namespace Apollon
             this.Tijd.Name = "Tijd";
             this.Tijd.Width = 70;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(246, 161);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "START";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(266, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(522, 38);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "This part of Apollon is still in betaTesting.\r\nWe Highly recommend you saving the" +
+    " list Leerling before launching this.";
+            // 
             // SmartschoolForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.DataGridLeerlingen);
             this.Name = "SmartschoolForm";
             this.Text = "SmartschoolForm";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -112,5 +139,7 @@ namespace Apollon
         private System.Windows.Forms.DataGridViewTextBoxColumn Klas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Reden;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tijd;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }
