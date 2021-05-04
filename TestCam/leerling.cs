@@ -13,6 +13,7 @@ namespace TestCam
         private string strKlas;
         private string strReden;
         private DateTime varTelaatkomst;
+        private bool Submitted = false;
 
         public leerling()
         {
