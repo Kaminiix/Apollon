@@ -184,9 +184,9 @@
             // btnSettings
             // 
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(35, 50);
+            this.btnSettings.Location = new System.Drawing.Point(34, 28);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 75);
+            this.btnSettings.Size = new System.Drawing.Size(100, 100);
             this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnSettings.TabIndex = 11;
             this.btnSettings.TabStop = false;
@@ -197,9 +197,9 @@
             // btnSave
             // 
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(35, 200);
+            this.btnSave.Location = new System.Drawing.Point(34, 178);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 75);
+            this.btnSave.Size = new System.Drawing.Size(100, 100);
             this.btnSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnSave.TabIndex = 15;
             this.btnSave.TabStop = false;
@@ -210,9 +210,9 @@
             // btnLoad
             // 
             this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
-            this.btnLoad.Location = new System.Drawing.Point(35, 350);
+            this.btnLoad.Location = new System.Drawing.Point(34, 328);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(75, 75);
+            this.btnLoad.Size = new System.Drawing.Size(100, 100);
             this.btnLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnLoad.TabIndex = 16;
             this.btnLoad.TabStop = false;
@@ -280,9 +280,9 @@
             // btnPower
             // 
             this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
-            this.btnPower.Location = new System.Drawing.Point(35, 500);
+            this.btnPower.Location = new System.Drawing.Point(34, 478);
             this.btnPower.Name = "btnPower";
-            this.btnPower.Size = new System.Drawing.Size(75, 75);
+            this.btnPower.Size = new System.Drawing.Size(100, 100);
             this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnPower.TabIndex = 14;
             this.btnPower.TabStop = false;
@@ -299,7 +299,7 @@
             this.panel1.Controls.Add(this.btnPower);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(145, 639);
+            this.panel1.Size = new System.Drawing.Size(172, 639);
             this.panel1.TabIndex = 21;
             // 
             // panel2
