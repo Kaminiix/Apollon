@@ -5,6 +5,8 @@ Read qr with webcam
 - https://github.com/micjahn/ZXing.Net
 - https://github.com/andrewkirillov/AForge.NET
 - [Icons] https://flaticons.net
+- https://github.com/SeleniumHQ/selenium
+
 
 # QR Generation
 - https://www.qrcode-monkey.com/
