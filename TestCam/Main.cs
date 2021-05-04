@@ -13,7 +13,7 @@ using ZXing;
 using System.IO;
 using Newtonsoft.Json;
 using System.Net;
-
+using Apollon;
 
 namespace TestCam
 {
@@ -24,6 +24,7 @@ namespace TestCam
         BarcodeReader Reader = new BarcodeReader();
         internal static Timer MijnTimer = new Timer();
         SettingsForm settingsForm = new SettingsForm();
+        SmartschoolForm smartschoolForm = new SmartschoolForm();
         List<leerling> LijstLeerlingen = new List<leerling>();
         List<string> LijstReden = new List<string>();
         internal static bool AutosaveEnabled = false;
@@ -522,5 +523,10 @@ namespace TestCam
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            smartschoolForm.Show();
+
+        }
     }
 }

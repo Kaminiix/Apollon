@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Apollon));
-            this.pbox = new System.Windows.Forms.PictureBox();
             this.lblComment = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
             this.DataGridLeerlingen = new System.Windows.Forms.DataGridView();
@@ -43,39 +42,32 @@
             this.StripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.lblError = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbReden = new System.Windows.Forms.ListBox();
-            this.btnSettings = new System.Windows.Forms.PictureBox();
-            this.btnSave = new System.Windows.Forms.PictureBox();
-            this.btnLoad = new System.Windows.Forms.PictureBox();
             this.MijnFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.MijnBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.txtbNaamInput = new System.Windows.Forms.TextBox();
             this.txtbVoornaamInput = new System.Windows.Forms.TextBox();
             this.txtbKlasInput = new System.Windows.Forms.TextBox();
-            this.btnAddLln = new System.Windows.Forms.PictureBox();
-            this.btnMakeLln = new System.Windows.Forms.PictureBox();
-            this.btnPower = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
+            this.btnMakeLln = new System.Windows.Forms.PictureBox();
+            this.btnAddLln = new System.Windows.Forms.PictureBox();
+            this.btnSave = new System.Windows.Forms.PictureBox();
+            this.btnLoad = new System.Windows.Forms.PictureBox();
+            this.btnSettings = new System.Windows.Forms.PictureBox();
+            this.btnPower = new System.Windows.Forms.PictureBox();
+            this.pbox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbox
-            // 
-            this.pbox.BackColor = System.Drawing.Color.White;
-            this.pbox.Location = new System.Drawing.Point(218, 14);
-            this.pbox.Name = "pbox";
-            this.pbox.Size = new System.Drawing.Size(359, 264);
-            this.pbox.TabIndex = 0;
-            this.pbox.TabStop = false;
             // 
             // lblComment
             // 
@@ -181,45 +173,6 @@
             this.lbReden.TabIndex = 25;
             this.lbReden.SelectedIndexChanged += new System.EventHandler(this.lbReden_SelectedIndexChanged);
             // 
-            // btnSettings
-            // 
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(35, 50);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 75);
-            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSettings.TabIndex = 11;
-            this.btnSettings.TabStop = false;
-            this.btnSettings.Click += new System.EventHandler(this.pictureBox3_Click);
-            this.btnSettings.MouseEnter += new System.EventHandler(this.btnSettings_MouseEnter);
-            this.btnSettings.MouseLeave += new System.EventHandler(this.btnSettings_MouseLeave);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(35, 200);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 75);
-            this.btnSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSave.TabIndex = 15;
-            this.btnSave.TabStop = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
-            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
-            this.btnLoad.Location = new System.Drawing.Point(35, 350);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(75, 75);
-            this.btnLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnLoad.TabIndex = 16;
-            this.btnLoad.TabStop = false;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            this.btnLoad.MouseEnter += new System.EventHandler(this.btnLoad_MouseEnter);
-            this.btnLoad.MouseLeave += new System.EventHandler(this.btnLoad_MouseLeave);
-            // 
             // MijnFileDialog
             // 
             this.MijnFileDialog.FileName = "Data";
@@ -250,46 +203,6 @@
             this.txtbKlasInput.TabIndex = 20;
             this.txtbKlasInput.Visible = false;
             // 
-            // btnAddLln
-            // 
-            this.btnAddLln.Image = ((System.Drawing.Image)(resources.GetObject("btnAddLln.Image")));
-            this.btnAddLln.Location = new System.Drawing.Point(335, 333);
-            this.btnAddLln.Name = "btnAddLln";
-            this.btnAddLln.Size = new System.Drawing.Size(32, 32);
-            this.btnAddLln.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnAddLln.TabIndex = 14;
-            this.btnAddLln.TabStop = false;
-            this.btnAddLln.Click += new System.EventHandler(this.btnAddLln_Click);
-            this.btnAddLln.MouseEnter += new System.EventHandler(this.btnAddLln_MouseEnter);
-            this.btnAddLln.MouseLeave += new System.EventHandler(this.btnAddLln_MouseLeave);
-            // 
-            // btnMakeLln
-            // 
-            this.btnMakeLln.Image = ((System.Drawing.Image)(resources.GetObject("btnMakeLln.Image")));
-            this.btnMakeLln.Location = new System.Drawing.Point(648, 337);
-            this.btnMakeLln.Name = "btnMakeLln";
-            this.btnMakeLln.Size = new System.Drawing.Size(25, 25);
-            this.btnMakeLln.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMakeLln.TabIndex = 14;
-            this.btnMakeLln.TabStop = false;
-            this.btnMakeLln.Visible = false;
-            this.btnMakeLln.Click += new System.EventHandler(this.btnMakeLln_Click);
-            this.btnMakeLln.MouseEnter += new System.EventHandler(this.btnMakeLln_MouseEnter);
-            this.btnMakeLln.MouseLeave += new System.EventHandler(this.btnMakeLln_MouseLeave);
-            // 
-            // btnPower
-            // 
-            this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
-            this.btnPower.Location = new System.Drawing.Point(35, 500);
-            this.btnPower.Name = "btnPower";
-            this.btnPower.Size = new System.Drawing.Size(75, 75);
-            this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnPower.TabIndex = 14;
-            this.btnPower.TabStop = false;
-            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
-            this.btnPower.MouseEnter += new System.EventHandler(this.btnPower_MouseEnter);
-            this.btnPower.MouseLeave += new System.EventHandler(this.btnPower_MouseLeave);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(88)))));
@@ -310,12 +223,111 @@
             this.panel2.Size = new System.Drawing.Size(359, 264);
             this.panel2.TabIndex = 22;
             // 
+            // btnMakeLln
+            // 
+            this.btnMakeLln.Image = ((System.Drawing.Image)(resources.GetObject("btnMakeLln.Image")));
+            this.btnMakeLln.Location = new System.Drawing.Point(648, 337);
+            this.btnMakeLln.Name = "btnMakeLln";
+            this.btnMakeLln.Size = new System.Drawing.Size(25, 25);
+            this.btnMakeLln.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMakeLln.TabIndex = 14;
+            this.btnMakeLln.TabStop = false;
+            this.btnMakeLln.Visible = false;
+            this.btnMakeLln.Click += new System.EventHandler(this.btnMakeLln_Click);
+            this.btnMakeLln.MouseEnter += new System.EventHandler(this.btnMakeLln_MouseEnter);
+            this.btnMakeLln.MouseLeave += new System.EventHandler(this.btnMakeLln_MouseLeave);
+            // 
+            // btnAddLln
+            // 
+            this.btnAddLln.Image = ((System.Drawing.Image)(resources.GetObject("btnAddLln.Image")));
+            this.btnAddLln.Location = new System.Drawing.Point(335, 333);
+            this.btnAddLln.Name = "btnAddLln";
+            this.btnAddLln.Size = new System.Drawing.Size(32, 32);
+            this.btnAddLln.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnAddLln.TabIndex = 14;
+            this.btnAddLln.TabStop = false;
+            this.btnAddLln.Click += new System.EventHandler(this.btnAddLln_Click);
+            this.btnAddLln.MouseEnter += new System.EventHandler(this.btnAddLln_MouseEnter);
+            this.btnAddLln.MouseLeave += new System.EventHandler(this.btnAddLln_MouseLeave);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(35, 200);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 75);
+            this.btnSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSave.TabIndex = 15;
+            this.btnSave.TabStop = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
+            this.btnLoad.Location = new System.Drawing.Point(35, 350);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 75);
+            this.btnLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnLoad.TabIndex = 16;
+            this.btnLoad.TabStop = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnLoad.MouseEnter += new System.EventHandler(this.btnLoad_MouseEnter);
+            this.btnLoad.MouseLeave += new System.EventHandler(this.btnLoad_MouseLeave);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(35, 50);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 75);
+            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSettings.TabIndex = 11;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.btnSettings.MouseEnter += new System.EventHandler(this.btnSettings_MouseEnter);
+            this.btnSettings.MouseLeave += new System.EventHandler(this.btnSettings_MouseLeave);
+            // 
+            // btnPower
+            // 
+            this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
+            this.btnPower.Location = new System.Drawing.Point(35, 500);
+            this.btnPower.Name = "btnPower";
+            this.btnPower.Size = new System.Drawing.Size(75, 75);
+            this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPower.TabIndex = 14;
+            this.btnPower.TabStop = false;
+            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
+            this.btnPower.MouseEnter += new System.EventHandler(this.btnPower_MouseEnter);
+            this.btnPower.MouseLeave += new System.EventHandler(this.btnPower_MouseLeave);
+            // 
+            // pbox
+            // 
+            this.pbox.BackColor = System.Drawing.Color.White;
+            this.pbox.Location = new System.Drawing.Point(218, 14);
+            this.pbox.Name = "pbox";
+            this.pbox.Size = new System.Drawing.Size(359, 264);
+            this.pbox.TabIndex = 0;
+            this.pbox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(227, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(811, 664);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnMakeLln);
             this.Controls.Add(this.btnAddLln);
             this.Controls.Add(this.txtbKlasInput);
@@ -333,17 +345,17 @@
             this.Name = "Apollon";
             this.Text = "Apollon";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Appolon_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).EndInit();
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +390,7 @@
         private System.Windows.Forms.PictureBox btnPower;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
