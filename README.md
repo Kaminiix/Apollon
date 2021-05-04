@@ -11,4 +11,4 @@ Read qr with webcam
 - Logo: Apollon/TestCam/Icons/dbgbQR.png 
 
 # Apollon
-![name-of-you-image](https://cdn.discordapp.com/attachments/493374771812106260/821853740654133248/apollon.PNG)
+![name-of-you-image](https://cdn.discordapp.com/attachments/535389203551354881/839175960943132733/unknown.png)
