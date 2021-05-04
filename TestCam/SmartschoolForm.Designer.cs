@@ -52,7 +52,7 @@ namespace Apollon
             this.Tijd});
             this.DataGridLeerlingen.Location = new System.Drawing.Point(128, 81);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(553, 238);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(533, 238);
             this.DataGridLeerlingen.TabIndex = 31;
             // 
             // Submitted
@@ -93,6 +93,7 @@ namespace Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.DataGridLeerlingen);
             this.Name = "SmartschoolForm";

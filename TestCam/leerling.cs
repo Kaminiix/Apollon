@@ -13,6 +13,7 @@ namespace TestCam
         private string strKlas;
         private string strReden;
         private DateTime varTelaatkomst;
+        private bool blSent;
 
         public leerling()
         {
@@ -20,6 +21,7 @@ namespace TestCam
             strNaam = "onbekend";
             strKlas = "onbekend";
             varTelaatkomst = DateTime.Now;
+            blSent = false;
         }
 
         /// <summary>
@@ -35,6 +37,7 @@ namespace TestCam
             strKlas = strKlasInput;
             strReden = "Te laat";
             varTelaatkomst = DateTime.Now;
+            blSent = false;
         }
 
 
@@ -66,6 +69,12 @@ namespace TestCam
             set { varTelaatkomst = value; }
         }
 
+        public bool Sent
+        {
+            get { return blSent; }
+            set { blSent = value; }
+        }
+
         public string GetID()
         {
             return (strNaam.Substring(0, 3) + strVoornaam.Substring(0, 3) + strKlas.Substring(0, 1)).ToLower();
@@ -73,7 +82,7 @@ namespace TestCam
 
         public string GetInfos()
         {
-            return strNaam + " " + strVoornaam + " " + strKlas; 
+            return strNaam + " " + strVoornaam + " " + strKlas;
         }
     }
 }

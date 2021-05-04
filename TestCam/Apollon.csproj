@@ -164,6 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbgbQR.ico" />
+    <Content Include="Icons\SmartschoolBtn.png" />
+    <Content Include="Icons\SmartschoolBtnColor.png" />
     <None Include="Icons\UserAdd.png" />
     <None Include="Icons\Frame.png" />
   </ItemGroup>

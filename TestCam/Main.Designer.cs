@@ -48,24 +48,25 @@
             this.txtbVoornaamInput = new System.Windows.Forms.TextBox();
             this.txtbKlasInput = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnMakeLln = new System.Windows.Forms.PictureBox();
-            this.btnAddLln = new System.Windows.Forms.PictureBox();
+            this.btnSmartschool = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.PictureBox();
             this.btnLoad = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.btnPower = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMakeLln = new System.Windows.Forms.PictureBox();
+            this.btnAddLln = new System.Windows.Forms.PictureBox();
             this.pbox = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSmartschool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // 
             this.lblComment.AutoSize = true;
             this.lblComment.ForeColor = System.Drawing.Color.White;
-            this.lblComment.Location = new System.Drawing.Point(516, 621);
+            this.lblComment.Location = new System.Drawing.Point(412, 573);
             this.lblComment.Name = "lblComment";
             this.lblComment.Size = new System.Drawing.Size(61, 13);
             this.lblComment.TabIndex = 8;
@@ -84,7 +85,7 @@
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.ForeColor = System.Drawing.Color.White;
-            this.lblResult.Location = new System.Drawing.Point(413, 621);
+            this.lblResult.Location = new System.Drawing.Point(309, 573);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(47, 13);
             this.lblResult.TabIndex = 9;
@@ -102,9 +103,9 @@
             this.Reden,
             this.Tijd,
             this.ID});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(218, 368);
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(146, 327);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(553, 238);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(530, 238);
             this.DataGridLeerlingen.TabIndex = 30;
             // 
             // Naam
@@ -148,9 +149,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StripProgressBar,
             this.lblError});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 642);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 604);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(811, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(734, 22);
             this.statusStrip1.TabIndex = 19;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -167,9 +168,9 @@
             // lbReden
             // 
             this.lbReden.FormattingEnabled = true;
-            this.lbReden.Location = new System.Drawing.Point(633, 14);
+            this.lbReden.Location = new System.Drawing.Point(561, 14);
             this.lbReden.Name = "lbReden";
-            this.lbReden.Size = new System.Drawing.Size(135, 264);
+            this.lbReden.Size = new System.Drawing.Size(115, 251);
             this.lbReden.TabIndex = 25;
             this.lbReden.SelectedIndexChanged += new System.EventHandler(this.lbReden_SelectedIndexChanged);
             // 
@@ -181,7 +182,7 @@
             // 
             this.txtbNaamInput.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtbNaamInput.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
-            this.txtbNaamInput.Location = new System.Drawing.Point(373, 340);
+            this.txtbNaamInput.Location = new System.Drawing.Point(302, 296);
             this.txtbNaamInput.Name = "txtbNaamInput";
             this.txtbNaamInput.Size = new System.Drawing.Size(100, 20);
             this.txtbNaamInput.TabIndex = 18;
@@ -189,7 +190,7 @@
             // 
             // txtbVoornaamInput
             // 
-            this.txtbVoornaamInput.Location = new System.Drawing.Point(477, 340);
+            this.txtbVoornaamInput.Location = new System.Drawing.Point(406, 296);
             this.txtbVoornaamInput.Name = "txtbVoornaamInput";
             this.txtbVoornaamInput.Size = new System.Drawing.Size(100, 20);
             this.txtbVoornaamInput.TabIndex = 19;
@@ -197,7 +198,7 @@
             // 
             // txtbKlasInput
             // 
-            this.txtbKlasInput.Location = new System.Drawing.Point(579, 340);
+            this.txtbKlasInput.Location = new System.Drawing.Point(508, 296);
             this.txtbKlasInput.Name = "txtbKlasInput";
             this.txtbKlasInput.Size = new System.Drawing.Size(66, 20);
             this.txtbKlasInput.TabIndex = 20;
@@ -206,27 +207,93 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.btnSmartschool);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnLoad);
             this.panel1.Controls.Add(this.btnSettings);
             this.panel1.Controls.Add(this.btnPower);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(145, 639);
+            this.panel1.Size = new System.Drawing.Size(100, 605);
             this.panel1.TabIndex = 21;
+            // 
+            // btnSmartschool
+            // 
+            this.btnSmartschool.Image = ((System.Drawing.Image)(resources.GetObject("btnSmartschool.Image")));
+            this.btnSmartschool.Location = new System.Drawing.Point(30, 495);
+            this.btnSmartschool.Name = "btnSmartschool";
+            this.btnSmartschool.Size = new System.Drawing.Size(50, 50);
+            this.btnSmartschool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSmartschool.TabIndex = 17;
+            this.btnSmartschool.TabStop = false;
+            this.btnSmartschool.Click += new System.EventHandler(this.btnSmartschool_Click);
+            this.btnSmartschool.MouseEnter += new System.EventHandler(this.btnSmartschool_MouseEnter);
+            this.btnSmartschool.MouseLeave += new System.EventHandler(this.btnSmartschool_MouseLeave);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(25, 165);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(50, 50);
+            this.btnSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSave.TabIndex = 15;
+            this.btnSave.TabStop = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
+            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
+            this.btnLoad.Location = new System.Drawing.Point(25, 275);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(50, 50);
+            this.btnLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnLoad.TabIndex = 16;
+            this.btnLoad.TabStop = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnLoad.MouseEnter += new System.EventHandler(this.btnLoad_MouseEnter);
+            this.btnLoad.MouseLeave += new System.EventHandler(this.btnLoad_MouseLeave);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(25, 55);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(50, 50);
+            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnSettings.TabIndex = 11;
+            this.btnSettings.TabStop = false;
+            this.btnSettings.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.btnSettings.MouseEnter += new System.EventHandler(this.btnSettings_MouseEnter);
+            this.btnSettings.MouseLeave += new System.EventHandler(this.btnSettings_MouseLeave);
+            // 
+            // btnPower
+            // 
+            this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
+            this.btnPower.Location = new System.Drawing.Point(25, 385);
+            this.btnPower.Name = "btnPower";
+            this.btnPower.Size = new System.Drawing.Size(50, 50);
+            this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPower.TabIndex = 14;
+            this.btnPower.TabStop = false;
+            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
+            this.btnPower.MouseEnter += new System.EventHandler(this.btnPower_MouseEnter);
+            this.btnPower.MouseLeave += new System.EventHandler(this.btnPower_MouseLeave);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(218, 14);
+            this.panel2.Location = new System.Drawing.Point(146, 14);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(359, 264);
+            this.panel2.Size = new System.Drawing.Size(339, 247);
             this.panel2.TabIndex = 22;
             // 
             // btnMakeLln
             // 
             this.btnMakeLln.Image = ((System.Drawing.Image)(resources.GetObject("btnMakeLln.Image")));
-            this.btnMakeLln.Location = new System.Drawing.Point(648, 337);
+            this.btnMakeLln.Location = new System.Drawing.Point(577, 293);
             this.btnMakeLln.Name = "btnMakeLln";
             this.btnMakeLln.Size = new System.Drawing.Size(25, 25);
             this.btnMakeLln.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -240,7 +307,7 @@
             // btnAddLln
             // 
             this.btnAddLln.Image = ((System.Drawing.Image)(resources.GetObject("btnAddLln.Image")));
-            this.btnAddLln.Location = new System.Drawing.Point(335, 333);
+            this.btnAddLln.Location = new System.Drawing.Point(264, 289);
             this.btnAddLln.Name = "btnAddLln";
             this.btnAddLln.Size = new System.Drawing.Size(32, 32);
             this.btnAddLln.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -250,84 +317,21 @@
             this.btnAddLln.MouseEnter += new System.EventHandler(this.btnAddLln_MouseEnter);
             this.btnAddLln.MouseLeave += new System.EventHandler(this.btnAddLln_MouseLeave);
             // 
-            // btnSave
-            // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(35, 200);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 75);
-            this.btnSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSave.TabIndex = 15;
-            this.btnSave.TabStop = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.MouseEnter += new System.EventHandler(this.btnSave_MouseEnter);
-            this.btnSave.MouseLeave += new System.EventHandler(this.btnSave_MouseLeave);
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
-            this.btnLoad.Location = new System.Drawing.Point(35, 350);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(75, 75);
-            this.btnLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnLoad.TabIndex = 16;
-            this.btnLoad.TabStop = false;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            this.btnLoad.MouseEnter += new System.EventHandler(this.btnLoad_MouseEnter);
-            this.btnLoad.MouseLeave += new System.EventHandler(this.btnLoad_MouseLeave);
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(35, 50);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 75);
-            this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSettings.TabIndex = 11;
-            this.btnSettings.TabStop = false;
-            this.btnSettings.Click += new System.EventHandler(this.pictureBox3_Click);
-            this.btnSettings.MouseEnter += new System.EventHandler(this.btnSettings_MouseEnter);
-            this.btnSettings.MouseLeave += new System.EventHandler(this.btnSettings_MouseLeave);
-            // 
-            // btnPower
-            // 
-            this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
-            this.btnPower.Location = new System.Drawing.Point(35, 500);
-            this.btnPower.Name = "btnPower";
-            this.btnPower.Size = new System.Drawing.Size(75, 75);
-            this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnPower.TabIndex = 14;
-            this.btnPower.TabStop = false;
-            this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
-            this.btnPower.MouseEnter += new System.EventHandler(this.btnPower_MouseEnter);
-            this.btnPower.MouseLeave += new System.EventHandler(this.btnPower_MouseLeave);
-            // 
             // pbox
             // 
             this.pbox.BackColor = System.Drawing.Color.White;
-            this.pbox.Location = new System.Drawing.Point(218, 14);
+            this.pbox.Location = new System.Drawing.Point(146, 14);
             this.pbox.Name = "pbox";
-            this.pbox.Size = new System.Drawing.Size(359, 264);
+            this.pbox.Size = new System.Drawing.Size(339, 247);
             this.pbox.TabIndex = 0;
             this.pbox.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(227, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
-            this.ClientSize = new System.Drawing.Size(811, 664);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(734, 626);
             this.Controls.Add(this.btnMakeLln);
             this.Controls.Add(this.btnAddLln);
             this.Controls.Add(this.txtbKlasInput);
@@ -349,12 +353,13 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSmartschool)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -390,7 +395,7 @@
         private System.Windows.Forms.PictureBox btnPower;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox btnSmartschool;
     }
 }
 

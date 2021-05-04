@@ -51,6 +51,8 @@ namespace TestCam
         Image UserAddDarker = Image.FromFile(@"..\..\Icons\UserAddDarker.png");
         Image Add = Image.FromFile(@"..\..\Icons\Add.png");
         Image AddHover = Image.FromFile(@"..\..\Icons\AddHover.png");
+        Image Smartschool = Image.FromFile(@"..\..\Icons\SmartschoolBtn.png");
+        Image SmartschoolColor = Image.FromFile(@"..\..\Icons\SmartschoolBtnColor.png");
 
 
         private void Appolon_Load(object sender, EventArgs e)
@@ -444,10 +446,11 @@ namespace TestCam
             }
         }
 
-        // Animations
+      /*  
+        Animations
         Color ColorDark = Color.FromArgb(50, 51, 69);
         Color ColorDarker = Color.FromArgb(57, 58, 78);
-
+      */
         private void btnSave_MouseEnter(object sender, EventArgs e)
         {
             btnSave.Image = SaveDark;
@@ -505,6 +508,16 @@ namespace TestCam
             btnMakeLln.Image = Add;
         }
 
+        private void btnSmartschool_MouseEnter(object sender, EventArgs e)
+        {
+            btnSmartschool.Image = SmartschoolColor;
+        }
+
+        private void btnSmartschool_MouseLeave(object sender, EventArgs e)
+        {
+            btnSmartschool.Image = Smartschool;
+
+        }
         private void btnAddLln_Click(object sender, EventArgs e)
         {
             if (btnMakeLln.Visible)
@@ -523,10 +536,13 @@ namespace TestCam
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnSmartschool_Click(object sender, EventArgs e)
         {
             smartschoolForm.Show();
 
         }
+
+        
     }
 }
