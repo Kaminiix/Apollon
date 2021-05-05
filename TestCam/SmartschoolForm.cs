@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TestCam;
+using Main;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
@@ -87,9 +87,9 @@ namespace Apollon
                     {
                         lln.Sent = true;
                         Browser.FindElement(By.XPath("//div[contains(text(),'" + lln.Voornaam + " " + lln.Naam + "')]")).Click();
-                        System.Threading.Thread.Sleep(1000);
+                        System.Threading.Thread.Sleep(500);
                         Browser.FindElement(By.XPath(TELAAT)).Click();
-                        System.Threading.Thread.Sleep(1000);
+                        System.Threading.Thread.Sleep(500);
                         Browser.FindElement(By.Id("codeselect_motivation")).SendKeys(lln.Reden);
                     }
                 }
@@ -108,7 +108,7 @@ namespace Apollon
             DataGridLeerlingen.Rows.Clear();
             foreach (leerling l in LijstInput)
             {
-                DataGridLeerlingen.Rows.Add(true, l.Naam, l.Voornaam, l.Klas, l.Reden, l.Telaatkomst.ToString("HH:mm"));
+                DataGridLeerlingen.Rows.Add(l.Sent, l.Naam, l.Voornaam, l.Klas, l.Reden, l.Telaatkomst.ToString("HH:mm"));
             }
         }
 

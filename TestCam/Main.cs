@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 using System.Net;
 using Apollon;
 
-namespace TestCam
+namespace Main
 {
     public partial class Apollon : Form
     {
@@ -31,7 +31,7 @@ namespace TestCam
         internal static bool DevmodeEnabled = false;
         internal static bool IsStarted = false;
         internal static string SavePath = "";
-        string RedenPath = "";
+        bool blUnsavedWork = false;
 
 
         //preload resource images
@@ -53,7 +53,10 @@ namespace TestCam
         Image AddHover = Image.FromFile(@"..\..\Icons\AddHover.png");
         Image Smartschool = Image.FromFile(@"..\..\Icons\SmartschoolBtn.png");
         Image SmartschoolColor = Image.FromFile(@"..\..\Icons\SmartschoolBtnColor.png");
-
+        Image SaveModificationRed = Image.FromFile(@"..\..\Icons\SaveModificationRed.png");
+        Image SaveModificationGreen = Image.FromFile(@"..\..\Icons\SaveModificationGreen.png");
+        Image Undo = Image.FromFile(@"..\..\Icons\Undo.png");
+        Image UndoDark = Image.FromFile(@"..\..\Icons\UndoDark.png");
 
         private void Appolon_Load(object sender, EventArgs e)
         {
@@ -64,39 +67,11 @@ namespace TestCam
             InitializeComponent();
         }
 
-        /*
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            //MijnDevice = new VideoCaptureDevice(MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
-            MijnDevice.NewFrame += MijnDevice_NewFrame;
-            MijnDevice.Start();
-            MijnTimer.Tick += MijnTimer_Tick;
-            MijnTimer.Start();
-
-            DataGridViewComboBoxColumn MijnComboBoxColumn = new DataGridViewComboBoxColumn();
-            MijnComboBoxColumn.HeaderText = "Reden";
-            MijnComboBoxColumn.DataSource = SavePath;
-            DataGridLeerlingen.Columns.Add(MijnComboBoxColumn);
-            lblError.Text = "Column made";
-        }
-        */
-
         private void MijnTimer_Tick(object sender, EventArgs e)
         {
             //Devmode
             lblComment.Visible = DevmodeEnabled;
             lblResult.Visible = DevmodeEnabled;
-
-            /*
-            if (lblComment.Text == "Tick")
-            {
-                lblComment.Text = "Tack";
-            }
-            else
-            {
-                lblComment.Text = "Tick";
-            }
-            */
 
             //Make a copy of the frame on the picturebox on the right
             Image TickFrame = pbox.Image;
@@ -144,26 +119,6 @@ namespace TestCam
             pbox.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            settingsForm.Show();
-            settingsForm.lbCameras.Items.Clear();
-            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
-            { // Adds each cameras detected into the list in the settingsform
-                settingsForm.lbCameras.Items.Add(DeFilterInfo.Name);
-                MijnDevice = new VideoCaptureDevice();
-            }
-
-            try //Tries to select forhand the first webcam on the list
-            {
-                settingsForm.lbCameras.SelectedIndex = 0;
-            }
-            catch (Exception)
-            {
-                lblComment.Text = "Geen Webcam";
-            }
-        }
 
 
         private void Appolon_FormClosing(object sender, FormClosingEventArgs e)
@@ -320,6 +275,26 @@ namespace TestCam
 
             return ListReden;
         }
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            settingsForm.Show();
+            settingsForm.lbCameras.Items.Clear();
+            MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo DeFilterInfo in MijnFilterInfoCollection)
+            { // Adds each cameras detected into the list in the settingsform
+                settingsForm.lbCameras.Items.Add(DeFilterInfo.Name);
+                MijnDevice = new VideoCaptureDevice();
+            }
+
+            try //Tries to select forhand the first webcam on the list
+            {
+                settingsForm.lbCameras.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                lblComment.Text = "Geen Webcam";
+            }
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -338,7 +313,6 @@ namespace TestCam
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
             if (MijnFileDialog.ShowDialog() == DialogResult.OK)
             {
                 lblError.Text = "";
@@ -346,28 +320,6 @@ namespace TestCam
                 LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
                 UpdateDataGrid();
             }
-
-            /* OLD WAY bad because looking for autosavedata.json
-                if (File.Exists(SavePath + @"/AutosaveData.json"))
-                {
-                    lblError.Text = "";
-                    string LoadingData = File.ReadAllText(SavePath + @"/AutosaveData.json");
-                    LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
-                    DataGridLeerlingen.Rows.Clear();
-                    StripProgressBar.Maximum = LijstLeerlingen.Count;
-                    foreach (leerling EenLeerling in LijstLeerlingen)
-                    {
-                        StripProgressBar.PerformStep();
-                        DataGridLeerlingen.Rows.Add(EenLeerling.Naam, EenLeerling.Voornaam,
-                            EenLeerling.Klas, EenLeerling.Reden, EenLeerling.GetID());
-                    }
-                }
-                else
-                {
-                    lblError.Text = "Autosave does not exist";
-                }
-            */
-
         }
         private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -402,14 +354,8 @@ namespace TestCam
             {
                 lblError.Text = "";
 
-                //Make the first letter uppercase, Best way i could figure out :/ maybe not the best
-                string firstletter = txtbNaamInput.Text.First<char>().ToString().ToUpper();
-                string[] words = { firstletter, txtbNaamInput.Text.Substring(1) };
-                txtbNaamInput.Text = string.Join("",words);
-
-                firstletter = txtbVoornaamInput.Text.First<char>().ToString().ToUpper();
-                string[] wordss = { firstletter, txtbVoornaamInput.Text.Substring(1) };
-                txtbVoornaamInput.Text = string.Join("", wordss);
+                txtbNaamInput.Text = txtbNaamInput.Text.Substring(0, 1).ToUpper() + txtbNaamInput.Text.Substring(1);
+                txtbVoornaamInput.Text = txtbVoornaamInput.Text.Substring(0, 1).ToUpper() + txtbVoornaamInput.Text.Substring(1);
 
 
                 if (MessageBox.Show("Wil je (" + txtbNaamInput.Text + " " + txtbVoornaamInput.Text + " " + txtbKlasInput.Text + ") toevoegen?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -518,6 +464,30 @@ namespace TestCam
             btnSmartschool.Image = Smartschool;
 
         }
+        private void DataGridLlnState_MouseEnter(object sender, EventArgs e)
+        {
+            DataGridLlnState.Image = SaveModificationGreen;
+        }
+
+        private void DataGridLlnState_MouseLeave(object sender, EventArgs e)
+        {
+            DataGridLlnState.Image = SaveModificationRed;
+        }
+        private void btnUndo_MouseLeave(object sender, EventArgs e)
+        {
+            btnUndo.Image = Undo;
+        }
+
+        private void btnUndo_MouseEnter(object sender, EventArgs e)
+        {
+            btnUndo.Image = UndoDark;
+        }
+
+        //    /\
+        //   /  \
+        //    ||    <= HOVER ANIMATIONS
+        //    ||
+        
         private void btnAddLln_Click(object sender, EventArgs e)
         {
             if (btnMakeLln.Visible)
@@ -526,6 +496,7 @@ namespace TestCam
                 txtbKlasInput.Visible = false;
                 txtbNaamInput.Visible = false;
                 txtbVoornaamInput.Visible = false;
+                lblUserAddPlaceHolder.Visible = false;
             }
             else
             {
@@ -533,17 +504,55 @@ namespace TestCam
                 txtbKlasInput.Visible = true;
                 txtbNaamInput.Visible = true;
                 txtbVoornaamInput.Visible = true;
+                lblUserAddPlaceHolder.Visible = true;
             }
         }
 
 
         private void btnSmartschool_Click(object sender, EventArgs e)
         {
+            smartschoolForm = new SmartschoolForm();
             smartschoolForm.Lijstleerlingen = LijstLeerlingen;
             smartschoolForm.Show();
+            smartschoolForm.UpdateGrid(LijstLeerlingen);
+        }
+
+        private void DataGridLeerlingen_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            blUnsavedWork = true;
+            DataGridLlnState.Visible = true;
+            btnUndo.Visible = true;
+            DataGridLlnState.Image = SaveModificationRed;
+        }
+
+        private void DataGridLlnState_Click(object sender, EventArgs e)
+        {
+            if (blUnsavedWork)
+            {
+                LijstLeerlingen.Clear();
+                for (int i = 0; i < DataGridLeerlingen.Rows.Count; i++)
+                {   //make a new leerling from each row in datagridleerlingen
+                    LijstLeerlingen.Add(new leerling(DataGridLeerlingen.Rows[i].Cells[1].Value.ToString(),
+                        DataGridLeerlingen.Rows[i].Cells[0].Value.ToString(),
+                        DataGridLeerlingen.Rows[i].Cells[2].Value.ToString()));
+                    LijstLeerlingen[i].Reden = DataGridLeerlingen.Rows[i].Cells[3].Value.ToString();
+                }
+                blUnsavedWork = false;
+                btnUndo.Visible = false;
+                DataGridLlnState.Visible = false;
+            }
+            //List<leerling> NLijstLeerlingen = new List<leerling>();
+
+            //var a = DataGridLeerlingen.Rows[2].Cells[2];
 
         }
 
-        
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            UpdateDataGrid();
+            blUnsavedWork = false;
+            btnUndo.Visible = false;
+        }
+
     }
 }

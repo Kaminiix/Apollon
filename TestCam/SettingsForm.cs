@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video.DirectShow;
 
-namespace TestCam
+namespace Main
 {
     public partial class SettingsForm : Form
     {

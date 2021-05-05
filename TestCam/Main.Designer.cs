@@ -1,4 +1,4 @@
-﻿namespace TestCam
+﻿namespace Main
 {
     partial class Apollon
     {
@@ -53,10 +53,12 @@
             this.btnLoad = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.PictureBox();
             this.btnPower = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnMakeLln = new System.Windows.Forms.PictureBox();
             this.btnAddLln = new System.Windows.Forms.PictureBox();
             this.pbox = new System.Windows.Forms.PictureBox();
+            this.lblUserAddPlaceHolder = new System.Windows.Forms.Label();
+            this.DataGridLlnState = new System.Windows.Forms.PictureBox();
+            this.btnUndo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -68,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridLlnState)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUndo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblComment
@@ -103,10 +107,11 @@
             this.Reden,
             this.Tijd,
             this.ID});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(146, 327);
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(133, 324);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
-            this.DataGridLeerlingen.Size = new System.Drawing.Size(530, 238);
+            this.DataGridLeerlingen.Size = new System.Drawing.Size(553, 238);
             this.DataGridLeerlingen.TabIndex = 30;
+            this.DataGridLeerlingen.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridLeerlingen_CellValueChanged);
             // 
             // Naam
             // 
@@ -265,7 +270,7 @@
             this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnSettings.TabIndex = 11;
             this.btnSettings.TabStop = false;
-            this.btnSettings.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             this.btnSettings.MouseEnter += new System.EventHandler(this.btnSettings_MouseEnter);
             this.btnSettings.MouseLeave += new System.EventHandler(this.btnSettings_MouseLeave);
             // 
@@ -281,14 +286,6 @@
             this.btnPower.Click += new System.EventHandler(this.btnPower_Click);
             this.btnPower.MouseEnter += new System.EventHandler(this.btnPower_MouseEnter);
             this.btnPower.MouseLeave += new System.EventHandler(this.btnPower_MouseLeave);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(146, 14);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(339, 247);
-            this.panel2.TabIndex = 22;
             // 
             // btnMakeLln
             // 
@@ -326,12 +323,55 @@
             this.pbox.TabIndex = 0;
             this.pbox.TabStop = false;
             // 
+            // lblUserAddPlaceHolder
+            // 
+            this.lblUserAddPlaceHolder.AutoSize = true;
+            this.lblUserAddPlaceHolder.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserAddPlaceHolder.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblUserAddPlaceHolder.Location = new System.Drawing.Point(302, 280);
+            this.lblUserAddPlaceHolder.Name = "lblUserAddPlaceHolder";
+            this.lblUserAddPlaceHolder.Size = new System.Drawing.Size(236, 15);
+            this.lblUserAddPlaceHolder.TabIndex = 18;
+            this.lblUserAddPlaceHolder.Text = "Naam                 Voornaam         Klas\r\n";
+            this.lblUserAddPlaceHolder.Visible = false;
+            // 
+            // DataGridLlnState
+            // 
+            this.DataGridLlnState.Image = ((System.Drawing.Image)(resources.GetObject("DataGridLlnState.Image")));
+            this.DataGridLlnState.Location = new System.Drawing.Point(692, 527);
+            this.DataGridLlnState.Name = "DataGridLlnState";
+            this.DataGridLlnState.Size = new System.Drawing.Size(35, 35);
+            this.DataGridLlnState.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DataGridLlnState.TabIndex = 31;
+            this.DataGridLlnState.TabStop = false;
+            this.DataGridLlnState.Visible = false;
+            this.DataGridLlnState.Click += new System.EventHandler(this.DataGridLlnState_Click);
+            this.DataGridLlnState.MouseEnter += new System.EventHandler(this.DataGridLlnState_MouseEnter);
+            this.DataGridLlnState.MouseLeave += new System.EventHandler(this.DataGridLlnState_MouseLeave);
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Image = ((System.Drawing.Image)(resources.GetObject("btnUndo.Image")));
+            this.btnUndo.Location = new System.Drawing.Point(692, 486);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(35, 35);
+            this.btnUndo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnUndo.TabIndex = 31;
+            this.btnUndo.TabStop = false;
+            this.btnUndo.Visible = false;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            this.btnUndo.MouseEnter += new System.EventHandler(this.btnUndo_MouseEnter);
+            this.btnUndo.MouseLeave += new System.EventHandler(this.btnUndo_MouseLeave);
+            // 
             // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(734, 626);
+            this.Controls.Add(this.btnUndo);
+            this.Controls.Add(this.DataGridLlnState);
+            this.Controls.Add(this.lblUserAddPlaceHolder);
             this.Controls.Add(this.btnMakeLln);
             this.Controls.Add(this.btnAddLln);
             this.Controls.Add(this.txtbKlasInput);
@@ -343,7 +383,6 @@
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.lblComment);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pbox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Apollon";
@@ -361,6 +400,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMakeLln)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddLln)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridLlnState)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUndo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,8 +435,10 @@
         private System.Windows.Forms.PictureBox btnMakeLln;
         private System.Windows.Forms.PictureBox btnPower;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox btnSmartschool;
+        private System.Windows.Forms.Label lblUserAddPlaceHolder;
+        private System.Windows.Forms.PictureBox DataGridLlnState;
+        private System.Windows.Forms.PictureBox btnUndo;
     }
 }
 

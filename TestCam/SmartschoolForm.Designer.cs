@@ -52,7 +52,7 @@ namespace Apollon
             this.Klas,
             this.Reden,
             this.Tijd});
-            this.DataGridLeerlingen.Location = new System.Drawing.Point(246, 190);
+            this.DataGridLeerlingen.Location = new System.Drawing.Point(16, 107);
             this.DataGridLeerlingen.Name = "DataGridLeerlingen";
             this.DataGridLeerlingen.Size = new System.Drawing.Size(533, 238);
             this.DataGridLeerlingen.TabIndex = 31;
@@ -93,7 +93,7 @@ namespace Apollon
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(246, 161);
+            this.button1.Location = new System.Drawing.Point(16, 78);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 32;
@@ -106,7 +106,7 @@ namespace Apollon
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(266, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(522, 38);
             this.label1.TabIndex = 33;
@@ -118,7 +118,7 @@ namespace Apollon
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(592, 360);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DataGridLeerlingen);

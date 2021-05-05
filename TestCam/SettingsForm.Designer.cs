@@ -1,4 +1,4 @@
-﻿namespace TestCam
+﻿namespace Main
 {
     partial class SettingsForm
     {
