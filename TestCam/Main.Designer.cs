@@ -59,6 +59,15 @@
             this.lblUserAddPlaceHolder = new System.Windows.Forms.Label();
             this.DataGridLlnState = new System.Windows.Forms.PictureBox();
             this.btnUndo = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblUndo = new System.Windows.Forms.Label();
+            this.lblSave = new System.Windows.Forms.Label();
+            this.txtbReden = new System.Windows.Forms.RichTextBox();
+            this.btnReden = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -175,7 +184,7 @@
             this.lbReden.FormattingEnabled = true;
             this.lbReden.Location = new System.Drawing.Point(561, 14);
             this.lbReden.Name = "lbReden";
-            this.lbReden.Size = new System.Drawing.Size(115, 251);
+            this.lbReden.Size = new System.Drawing.Size(115, 134);
             this.lbReden.TabIndex = 25;
             this.lbReden.SelectedIndexChanged += new System.EventHandler(this.lbReden_SelectedIndexChanged);
             // 
@@ -212,6 +221,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(43)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSmartschool);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnLoad);
@@ -238,7 +252,7 @@
             // btnSave
             // 
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(25, 165);
+            this.btnSave.Location = new System.Drawing.Point(25, 385);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(50, 50);
             this.btnSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -264,7 +278,7 @@
             // btnSettings
             // 
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(25, 55);
+            this.btnSettings.Location = new System.Drawing.Point(25, 165);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(50, 50);
             this.btnSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -277,7 +291,7 @@
             // btnPower
             // 
             this.btnPower.Image = ((System.Drawing.Image)(resources.GetObject("btnPower.Image")));
-            this.btnPower.Location = new System.Drawing.Point(25, 385);
+            this.btnPower.Location = new System.Drawing.Point(25, 55);
             this.btnPower.Name = "btnPower";
             this.btnPower.Size = new System.Drawing.Size(50, 50);
             this.btnPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -352,7 +366,7 @@
             // btnUndo
             // 
             this.btnUndo.Image = ((System.Drawing.Image)(resources.GetObject("btnUndo.Image")));
-            this.btnUndo.Location = new System.Drawing.Point(692, 486);
+            this.btnUndo.Location = new System.Drawing.Point(692, 468);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(35, 35);
             this.btnUndo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -363,12 +377,115 @@
             this.btnUndo.MouseEnter += new System.EventHandler(this.btnUndo_MouseEnter);
             this.btnUndo.MouseLeave += new System.EventHandler(this.btnUndo_MouseLeave);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Power";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(24, 149);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Settings";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(32, 259);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Load";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(31, 369);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Export";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(29, 479);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Send";
+            // 
+            // lblUndo
+            // 
+            this.lblUndo.AutoSize = true;
+            this.lblUndo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUndo.ForeColor = System.Drawing.Color.White;
+            this.lblUndo.Location = new System.Drawing.Point(691, 452);
+            this.lblUndo.Name = "lblUndo";
+            this.lblUndo.Size = new System.Drawing.Size(37, 13);
+            this.lblUndo.TabIndex = 33;
+            this.lblUndo.Text = "Undo";
+            this.lblUndo.Visible = false;
+            // 
+            // lblSave
+            // 
+            this.lblSave.AutoSize = true;
+            this.lblSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSave.ForeColor = System.Drawing.Color.White;
+            this.lblSave.Location = new System.Drawing.Point(692, 511);
+            this.lblSave.Name = "lblSave";
+            this.lblSave.Size = new System.Drawing.Size(36, 13);
+            this.lblSave.TabIndex = 34;
+            this.lblSave.Text = "Save";
+            this.lblSave.Visible = false;
+            // 
+            // txtbReden
+            // 
+            this.txtbReden.Location = new System.Drawing.Point(561, 158);
+            this.txtbReden.Name = "txtbReden";
+            this.txtbReden.Size = new System.Drawing.Size(115, 68);
+            this.txtbReden.TabIndex = 35;
+            this.txtbReden.Text = "";
+            this.txtbReden.Visible = false;
+            // 
+            // btnReden
+            // 
+            this.btnReden.Location = new System.Drawing.Point(561, 237);
+            this.btnReden.Name = "btnReden";
+            this.btnReden.Size = new System.Drawing.Size(115, 23);
+            this.btnReden.TabIndex = 36;
+            this.btnReden.Text = "Confirm";
+            this.btnReden.UseVisualStyleBackColor = true;
+            this.btnReden.Visible = false;
+            this.btnReden.Click += new System.EventHandler(this.btnReden_Click);
+            // 
             // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(734, 626);
+            this.Controls.Add(this.btnReden);
+            this.Controls.Add(this.txtbReden);
+            this.Controls.Add(this.lblSave);
+            this.Controls.Add(this.lblUndo);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.DataGridLlnState);
             this.Controls.Add(this.lblUserAddPlaceHolder);
@@ -392,6 +509,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSmartschool)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).EndInit();
@@ -439,6 +557,15 @@
         private System.Windows.Forms.Label lblUserAddPlaceHolder;
         private System.Windows.Forms.PictureBox DataGridLlnState;
         private System.Windows.Forms.PictureBox btnUndo;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUndo;
+        private System.Windows.Forms.Label lblSave;
+        private System.Windows.Forms.RichTextBox txtbReden;
+        private System.Windows.Forms.Button btnReden;
     }
 }
 

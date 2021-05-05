@@ -328,8 +328,20 @@ namespace Main
             {
                 if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
                 {
+
                     //LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
-                    LijstLeerlingen[Row.Index].Reden = LijstReden[lbReden.SelectedIndex];
+                    if (LijstReden[lbReden.SelectedIndex]=="Andere")
+                    {
+                        txtbReden.Visible = true;
+                        btnReden.Visible = true;
+                    }
+                    else
+                    {
+                        txtbReden.Visible = false;
+                        btnReden.Visible = false;
+
+                        LijstLeerlingen[Row.Index].Reden = LijstReden[lbReden.SelectedIndex];
+                    }
                 }
             }
 
@@ -520,8 +532,10 @@ namespace Main
         private void DataGridLeerlingen_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             blUnsavedWork = true;
+            lblSave.Visible = true;
             DataGridLlnState.Visible = true;
             btnUndo.Visible = true;
+            lblUndo.Visible = true;
             DataGridLlnState.Image = SaveModificationRed;
         }
 
@@ -539,7 +553,9 @@ namespace Main
                 }
                 blUnsavedWork = false;
                 btnUndo.Visible = false;
+                lblUndo.Visible = false;
                 DataGridLlnState.Visible = false;
+                lblSave.Visible = false;
             }
             //List<leerling> NLijstLeerlingen = new List<leerling>();
 
@@ -552,7 +568,27 @@ namespace Main
             UpdateDataGrid();
             blUnsavedWork = false;
             btnUndo.Visible = false;
+            lblUndo.Visible = false;
+
         }
 
+        private void btnReden_Click(object sender, EventArgs e)
+        {
+
+
+            //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
+            foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
+            {
+                if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
+                {
+                    LijstLeerlingen[Row.Index].Reden = txtbReden.Text;
+
+                }
+            }
+
+            UpdateDataGrid();
+            lblError.Text = "Reden Changed";
+
+        }
     }
 }

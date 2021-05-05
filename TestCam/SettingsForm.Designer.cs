@@ -56,6 +56,7 @@
             // 
             // btnCloseSettings
             // 
+            this.btnCloseSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseSettings.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCloseSettings.Location = new System.Drawing.Point(407, 56);
             this.btnCloseSettings.Name = "btnCloseSettings";
@@ -79,7 +80,7 @@
             // lbCameras
             // 
             this.lbCameras.FormattingEnabled = true;
-            this.lbCameras.Location = new System.Drawing.Point(163, 58);
+            this.lbCameras.Location = new System.Drawing.Point(179, 58);
             this.lbCameras.Name = "lbCameras";
             this.lbCameras.Size = new System.Drawing.Size(222, 95);
             this.lbCameras.TabIndex = 8;
@@ -172,7 +173,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
-            this.ClientSize = new System.Drawing.Size(546, 165);
+            this.ClientSize = new System.Drawing.Size(550, 165);
             this.Controls.Add(this.txtbPath);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
