@@ -135,6 +135,24 @@
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="Naam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Voornaam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Klas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Reden.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Tijd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -1045,32 +1063,32 @@
   </data>
   <data name="DataGridLlnState.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        DBMAGCYAMEwAYJgAwDABgGECAMMEAIYJAAwTABgmADBMAGCYAMAwAYBhAgDDBACGCQAMEwAYJgAwTABg
+        mADAMAGAYQIAwwQAhgkADBMAGCYAMEwAYJgAwDABgGECAMMEAIYJAAwTABgmADBMAGCYAMAwAYBhAgDD
+        BACGCQAMEwAYJgAwTABgmADAMAGAYQIAwwQAhgkADBMAGCYAMEwAYJgAwDABgGECAMMEAIYJAAwTABgm
+        ADBMAGCYAMAwAYBhAgDDBACGCQAMe9gA/BWfoMzneOu9tnrYADy9fLZZzfIuP756p+0EwOx7Le9SAI4I
+        gNUt71IAjgiA1S3vUgCOCIDVLe9SAI4IgNUt71IAjgiA1S3vUgCOCIDVLe9SAI4IgNUt71IAjgiA1S3v
+        UgCOCIDVLe9SAI4IgNUt71IAjgiA1S3vUgCOCIDVLe9SAI4IgNUt71IAjgiA1S3vUgCOCIDVLe9SAI4I
+        gNUt71IAjgiA1S3vUgCOCIDVLe9SAI4IgNUt71IAjgiA1S3vUgCOCIDVLe9SAI4IgNUt71IAjgiA1S3v
+        UgCOfI3n74Umv8Zb77XVwwYA+P8EAIYJAAwTABgmADBMAGCYAMAwAYBhAgDDBACGCQAMEwAYJgAwTABg
+        mADAMAGAYQIAwwQAhgkADBMAGCYAMEwAYJgAwDABgGECAMMEAIYJAAwTABgmADBMAGCYAMAwAYBhCcCH
+        D38Dxgz9NrZNwUEAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnUndo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
