@@ -70,15 +70,19 @@ namespace Apollon
                         Browser.FindElement(By.XPath("//div[@id='smscSelect_classes']")).Click();
                         Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys(lln.Klas);
                         System.Threading.Thread.Sleep(600);
-                        Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{DOWN}");
-                        Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{ENTER}");
+                        SendKeys.Send("{DOWN}");
+                        SendKeys.Send("{ENTER");
+                        //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{DOWN}");
+                        //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{ENTER}");
 
                         System.Threading.Thread.Sleep(3000);
                         Browser.FindElement(By.XPath("//div[@id='smscSelect_classes']")).Click();
                         Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys(lln.Klas);
                         System.Threading.Thread.Sleep(600);
-                        Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{DOWN}");
-                        Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{ENTER}");
+                        SendKeys.Send("{DOWN}");
+                        SendKeys.Send("{ENTER");
+                        //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{DOWN}");
+                        //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{ENTER}");
 
                     }
                     System.Threading.Thread.Sleep(3000);
@@ -96,7 +100,6 @@ namespace Apollon
                 catch (Exception)
                 {
                     lln.Sent = false;
-                    throw;
                 }
                 UpdateGrid(Lijstleerlingen);
                 lastKlas = lln.Klas;
