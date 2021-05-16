@@ -107,7 +107,7 @@
             this.txtbRefreshRate.Size = new System.Drawing.Size(49, 20);
             this.txtbRefreshRate.TabIndex = 9;
             this.txtbRefreshRate.Value = new decimal(new int[] {
-            500,
+            300,
             0,
             0,
             0});

@@ -34,8 +34,8 @@ namespace Main
         {
             if (Apollon.MijnDevice != null)
             {
-                //Appolon.MijnDevice = new AForge.Video.DirectShow.VideoCaptureDevice(Appolon.MijnFilterInfoCollection[cboxInputs.SelectedIndex].MonikerString);
-                Apollon.MijnDevice = new VideoCaptureDevice(Apollon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
+                Apollon.MijnDevice = new VideoCaptureDevice(
+                    Apollon.MijnFilterInfoCollection[lbCameras.SelectedIndex].MonikerString);
                 Apollon.MijnTimer.Interval = Convert.ToInt32(txtbRefreshRate.Value);
             }
 

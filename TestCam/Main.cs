@@ -84,7 +84,8 @@ namespace Main
                 TestLeerling.Reden = "Te laat";
                 bool newLeeling = true;
                 foreach (leerling DeLeerling in LijstLeerlingen)
-                {   // Check through all existing Leerlingen if the ID already exist which in theory should be unique
+                {   // Check through all existing Leerlingen if the ID
+                    // already exist which in theory should be unique
                     if (DeLeerling.GetID() == TestLeerling.GetID())
                         newLeeling = false;
                 }
@@ -131,8 +132,6 @@ namespace Main
 
         private void btnPower_Click(object sender, EventArgs e)
         {
-
-
             if (File.Exists(SavePath + @"\reden.txt"))
             {
                 lbReden.Items.Clear();
@@ -145,7 +144,8 @@ namespace Main
             }
             else if (LijstReden.Count == 0)
             {   //No reden.txt found open FolderDialog to find directory to 
-                if (MessageBox.Show("Do you have a reden.txt to import?", "No reden.txt found", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Do you have a reden.txt to import?", "No reden.txt found",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     if (MijnFileDialog.ShowDialog() == DialogResult.OK)
                     {
@@ -275,6 +275,8 @@ namespace Main
 
             return ListReden;
         }
+
+
         private void btnSettings_Click(object sender, EventArgs e)
         {
             settingsForm.Show();
@@ -328,7 +330,6 @@ namespace Main
             {
                 if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
                 {
-
                     //LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
                     if (LijstReden[lbReden.SelectedIndex]=="Andere")
                     {
@@ -383,6 +384,12 @@ namespace Main
                     if (newLeerling)
                     {
                         LijstLeerlingen.Add(new leerling(txtbVoornaamInput.Text, txtbNaamInput.Text, txtbKlasInput.Text));
+                        //AUTO SAVE
+                        if (AutosaveEnabled)
+                        { // Write data to json file
+                            File.WriteAllText(SavePath + @"/AutosaveData.json",
+                                JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented));
+                        }
                         UpdateDataGrid();
                         txtbKlasInput.Clear();
                         txtbNaamInput.Clear();
@@ -451,7 +458,6 @@ namespace Main
         {
             btnAddLln.Image = UserAddDarker;
         }
-
         private void btnAddLln_MouseLeave(object sender, EventArgs e)
         {
             btnAddLln.Image = UserAdd;
@@ -460,17 +466,14 @@ namespace Main
         {
             btnMakeLln.Image = AddHover;
         }
-
         private void btnMakeLln_MouseLeave(object sender, EventArgs e)
         {
             btnMakeLln.Image = Add;
         }
-
         private void btnSmartschool_MouseEnter(object sender, EventArgs e)
         {
             btnSmartschool.Image = SmartschoolColor;
         }
-
         private void btnSmartschool_MouseLeave(object sender, EventArgs e)
         {
             btnSmartschool.Image = Smartschool;
@@ -480,7 +483,6 @@ namespace Main
         {
             DataGridLlnState.Image = SaveModificationGreen;
         }
-
         private void DataGridLlnState_MouseLeave(object sender, EventArgs e)
         {
             DataGridLlnState.Image = SaveModificationRed;
@@ -489,7 +491,6 @@ namespace Main
         {
             btnUndo.Image = Undo;
         }
-
         private void btnUndo_MouseEnter(object sender, EventArgs e)
         {
             btnUndo.Image = UndoDark;
@@ -551,6 +552,14 @@ namespace Main
                         DataGridLeerlingen.Rows[i].Cells[2].Value.ToString()));
                     LijstLeerlingen[i].Reden = DataGridLeerlingen.Rows[i].Cells[3].Value.ToString();
                 }
+
+                //AUTO SAVE
+                if (AutosaveEnabled)
+                { // Write data to json file
+                    File.WriteAllText(SavePath + @"/AutosaveData.json",
+                        JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented));
+                }
+
                 blUnsavedWork = false;
                 btnUndo.Visible = false;
                 lblUndo.Visible = false;
@@ -569,26 +578,21 @@ namespace Main
             blUnsavedWork = false;
             btnUndo.Visible = false;
             lblUndo.Visible = false;
-
         }
 
         private void btnReden_Click(object sender, EventArgs e)
         {
-
-
             //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
             foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
             {
                 if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
                 {
                     LijstLeerlingen[Row.Index].Reden = txtbReden.Text;
-
                 }
             }
 
             UpdateDataGrid();
             lblError.Text = "Reden Changed";
-
         }
     }
 }
