@@ -31,8 +31,8 @@ namespace Main
         internal static bool DevmodeEnabled = false;
         internal static bool IsStarted = false;
         internal static string SavePath = "";
+        internal static string strRedenPath = "";
         bool blUnsavedWork = false;
-
 
         //preload resource images
         Image SettingsDark = Image.FromFile(@"..\..\Icons\SettingsBold_Dark.png");
@@ -57,6 +57,8 @@ namespace Main
         Image SaveModificationGreen = Image.FromFile(@"..\..\Icons\SaveModificationGreen.png");
         Image Undo = Image.FromFile(@"..\..\Icons\Undo.png");
         Image UndoDark = Image.FromFile(@"..\..\Icons\UndoDark.png");
+        Image Remove = Image.FromFile(@"..\..\Icons\Remove.png");
+        Image RemoveHover = Image.FromFile(@"..\..\Icons\RemoveHover.png");
 
         private void Appolon_Load(object sender, EventArgs e)
         {
@@ -134,8 +136,9 @@ namespace Main
         {
             if (File.Exists(SavePath + @"\reden.txt"))
             {
+                strRedenPath = SavePath + @"\reden.txt";
                 lbReden.Items.Clear();
-                foreach (string eenReden in ImportReden(SavePath + @"/reden.txt"))
+                foreach (string eenReden in ImportReden(strRedenPath))
                 {
                     lbReden.Items.Add(eenReden);
                     LijstReden.Add(eenReden);
@@ -149,9 +152,10 @@ namespace Main
                 {
                     if (MijnFileDialog.ShowDialog() == DialogResult.OK)
                     {
+                        strRedenPath = MijnFileDialog.FileName;
                         //SavePath = MijnBrowserDialog.SelectedPath;
 
-                        foreach (string eenReden in ImportReden(MijnFileDialog.FileName))
+                        foreach (string eenReden in ImportReden(strRedenPath))
                         {
                             lbReden.Items.Add(eenReden);
                             LijstReden.Add(eenReden);
@@ -262,7 +266,7 @@ namespace Main
             string strWord = "";
             foreach (char Letter in Chars)
             {
-                if (Letter != ',')
+                if (Letter != ';')
                 {
                     strWord += Letter;
                 }
@@ -495,12 +499,27 @@ namespace Main
         {
             btnUndo.Image = UndoDark;
         }
-
+        private void btnRedenAdd_MouseEnter(object sender, EventArgs e)
+        {
+            btnRedenAdd.Image = AddHover;
+        }
+        private void btnRedenAdd_MouseLeave(object sender, EventArgs e)
+        {
+            btnRedenAdd.Image = Add;
+        }
+        private void btnRedenRemove_MouseEnter(object sender, EventArgs e)
+        {
+            btnRedenRemove.Image = RemoveHover;
+        }
+        private void btnRedenRemove_MouseLeave(object sender, EventArgs e)
+        {
+            btnRedenRemove.Image = Remove;
+        }
         //    /\
         //   /  \
         //    ||    <= HOVER ANIMATIONS
         //    ||
-        
+
         private void btnAddLln_Click(object sender, EventArgs e)
         {
             if (btnMakeLln.Visible)
@@ -591,8 +610,59 @@ namespace Main
                 }
             }
 
+            txtbReden.Clear();
             UpdateDataGrid();
             lblError.Text = "Reden Changed";
+        }
+
+        private void btnRedenAdd_Click(object sender, EventArgs e)
+        {
+            if (txtbReden.Text !="")
+            {
+                File.WriteAllText(strRedenPath, File.ReadAllText(strRedenPath) + txtbReden.Text + ';');
+                lbReden.Items.Clear();
+                LijstReden.Add(txtbReden.Text);
+                foreach (string eenReden in ImportReden(strRedenPath))
+                {
+                    lbReden.Items.Add(eenReden);
+                    LijstReden.Add(eenReden);
+                }
+                lblError.Text = "Reden added";
+            }
+        }
+        private void btnRedenRemove_Click(object sender, EventArgs e)
+        {
+            if (lbReden.SelectedIndex>0)
+            {
+                string strReden = "";
+                List<string> ListReden = new List<string>();
+                char[] Chars = File.ReadAllText(strRedenPath).ToCharArray();
+                string strWord = "";
+                foreach (char Letter in Chars)
+                {
+                    if (Letter != ';')
+                    {
+                        strWord += Letter;
+                    }
+                    else
+                    {
+                        if (strWord != LijstReden[lbReden.SelectedIndex])
+                        {
+                            ListReden.Add(strWord);
+                            strReden += strWord + ";";
+                        }
+                        lblError.Text = strReden;
+                        strWord = "";
+                    }
+                }
+                lbReden.Items.Clear();
+                foreach (string eenReden in ListReden)
+                {
+                    lbReden.Items.Add(eenReden);
+                    LijstReden.Add(eenReden);
+                }
+                File.WriteAllText(strRedenPath, strReden);
+            }
         }
     }
 }

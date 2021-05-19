@@ -77,7 +77,7 @@ namespace Main
 
         public string GetID()
         {
-            return (strNaam.Substring(0, 3) + strVoornaam.Substring(0, 3) + strKlas.Substring(0, 1)).ToLower();
+            return (strNaam.Substring(0, 2) + strVoornaam.Substring(0, 2) + strKlas.Substring(0, 1)).ToLower();
         }
 
         public string GetInfos()

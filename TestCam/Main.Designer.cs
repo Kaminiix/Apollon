@@ -48,6 +48,11 @@
             this.txtbVoornaamInput = new System.Windows.Forms.TextBox();
             this.txtbKlasInput = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSmartschool = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.PictureBox();
             this.btnLoad = new System.Windows.Forms.PictureBox();
@@ -59,15 +64,12 @@
             this.lblUserAddPlaceHolder = new System.Windows.Forms.Label();
             this.DataGridLlnState = new System.Windows.Forms.PictureBox();
             this.btnUndo = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblUndo = new System.Windows.Forms.Label();
             this.lblSave = new System.Windows.Forms.Label();
             this.txtbReden = new System.Windows.Forms.RichTextBox();
             this.btnReden = new System.Windows.Forms.Button();
+            this.btnRedenAdd = new System.Windows.Forms.PictureBox();
+            this.btnRedenRemove = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,6 +83,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLlnState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUndo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRedenAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRedenRemove)).BeginInit();
             this.SuspendLayout();
             // 
             // lblComment
@@ -194,8 +198,6 @@
             // 
             // txtbNaamInput
             // 
-            this.txtbNaamInput.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtbNaamInput.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
             this.txtbNaamInput.Location = new System.Drawing.Point(302, 296);
             this.txtbNaamInput.Name = "txtbNaamInput";
             this.txtbNaamInput.Size = new System.Drawing.Size(100, 20);
@@ -235,6 +237,61 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(100, 605);
             this.panel1.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(29, 479);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Send";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(31, 369);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Export";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(32, 259);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Load";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(24, 149);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Settings";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Power";
             // 
             // btnSmartschool
             // 
@@ -377,61 +434,6 @@
             this.btnUndo.MouseEnter += new System.EventHandler(this.btnUndo_MouseEnter);
             this.btnUndo.MouseLeave += new System.EventHandler(this.btnUndo_MouseLeave);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Power";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(24, 149);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Settings";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(32, 259);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Load";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(31, 369);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Export";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(29, 479);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 13);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Send";
-            // 
             // lblUndo
             // 
             this.lblUndo.AutoSize = true;
@@ -476,12 +478,40 @@
             this.btnReden.Visible = false;
             this.btnReden.Click += new System.EventHandler(this.btnReden_Click);
             // 
+            // btnRedenAdd
+            // 
+            this.btnRedenAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnRedenAdd.Image")));
+            this.btnRedenAdd.Location = new System.Drawing.Point(692, 28);
+            this.btnRedenAdd.Name = "btnRedenAdd";
+            this.btnRedenAdd.Size = new System.Drawing.Size(25, 25);
+            this.btnRedenAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnRedenAdd.TabIndex = 37;
+            this.btnRedenAdd.TabStop = false;
+            this.btnRedenAdd.Click += new System.EventHandler(this.btnRedenAdd_Click);
+            this.btnRedenAdd.MouseEnter += new System.EventHandler(this.btnRedenAdd_MouseEnter);
+            this.btnRedenAdd.MouseLeave += new System.EventHandler(this.btnRedenAdd_MouseLeave);
+            // 
+            // btnRedenRemove
+            // 
+            this.btnRedenRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRedenRemove.Image")));
+            this.btnRedenRemove.Location = new System.Drawing.Point(692, 60);
+            this.btnRedenRemove.Name = "btnRedenRemove";
+            this.btnRedenRemove.Size = new System.Drawing.Size(25, 25);
+            this.btnRedenRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnRedenRemove.TabIndex = 38;
+            this.btnRedenRemove.TabStop = false;
+            this.btnRedenRemove.Click += new System.EventHandler(this.btnRedenRemove_Click);
+            this.btnRedenRemove.MouseEnter += new System.EventHandler(this.btnRedenRemove_MouseEnter);
+            this.btnRedenRemove.MouseLeave += new System.EventHandler(this.btnRedenRemove_MouseLeave);
+            // 
             // Apollon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
             this.ClientSize = new System.Drawing.Size(734, 626);
+            this.Controls.Add(this.btnRedenRemove);
+            this.Controls.Add(this.btnRedenAdd);
             this.Controls.Add(this.btnReden);
             this.Controls.Add(this.txtbReden);
             this.Controls.Add(this.lblSave);
@@ -520,6 +550,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLlnState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUndo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRedenAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRedenRemove)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,6 +598,8 @@
         private System.Windows.Forms.Label lblSave;
         private System.Windows.Forms.RichTextBox txtbReden;
         private System.Windows.Forms.Button btnReden;
+        private System.Windows.Forms.PictureBox btnRedenAdd;
+        private System.Windows.Forms.PictureBox btnRedenRemove;
     }
 }
 
