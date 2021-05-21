@@ -91,7 +91,7 @@
             // 
             this.lblComment.AutoSize = true;
             this.lblComment.ForeColor = System.Drawing.Color.White;
-            this.lblComment.Location = new System.Drawing.Point(412, 573);
+            this.lblComment.Location = new System.Drawing.Point(416, 576);
             this.lblComment.Name = "lblComment";
             this.lblComment.Size = new System.Drawing.Size(61, 13);
             this.lblComment.TabIndex = 8;
@@ -102,7 +102,7 @@
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.ForeColor = System.Drawing.Color.White;
-            this.lblResult.Location = new System.Drawing.Point(309, 573);
+            this.lblResult.Location = new System.Drawing.Point(313, 576);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(47, 13);
             this.lblResult.TabIndex = 9;
@@ -169,7 +169,7 @@
             this.lblError});
             this.statusStrip1.Location = new System.Drawing.Point(0, 604);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(734, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(737, 22);
             this.statusStrip1.TabIndex = 19;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -188,8 +188,9 @@
             this.lbReden.FormattingEnabled = true;
             this.lbReden.Location = new System.Drawing.Point(561, 14);
             this.lbReden.Name = "lbReden";
-            this.lbReden.Size = new System.Drawing.Size(115, 134);
+            this.lbReden.Size = new System.Drawing.Size(115, 238);
             this.lbReden.TabIndex = 25;
+            this.lbReden.Visible = false;
             this.lbReden.SelectedIndexChanged += new System.EventHandler(this.lbReden_SelectedIndexChanged);
             // 
             // MijnFileDialog
@@ -381,6 +382,7 @@
             this.btnAddLln.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnAddLln.TabIndex = 14;
             this.btnAddLln.TabStop = false;
+            this.btnAddLln.Visible = false;
             this.btnAddLln.Click += new System.EventHandler(this.btnAddLln_Click);
             this.btnAddLln.MouseEnter += new System.EventHandler(this.btnAddLln_MouseEnter);
             this.btnAddLln.MouseLeave += new System.EventHandler(this.btnAddLln_MouseLeave);
@@ -388,9 +390,10 @@
             // pbox
             // 
             this.pbox.BackColor = System.Drawing.Color.White;
-            this.pbox.Location = new System.Drawing.Point(146, 14);
+            this.pbox.Location = new System.Drawing.Point(214, 12);
             this.pbox.Name = "pbox";
-            this.pbox.Size = new System.Drawing.Size(339, 247);
+            this.pbox.Size = new System.Drawing.Size(372, 247);
+            this.pbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbox.TabIndex = 0;
             this.pbox.TabStop = false;
             // 
@@ -481,12 +484,13 @@
             // btnRedenAdd
             // 
             this.btnRedenAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnRedenAdd.Image")));
-            this.btnRedenAdd.Location = new System.Drawing.Point(692, 28);
+            this.btnRedenAdd.Location = new System.Drawing.Point(692, 174);
             this.btnRedenAdd.Name = "btnRedenAdd";
             this.btnRedenAdd.Size = new System.Drawing.Size(25, 25);
             this.btnRedenAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRedenAdd.TabIndex = 37;
             this.btnRedenAdd.TabStop = false;
+            this.btnRedenAdd.Visible = false;
             this.btnRedenAdd.Click += new System.EventHandler(this.btnRedenAdd_Click);
             this.btnRedenAdd.MouseEnter += new System.EventHandler(this.btnRedenAdd_MouseEnter);
             this.btnRedenAdd.MouseLeave += new System.EventHandler(this.btnRedenAdd_MouseLeave);
@@ -494,12 +498,13 @@
             // btnRedenRemove
             // 
             this.btnRedenRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRedenRemove.Image")));
-            this.btnRedenRemove.Location = new System.Drawing.Point(692, 60);
+            this.btnRedenRemove.Location = new System.Drawing.Point(692, 14);
             this.btnRedenRemove.Name = "btnRedenRemove";
             this.btnRedenRemove.Size = new System.Drawing.Size(25, 25);
             this.btnRedenRemove.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRedenRemove.TabIndex = 38;
             this.btnRedenRemove.TabStop = false;
+            this.btnRedenRemove.Visible = false;
             this.btnRedenRemove.Click += new System.EventHandler(this.btnRedenRemove_Click);
             this.btnRedenRemove.MouseEnter += new System.EventHandler(this.btnRedenRemove_MouseEnter);
             this.btnRedenRemove.MouseLeave += new System.EventHandler(this.btnRedenRemove_MouseLeave);
@@ -509,7 +514,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(67)))), ((int)(((byte)(97)))));
-            this.ClientSize = new System.Drawing.Size(734, 626);
+            this.ClientSize = new System.Drawing.Size(737, 626);
             this.Controls.Add(this.btnRedenRemove);
             this.Controls.Add(this.btnRedenAdd);
             this.Controls.Add(this.btnReden);

@@ -41,7 +41,7 @@ namespace Main
 
             Apollon.AutosaveEnabled = cbAutosave.Checked;
             Apollon.DevmodeEnabled = cBoxDev.Checked;
-
+            
             this.Hide();
         }
 

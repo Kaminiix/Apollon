@@ -30,6 +30,7 @@ namespace Main
         internal static bool AutosaveEnabled = false;
         internal static bool DevmodeEnabled = false;
         internal static bool IsStarted = false;
+        internal static bool IsReden = false;
         internal static string SavePath = "";
         internal static string strRedenPath = "";
         bool blUnsavedWork = false;
@@ -74,7 +75,6 @@ namespace Main
             //Devmode
             lblComment.Visible = DevmodeEnabled;
             lblResult.Visible = DevmodeEnabled;
-
             //Make a copy of the frame on the picturebox on the right
             Image TickFrame = pbox.Image;
             //pictureBox2.Image = pbox.Image;
@@ -152,86 +152,107 @@ namespace Main
                 {
                     if (MijnFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        strRedenPath = MijnFileDialog.FileName;
-                        //SavePath = MijnBrowserDialog.SelectedPath;
+                        if (MijnFileDialog.FileName.Contains("Reden.txt") == true)
+                        {
+                            strRedenPath = MijnFileDialog.FileName;
+                            //SavePath = MijnBrowserDialog.SelectedPath;
 
-                        foreach (string eenReden in ImportReden(strRedenPath))
-                        {
-                            lbReden.Items.Add(eenReden);
-                            LijstReden.Add(eenReden);
-                        }
-                        lblError.Text = "Reden imported";
-                    }
-                }
-                /*    DOWNLOAD reden.txt FROM THE INTERNET NOT WORKING YET !!
-                else
-                {
-                    if (MessageBox.Show("Do you want to download the default one from the internet?",
-                        "No reden.txt", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        if (MessageBox.Show("Please select the folder where you want to download the file") == DialogResult.OK)
-                        {
-                            if (MijnBrowserDialog.ShowDialog() == DialogResult.OK)
+                            foreach (string eenReden in ImportReden(strRedenPath))
                             {
-                                try
-                                { //Download reden.txt from Github
-                                    WebClient MijnWebClient = new WebClient();
-                                    MijnWebClient.DownloadFile("https://cdn.discordapp.com/attachments/493374771812106260/821859873443807232/Reden.txt",
-                                        MijnBrowserDialog.SelectedPath);
-                                    // https://bit.ly/3bWfz8j MSDN
-                                    SavePath = MijnBrowserDialog.SelectedPath;
-                                    foreach (string Reden in ImportReden(SavePath + @"/reden.txt"))
-                                    {
-                                        lbReden.Items.Add(Reden);
-                                    }
-                                    lblError.Text = "Reden imported";
-                                }
-                                catch (Exception)
-                                {
-                                    throw;
-                                }
+                                lbReden.Items.Add(eenReden);
+                                LijstReden.Add(eenReden);
                             }
-
+                            IsReden = true;
+                            lblError.Text = "Reden imported";
                         }
+                        else
+                        {
+                            MessageBox.Show("Selecteer een Reden.txt file.");
+                        }
+                    }
+                }
+            }
+
+            if (IsReden==true)
+            {
+
+                if (Apollon.MijnDevice != null)
+                {
+                    if (!MijnDevice.IsRunning)
+                    {
+                        IsStarted = true;
+                        MijnDevice.NewFrame += MijnDevice_NewFrame;
+                        MijnDevice.Start();
+                        MijnTimer.Tick += MijnTimer_Tick;
+                        MijnTimer.Start();
+                        btnPower.Image = PowerOn;
+                        btnAddLln.Visible = true;
+                        btnRedenRemove.Visible = true;
+                        lbReden.Visible = true;
+                        pbox.Location = new Point(134, 14);
+                    }
+                    else
+                    {
+                        IsStarted = false;
+                        btnPower.Image = PowerOff;
+                        MijnDevice.Stop();
+                        MijnTimer.Stop();
+                        btnAddLln.Visible = false;
+                        btnRedenRemove.Visible = false;
+                        lbReden.Visible = false;
+                        pbox.Location = new Point(214, 12);
 
                     }
                 }
-                */
-            }
-
-
-            if (Apollon.MijnDevice != null)
-            {
-                if (!MijnDevice.IsRunning)
-                {
-                    IsStarted = true;
-                    MijnDevice.NewFrame += MijnDevice_NewFrame;
-                    MijnDevice.Start();
-                    MijnTimer.Tick += MijnTimer_Tick;
-                    MijnTimer.Start();
-                    btnPower.Image = PowerOn;
-                }
                 else
                 {
-                    IsStarted = false;
-                    btnPower.Image = PowerOff;
-                    MijnDevice.Stop();
-                    MijnTimer.Stop();
+                    MessageBox.Show("Configuration not made yet");
+                    MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                    foreach (FilterInfo EenFilterInfo in MijnFilterInfoCollection)
+                    { //Auto selects a capture device if one is starting with usb
+                      // if 3 first letters are USB
+                        if (EenFilterInfo.Name.Substring(0, 3) == "USB")
+                        {
+                            MijnDevice = new VideoCaptureDevice(EenFilterInfo.MonikerString);
+                        }
+                    }
                 }
             }
+
+            /*    DOWNLOAD reden.txt FROM THE INTERNET NOT WORKING YET !!
             else
             {
-                MessageBox.Show("Configuration not made yet");
-                MijnFilterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-                foreach (FilterInfo EenFilterInfo in MijnFilterInfoCollection)
-                { //Auto selects a capture device if one is starting with usb
-                    // if 3 first letters are USB
-                    if (EenFilterInfo.Name.Substring(0, 3) == "USB")
+                if (MessageBox.Show("Do you want to download the default one from the internet?",
+                    "No reden.txt", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (MessageBox.Show("Please select the folder where you want to download the file") == DialogResult.OK)
                     {
-                        MijnDevice = new VideoCaptureDevice(EenFilterInfo.MonikerString);
+                        if (MijnBrowserDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            try
+                            { //Download reden.txt from Github
+                                WebClient MijnWebClient = new WebClient();
+                                MijnWebClient.DownloadFile("https://cdn.discordapp.com/attachments/493374771812106260/821859873443807232/Reden.txt",
+                                    MijnBrowserDialog.SelectedPath);
+                                // https://bit.ly/3bWfz8j MSDN
+                                SavePath = MijnBrowserDialog.SelectedPath;
+                                foreach (string Reden in ImportReden(SavePath + @"/reden.txt"))
+                                {
+                                    lbReden.Items.Add(Reden);
+                                }
+                                lblError.Text = "Reden imported";
+                            }
+                            catch (Exception)
+                            {
+                                throw;
+                            }
+                        }
+
                     }
+
                 }
             }
+            */
         }
 
         static public leerling MakeLeerling(string strInput)
@@ -321,37 +342,60 @@ namespace Main
         {
             if (MijnFileDialog.ShowDialog() == DialogResult.OK)
             {
-                lblError.Text = "";
-                string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
-                LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
-                UpdateDataGrid();
+                if (MijnFileDialog.FileName.Contains("Data.json") == true) {
+                    lblError.Text = "";
+                    string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
+                    LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
+                    UpdateDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Selecteer een Data.json file.");
+                }
+
+
             }
         }
         private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
         {
             //LijstLeerlingen[DataGridLeerlingen.SelectedRows].Reden = lbReden.Items[Convert.ToInt32(DataGridLeerlingen.SelectedRows)].ToString();
-            foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
+            if (lbReden.SelectedIndex > -1)
             {
-                if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
-                {
-                    //LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
-                    if (LijstReden[lbReden.SelectedIndex]=="Andere")
-                    {
-                        txtbReden.Visible = true;
-                        btnReden.Visible = true;
-                    }
-                    else
-                    {
-                        txtbReden.Visible = false;
-                        btnReden.Visible = false;
 
-                        LijstLeerlingen[Row.Index].Reden = LijstReden[lbReden.SelectedIndex];
+                if (LijstReden[lbReden.SelectedIndex] == "Andere")
+                {
+                    txtbReden.Visible = true;
+                    btnReden.Visible = true;
+                    btnRedenAdd.Visible = true;
+                    lbReden.Size = new Size(115, 134);
+                }
+                else
+                {
+                    txtbReden.Visible = false;
+                    btnReden.Visible = false;
+                    btnRedenAdd.Visible = false;
+                    lbReden.Size = new Size(115, 238);
+
+                }
+
+                foreach (DataGridViewRow Row in DataGridLeerlingen.SelectedRows)
+                {
+                    if (LijstLeerlingen.Count != 0) //disable modifing reden if there arent leerlingen yet
+                    {
+                        //LijstLeerlingen[Row.Index].Reden = lbReden.SelectedItem.ToString();
+                        if (LijstReden[lbReden.SelectedIndex] == "Andere")
+                        {
+                        }
+                        else
+                        {
+                            LijstLeerlingen[Row.Index].Reden = LijstReden[lbReden.SelectedIndex];
+                        }
                     }
                 }
-            }
 
-            UpdateDataGrid();
-            lblError.Text = "Reden Changed";
+                UpdateDataGrid();
+                lblError.Text = "Reden Changed";
+            }
         }
         private void btnMakeLln_Click(object sender, EventArgs e)
         {
