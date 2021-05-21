@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -71,7 +71,7 @@ namespace Apollon
                         Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys(lln.Klas);
                         System.Threading.Thread.Sleep(600);
                         SendKeys.Send("{DOWN}");
-                        SendKeys.Send("{ENTER");
+                        SendKeys.Send("{ENTER}");
                         //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{DOWN}");
                         //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{ENTER}");
 
@@ -80,22 +80,31 @@ namespace Apollon
                         Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys(lln.Klas);
                         System.Threading.Thread.Sleep(600);
                         SendKeys.Send("{DOWN}");
-                        SendKeys.Send("{ENTER");
+                        SendKeys.Send("{ENTER}");
                         //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{DOWN}");
                         //Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).SendKeys("{ENTER}");
 
                     }
-                    System.Threading.Thread.Sleep(3000);
+                    System.Threading.Thread.Sleep(2000);
 
-                    if (Browser.FindElement(By.XPath("//div[contains(text(),'" + lln.Voornaam + " " + lln.Naam + "')]")).Displayed)
-                    {
-                        lln.Sent = true;
-                        Browser.FindElement(By.XPath("//div[contains(text(),'" + lln.Voornaam + " " + lln.Naam + "')]")).Click();
-                        System.Threading.Thread.Sleep(500);
-                        Browser.FindElement(By.XPath(TELAAT)).Click();
-                        System.Threading.Thread.Sleep(500);
-                        Browser.FindElement(By.Id("codeselect_motivation")).SendKeys(lln.Reden);
-                    }
+
+
+                    lln.Sent = true;
+                    Browser.FindElement(By.XPath("//div[contains(text(),'" + lln.Voornaam + " " + lln.Naam + "')]")).Click();
+                    System.Threading.Thread.Sleep(500);
+                    Browser.FindElement(By.XPath(TELAAT)).Click();
+                    System.Threading.Thread.Sleep(500);
+                    Browser.FindElement(By.Id("codeselect_motivation")).Clear();
+                    Browser.FindElement(By.Id("codeselect_motivation")).SendKeys(lln.Reden);
+                    Browser.FindElement(By.XPath("//div[@id='saveBtn']")).Click();
+
+                    System.Threading.Thread.Sleep(200);
+                    Browser.FindElement(By.XPath("//div[@id='smscSelect_classes']")).Click();
+                    Browser.FindElement(By.XPath("//input[contains(@type,'text')]")).Clear();
+
+                    Browser.FindElement(By.XPath("//button[@id='saveBtn']")).Click();
+                    System.Threading.Thread.Sleep(200);
+                    lastKlas = lln.Klas;
                 }
                 catch (Exception)
                 {
