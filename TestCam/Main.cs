@@ -241,7 +241,8 @@ namespace Main
                                     lbReden.Items.Add(Reden);
                                 }
                                 lblError.Text = "Reden imported";
-                            }
+                            }     
+                          
                             catch (Exception)
                             {
                                 throw;
@@ -334,7 +335,12 @@ namespace Main
             }
             else
             {
-                lblComment.Text = "No such path selected";
+                if (MijnBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
+                    File.WriteAllText(MijnBrowserDialog.SelectedPath + @"/Data.json", Data);
+                    lblError.Text = "Data exported to " + MijnBrowserDialog.SelectedPath + @"\Data.json";
+                }
             }
         }
 
@@ -346,14 +352,19 @@ namespace Main
                     lblError.Text = "";
                     string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
                     LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
+                    /*
+                    LijstLeerlingen.Clear();
+                    foreach (leerling l in JsonConvert.DeserializeObject<List<leerling>>(LoadingData))
+                    {
+                        LijstLeerlingen.Add(new leerling(l.Voornaam,l.Naam,l.Klas,l.Telaatkomst));
+                    }
+                    */
                     UpdateDataGrid();
                 }
                 else
                 {
                     MessageBox.Show("Selecteer een Data.json file.");
                 }
-
-
             }
         }
         private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
@@ -607,6 +618,16 @@ namespace Main
         {
             if (blUnsavedWork)
             {
+
+                for (int i = 0; i < DataGridLeerlingen.Rows.Count; i++)
+                {
+                    LijstLeerlingen[i].Voornaam = DataGridLeerlingen.Rows[i].Cells[1].Value.ToString();
+                    LijstLeerlingen[i].Naam = DataGridLeerlingen.Rows[i].Cells[0].Value.ToString();
+                    LijstLeerlingen[i].Klas = DataGridLeerlingen.Rows[i].Cells[2].Value.ToString();
+                    LijstLeerlingen[i].Reden = DataGridLeerlingen.Rows[i].Cells[3].Value.ToString();
+                }
+
+                /* Bad way because making a new leerling would reset the DateTime var
                 LijstLeerlingen.Clear();
                 for (int i = 0; i < DataGridLeerlingen.Rows.Count; i++)
                 {   //make a new leerling from each row in datagridleerlingen
@@ -615,6 +636,7 @@ namespace Main
                         DataGridLeerlingen.Rows[i].Cells[2].Value.ToString()));
                     LijstLeerlingen[i].Reden = DataGridLeerlingen.Rows[i].Cells[3].Value.ToString();
                 }
+                */
 
                 //AUTO SAVE
                 if (AutosaveEnabled)
@@ -629,10 +651,6 @@ namespace Main
                 DataGridLlnState.Visible = false;
                 lblSave.Visible = false;
             }
-            //List<leerling> NLijstLeerlingen = new List<leerling>();
-
-            //var a = DataGridLeerlingen.Rows[2].Cells[2];
-
         }
 
         private void btnUndo_Click(object sender, EventArgs e)

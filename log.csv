@@ -1,0 +1,221 @@
+yassine,Sun, 16 May 2021 20:56:21 +0200,Fixed the autosave feature only saving when a leerling was added. Now saving when confirming changes and adding leerling manually. Changed Refresh rate default value from 500 to 300.,
+ 3 files changed, 23 insertions(+), 19 deletions(-)
+
+yassine,Wed, 12 May 2021 14:57:06 +0200,FIX smartschool.cs changed the way apollon sends keys made the program continue when a lln is not found on page,
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Wed, 5 May 2021 18:32:32 +0200,Added Information labels Added "Andere" Reden to put an edited "Reden",
+ 7 files changed, 236 insertions(+), 42 deletions(-)
+
+yassine,Wed, 5 May 2021 17:47:54 +0200,Fixes and additions [Fixes] - Fixed https://github.com/Kaminiix/Apollon/issues/9 - Fixed the leerling class having the sent prop to true by default - Renamed the main window from TestCam to Main - Fixed the smartschoolform not wanting to be opened again once closed - Fixed the setting button function name from PictureBox3 to btnSettings And minor fixes [Added] - Some icons - Added a way to save or undo changes when something is changed in the datagridview - Made the smartschoolForm load the leerling in datagridview when the form is loaded - Minor Visual changes,
+ 14 files changed, 306 insertions(+), 128 deletions(-)
+
+DalucaSan,Tue, 4 May 2021 18:51:45 +0200,Update README.md,
+ 1 file changed, 2 insertions(+)
+
+DalucaSan,Tue, 4 May 2021 18:50:57 +0200,Update README.md,
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+yassine,Tue, 4 May 2021 17:41:45 +0200,Implemented web automation ! STILL NEEDS TESTING !,
+ 6 files changed, 167 insertions(+), 1 deletion(-)
+
+dalil.chibani@dbgb.academicoffice.be,Tue, 4 May 2021 16:03:42 +0200,Added "sent proprety to leerling" Added "Smartschoolbtn",
+ 8 files changed, 779 insertions(+), 206 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Tue, 4 May 2021 14:54:39 +0200,Made a new Form ( SmartschoolForm ),
+ 7 files changed, 577 insertions(+), 258 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Tue, 4 May 2021 14:45:54 +0200,Revert "Made SS Form",
+ 6 files changed, 341 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Tue, 4 May 2021 14:45:49 +0200,Revert "Revert "Made SS Form"",
+ 6 files changed, 341 insertions(+)
+
+dalil.chibani@dbgb.academicoffice.be,Tue, 4 May 2021 14:45:42 +0200,Revert "Revert "Revert "Made SS Form""",
+ 6 files changed, 341 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Tue, 4 May 2021 14:45:31 +0200,Revert "Revert "[Edit]"",
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+yassine,Tue, 4 May 2021 14:23:06 +0200,Revert "[Edit]",
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+yassine,Tue, 4 May 2021 14:14:44 +0200,Revert "Revert "Made SS Form"",
+ 6 files changed, 341 insertions(+)
+
+dalil.chibani@dbgb.academicoffice.be,Tue, 4 May 2021 13:55:03 +0200,Revert "Made SS Form",
+ 6 files changed, 341 deletions(-)
+
+yassine,Tue, 4 May 2021 13:54:04 +0200,Made SS Form,
+ 6 files changed, 341 insertions(+)
+
+dalil.chibani@dbgb.academicoffice.be,Sat, 1 May 2021 16:45:40 +0200,[Edit] Adjusting old refont,
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Sat, 1 May 2021 16:22:40 +0200,[Edit] Refont entire app,
+ 4 files changed, 126 insertions(+), 203 deletions(-)
+
+yassine,Sat, 1 May 2021 15:41:22 +0200,Manual adding of leerlingen and minor fixes [Main.cs] Added a way to manually add a leerling Start and Stop buttons because they were'nt used anymore [leerling.cs] Made the leeling ID's in lowercase Made the leerlingen have a default reden,
+ 12 files changed, 432 insertions(+), 165 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Sat, 3 Apr 2021 13:47:22 +0200,Edit GUI -[Add] images for buttons -[Edit] Background color -[Edit] Grid propreties,
+ 25 files changed, 488 insertions(+), 68 deletions(-)
+
+yassine,Wed, 31 Mar 2021 16:36:19 +0200,[Fix] DataGridView,
+ 14 files changed, 96 insertions(+), 11 deletions(-)
+
+yassine,Wed, 31 Mar 2021 15:54:25 +0200,Added Settings Button with animation,
+ 24 files changed, 264 insertions(+), 45 deletions(-)
+
+Kaminix,Tue, 30 Mar 2021 21:09:33 +0200,Add files via upload,
+ 32 files changed, 853 insertions(+)
+
+Kaminix,Tue, 30 Mar 2021 21:06:35 +0200,Delete Settings directory,
+ 11 files changed, 602 deletions(-)
+
+Kaminix,Tue, 30 Mar 2021 21:06:26 +0200,Delete TestCam directory,
+ 40 files changed, 4346 deletions(-)
+
+Kaminix,Tue, 30 Mar 2021 21:06:12 +0200,Delete Appolon.sln,
+ 1 file changed, 25 deletions(-)
+
+yassine,Thu, 25 Mar 2021 20:20:43 +0100,Minor fixes,
+ 2 files changed, 27 insertions(+), 29 deletions(-)
+
+Kaminix,Wed, 17 Mar 2021 22:20:42 +0100,Add files via upload,
+ 3 files changed, 59 insertions(+), 15 deletions(-)
+
+yassine,Wed, 17 Mar 2021 21:46:35 +0100,Misc changes [UI]  - Updated  2 icons to have a little animation  - Added Time to the DataGridView,
+ 8 files changed, 172 insertions(+), 95 deletions(-)
+
+yassine,Sun, 7 Mar 2021 14:14:30 +0100,Bug fix,
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+yassine,Wed, 3 Mar 2021 23:40:11 +0100,Fixes - Fixed the program not closing correctly. - Fixed a bug where the webcam would still be used after the program closed. - Made the path to reden.txt not hardcoded anymore,
+ 4 files changed, 370 insertions(+), 332 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Fri, 19 Feb 2021 19:54:51 +0100,Edit GUI -[Edit] GUI from SettingsForm -[Edit] Load.png/PowerBtn.png/PowerBtnRotated.png/Save.png/SettingsBold.png from grey to white color,
+ 8 files changed, 317 insertions(+), 485 deletions(-)
+
+dalil.chibani@dbgb.academicoffice.be,Wed, 17 Feb 2021 14:30:32 +0100,Edit GUI -[Edit] GUI from MainForm -[Add] Panels behind buttons -[Edit] Change font of "lvlResult" and "lblComment" to white,
+ 4 files changed, 304 insertions(+), 216 deletions(-)
+
+yassine,Sat, 6 Feb 2021 13:30:32 +0100,Added Reden - Added a way to change the path in the settings - Added a listbox of reden imported from txt file [To do] - Make the path to the txt file not hardcoded,
+ 7 files changed, 127 insertions(+), 41 deletions(-)
+
+DalucaSan,Fri, 29 Jan 2021 10:47:39 +0100,Update README.md,
+ 1 file changed, 4 insertions(+)
+
+yassine,Sun, 10 Jan 2021 16:08:21 +0100,Added reden and code optimisation [Main.cs]  - Made the code more compact about 50 lines of code less  - The save path isn't hardcoded anymore and can be modified by user  - Added a statusStrip with progressbar and Errorlabel  - Added a reden to each leerling in the datagrid  - Updated program to write and import the new reden aswell  - Minor visual changes [Settings.cs]  - The program will now show a folder browser to the user when the user choses to enable the autosave mode  -  Minor visual changes [leerling.cs]  - Added a reden propertie for each leerling [Apollon]  - changed the project properties to have our icon as application icon when published,
+ 12 files changed, 198 insertions(+), 176 deletions(-)
+
+Kaminix,Sat, 9 Jan 2021 21:33:56 +0100,updated Readme,
+ 1 file changed, 3 insertions(+)
+
+yassine,Sat, 9 Jan 2021 21:02:10 +0100,User can't close the settingswindow without confirming. which used to make the program crash,
+ 3 files changed, 23 insertions(+), 7 deletions(-)
+
+Dalucasan,Mon, 4 Jan 2021 17:10:49 +0100,Added animations for buttons -[Add] animation for Load, Save, Power, and PowerRotated button,
+ 4 files changed, 81 insertions(+), 2 deletions(-)
+
+yassine,Mon, 4 Jan 2021 00:46:48 +0100,minor ui changes And added this request https://github.com/Kaminiix/Apollon/issues/2 And Renamed the solution to Appolon.sln,
+ 4 files changed, 31 insertions(+), 8 deletions(-)
+
+Dalucasan,Sun, 3 Jan 2021 21:53:33 +0100,Added Dev mode: -[Add] Dev mode -[Rename]  rename solution "TestCam" to "Appolon",
+ 7 files changed, 235 insertions(+), 188 deletions(-)
+
+yassine,Sun, 3 Jan 2021 20:57:51 +0100,Added Saving to json [Added] - Made a save Button that saves the data to data.json - Made a autosave function to save data in case the program crashes - Made a load button to load the data from an autosave file - Added some icons,
+ 13 files changed, 327 insertions(+), 19 deletions(-)
+
+yassine,Sun, 3 Jan 2021 20:12:12 +0100,code improvement [Code main.cs] - replaced for loops with foreach's for readability - removed some clutter comments,
+ 4 files changed, 18 insertions(+), 35 deletions(-)
+
+Dalucasan,Sun, 3 Jan 2021 14:57:34 +0100,GUI Update MainForm: delete useless "Take picture" button,
+ 2 files changed, 12 insertions(+), 13 deletions(-)
+
+Dalucasan,Sun, 3 Jan 2021 14:55:59 +0100,GUI update SettingsForm,
+ 3 files changed, 25 insertions(+), 31 deletions(-)
+
+Dalucasan,Sun, 3 Jan 2021 14:51:15 +0100,Fix crash when no camera is selected.,
+ 3 files changed, 26 insertions(+), 17 deletions(-)
+
+yassine,Sun, 3 Jan 2021 01:49:58 +0100,[Removed] - Start and Stop buttons - listbox - some comments [Added] - Working DataGridBox - class leerling and a list of leerlingen - animated the start button - made MakeLeeling() (Changed the qr format to Naam;Voornaam;Klas) - Renamed main form to Main because Form1 was dumb,
+ 6 files changed, 304 insertions(+), 207 deletions(-)
+
+Kaminix,Sun, 3 Jan 2021 01:33:26 +0100,Examples of qr codes,
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+Kaminix,Sat, 2 Jan 2021 22:21:20 +0100,Added icons origins,
+ 1 file changed, 1 insertion(+)
+
+yassine,Sat, 2 Jan 2021 22:19:23 +0100,-Added a DataGrid with leerlingen -Added Visual button to start [not finished],
+ 5 files changed, 1867 insertions(+), 1414 deletions(-)
+
+Kaminix,Mon, 28 Dec 2020 14:40:03 +0100,Add files via upload,
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+Kaminix,Thu, 24 Dec 2020 14:53:33 +0100,Create README.md,
+ 1 file changed, 6 insertions(+)
+
+yassine,Wed, 23 Dec 2020 10:51:25 +0100,[FIX] https://github.com/Kaminiix/Apollon/issues/3 Added refreshrate in settings,
+ 4 files changed, 57 insertions(+), 5 deletions(-)
+
+yassine,Tue, 22 Dec 2020 23:03:36 +0100,- Added icone for settingsform - Replaced Combobox with a listbox - changed close button text to Confirm because it seamed more logic,
+ 6 files changed, 222 insertions(+), 108 deletions(-)
+
+Dalucasan,Mon, 21 Dec 2020 21:21:19 +0100,Anime boutton settings,
+ 5 files changed, 133 insertions(+), 281 deletions(-)
+
+yassine,Mon, 21 Dec 2020 20:59:56 +0100,Ajout image bouton settings,
+ 5 files changed, 284 insertions(+), 12 deletions(-)
+
+yassine,Mon, 21 Dec 2020 20:51:03 +0100,Ajout icone webcam dans settings,
+ 4 files changed, 124 insertions(+)
+
+yassine,Mon, 21 Dec 2020 20:35:11 +0100,Ajout du form settings,
+ 3 files changed, 25 insertions(+), 29 deletions(-)
+
+Dalucasan,Mon, 21 Dec 2020 19:49:12 +0100,Test Settings form,
+ 17 files changed, 881 insertions(+), 16 deletions(-)
+
+Dalucasan,Mon, 21 Dec 2020 19:26:51 +0100,nothing,
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+yassine,Mon, 21 Dec 2020 15:55:01 +0100,Selectionne la premiere camera par defaut,
+ 2 files changed, 11 insertions(+), 3 deletions(-)
+
+yassine,Mon, 21 Dec 2020 15:29:04 +0100,[FIX] programme ne crash plus quand il ne detecte pas de code QR,
+ 2 files changed, 23 insertions(+), 15 deletions(-)
+
+yassine,Mon, 21 Dec 2020 15:17:18 +0100,Ajout d'un timer qui prends un photo a chaque tick,
+ 2 files changed, 23 insertions(+), 4 deletions(-)
+
+yassine,Mon, 21 Dec 2020 14:56:46 +0100,Suppression du bouton "Config". Configuration se fait automatiquement quand le form est initialisé.,
+ 2 files changed, 8 insertions(+), 23 deletions(-)
+
+yassine,Sun, 20 Dec 2020 22:52:01 +0100,Changé le nom du form,
+ 3 files changed, 7 insertions(+), 7 deletions(-)
+
+yassine,Sun, 20 Dec 2020 22:50:23 +0100,Changé le nom de la fenetre et ajout d'une icone,
+ 3 files changed, 1709 insertions(+), 1 deletion(-)
+
+Kaminix,Sun, 20 Dec 2020 22:49:00 +0100,Add files via upload,
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+Dalucasan,Sun, 20 Dec 2020 22:48:13 +0100,Amerliorer UI,
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+Dalucasan,Sun, 20 Dec 2020 22:41:44 +0100,Ameliorer UI,
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+Dalucasan,Sun, 20 Dec 2020 22:38:10 +0100,amérliorer l'UI,
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+yassine,Sun, 20 Dec 2020 22:28:25 +0100,:D,
+ 4 files changed, 46 insertions(+), 3 deletions(-)
+
+yassine,Sun, 20 Dec 2020 21:35:36 +0100,Ajoutez des fichiers projet.,
+ 13 files changed, 766 insertions(+)
+
+yassine,Sun, 20 Dec 2020 21:35:33 +0100,Ajoutez les fichiers .gitignore et .gitattributes.,
+ 2 files changed, 403 insertions(+)
