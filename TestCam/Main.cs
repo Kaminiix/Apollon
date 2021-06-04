@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -134,6 +134,7 @@ namespace Main
 
         private void btnPower_Click(object sender, EventArgs e)
         {
+            btnAddLln.Visible = true;
             if (File.Exists(SavePath + @"\reden.txt"))
             {
                 strRedenPath = SavePath + @"\reden.txt";
@@ -348,22 +349,15 @@ namespace Main
         {
             if (MijnFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (MijnFileDialog.FileName.Contains("Data.json") == true) {
+                if (MijnFileDialog.FileName.Contains(".json") == true) {
                     lblError.Text = "";
                     string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
                     LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
-                    /*
-                    LijstLeerlingen.Clear();
-                    foreach (leerling l in JsonConvert.DeserializeObject<List<leerling>>(LoadingData))
-                    {
-                        LijstLeerlingen.Add(new leerling(l.Voornaam,l.Naam,l.Klas,l.Telaatkomst));
-                    }
-                    */
                     UpdateDataGrid();
                 }
                 else
                 {
-                    MessageBox.Show("Selecteer een Data.json file.");
+                    MessageBox.Show("Selecteer een .json file.");
                 }
             }
         }
@@ -408,7 +402,16 @@ namespace Main
                 lblError.Text = "Reden Changed";
             }
         }
+        private void txtbKlasInput_Validated(object sender, EventArgs e)
+        {
+            AddManualLeerling();
+        }
         private void btnMakeLln_Click(object sender, EventArgs e)
+        {
+            AddManualLeerling();
+        }
+
+        public void AddManualLeerling()
         {
             if (txtbNaamInput.Text == "")
             {
@@ -726,5 +729,15 @@ namespace Main
                 File.WriteAllText(strRedenPath, strReden);
             }
         }
+
+        // Makes a leerlingen when user type enter in txtbklasinput
+        private void txtbKlasInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                AddManualLeerling();
+            }
+        }
+
     }
 }
