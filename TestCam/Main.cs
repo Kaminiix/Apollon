@@ -145,6 +145,7 @@ namespace Main
                     LijstReden.Add(eenReden);
                 }
                 lblError.Text = "Reden imported";
+                IsReden = true;
             }
             else if (LijstReden.Count == 0)
             {   //No reden.txt found open FolderDialog to find directory to 
@@ -327,38 +328,54 @@ namespace Main
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (SavePath != "")
+            try
             {
-                string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
-                File.WriteAllText(SavePath + @"/Data.json", Data);
-                lblError.Text = "Data exported to " + SavePath + @"\Data.json";
-                lblComment.Text = LijstLeerlingen[2].Reden;
-            }
-            else
-            {
-                if (MijnBrowserDialog.ShowDialog() == DialogResult.OK)
+                if (SavePath != "")
                 {
                     string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
-                    File.WriteAllText(MijnBrowserDialog.SelectedPath + @"/Data.json", Data);
-                    lblError.Text = "Data exported to " + MijnBrowserDialog.SelectedPath + @"\Data.json";
+                    File.WriteAllText(SavePath + @"/Data.json", Data);
+                    lblError.Text = "Data exported to " + SavePath + @"\Data.json";
+                    lblComment.Text = LijstLeerlingen[2].Reden;
                 }
+                else
+                {
+                    if (MijnBrowserDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string Data = JsonConvert.SerializeObject(LijstLeerlingen, Formatting.Indented);
+                        File.WriteAllText(MijnBrowserDialog.SelectedPath + @"/Data.json", Data);
+                        lblError.Text = "Data exported to " + MijnBrowserDialog.SelectedPath + @"\Data.json";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                lblError.Text = "Could not export";
             }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            if (MijnFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                if (MijnFileDialog.FileName.Contains(".json") == true) {
-                    lblError.Text = "";
-                    string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
-                    LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
-                    UpdateDataGrid();
-                }
-                else
+                if (MijnFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Selecteer een .json file.");
+                    if (MijnFileDialog.FileName.Contains(".json") == true) {
+                        lblError.Text = "";
+                        string LoadingData = File.ReadAllText(MijnFileDialog.FileName);
+                        LijstLeerlingen = JsonConvert.DeserializeObject<List<leerling>>(LoadingData);
+                        UpdateDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecteer een .json file.");
+                    }
                 }
+
+            }
+            catch (Exception)
+            {
+
+                lblError.Text = "error";
             }
         }
         private void lbReden_SelectedIndexChanged(object sender, EventArgs e)
