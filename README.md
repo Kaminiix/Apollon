@@ -1,9 +1,10 @@
 # Apollon
 GIP Project
 Read QR codes through Webcam and sends them to Smartschool
+
 ![name-of-you-image](https://cdn.discordapp.com/attachments/493374771812106260/862384707676405780/readme.png)
 
-#Contact
+##Contact
 - **Yassine**: yassinesan@tutanota.com
 - **Dalil**: dalucarry@hotmail.com
 
