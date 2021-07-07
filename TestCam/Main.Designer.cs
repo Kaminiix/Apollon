@@ -220,6 +220,7 @@
             this.txtbKlasInput.Size = new System.Drawing.Size(66, 20);
             this.txtbKlasInput.TabIndex = 20;
             this.txtbKlasInput.Visible = false;
+            this.txtbKlasInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbKlasInput_KeyDown);
             // 
             // panel1
             // 

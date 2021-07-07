@@ -29,6 +29,7 @@ namespace Apollon
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SmartschoolForm));
             this.DataGridLeerlingen = new System.Windows.Forms.DataGridView();
             this.Submitted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,8 +124,9 @@ namespace Apollon
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DataGridLeerlingen);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SmartschoolForm";
-            this.Text = "SmartschoolForm";
+            this.Text = "Smartschool";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridLeerlingen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

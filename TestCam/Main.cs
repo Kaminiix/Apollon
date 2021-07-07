@@ -77,7 +77,6 @@ namespace Main
             lblResult.Visible = DevmodeEnabled;
             //Make a copy of the frame on the picturebox on the right
             Image TickFrame = pbox.Image;
-            //pictureBox2.Image = pbox.Image;
 
             //Try to read the qr code through the frame
             try
@@ -220,42 +219,6 @@ namespace Main
                     }
                 }
             }
-
-            /*    DOWNLOAD reden.txt FROM THE INTERNET NOT WORKING YET !!
-            else
-            {
-                if (MessageBox.Show("Do you want to download the default one from the internet?",
-                    "No reden.txt", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    if (MessageBox.Show("Please select the folder where you want to download the file") == DialogResult.OK)
-                    {
-                        if (MijnBrowserDialog.ShowDialog() == DialogResult.OK)
-                        {
-                            try
-                            { //Download reden.txt from Github
-                                WebClient MijnWebClient = new WebClient();
-                                MijnWebClient.DownloadFile("https://cdn.discordapp.com/attachments/493374771812106260/821859873443807232/Reden.txt",
-                                    MijnBrowserDialog.SelectedPath);
-                                // https://bit.ly/3bWfz8j MSDN
-                                SavePath = MijnBrowserDialog.SelectedPath;
-                                foreach (string Reden in ImportReden(SavePath + @"/reden.txt"))
-                                {
-                                    lbReden.Items.Add(Reden);
-                                }
-                                lblError.Text = "Reden imported";
-                            }     
-                          
-                            catch (Exception)
-                            {
-                                throw;
-                            }
-                        }
-
-                    }
-
-                }
-            }
-            */
         }
 
         static public leerling MakeLeerling(string strInput)
@@ -615,7 +578,7 @@ namespace Main
             }
         }
 
-
+        //Launch Smartschoolform
         private void btnSmartschool_Click(object sender, EventArgs e)
         {
             smartschoolForm = new SmartschoolForm();
@@ -623,7 +586,7 @@ namespace Main
             smartschoolForm.Show();
             smartschoolForm.UpdateGrid(LijstLeerlingen);
         }
-
+        &
         private void DataGridLeerlingen_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             blUnsavedWork = true;
@@ -646,17 +609,6 @@ namespace Main
                     LijstLeerlingen[i].Klas = DataGridLeerlingen.Rows[i].Cells[2].Value.ToString();
                     LijstLeerlingen[i].Reden = DataGridLeerlingen.Rows[i].Cells[3].Value.ToString();
                 }
-
-                /* Bad way because making a new leerling would reset the DateTime var
-                LijstLeerlingen.Clear();
-                for (int i = 0; i < DataGridLeerlingen.Rows.Count; i++)
-                {   //make a new leerling from each row in datagridleerlingen
-                    LijstLeerlingen.Add(new leerling(DataGridLeerlingen.Rows[i].Cells[1].Value.ToString(),
-                        DataGridLeerlingen.Rows[i].Cells[0].Value.ToString(),
-                        DataGridLeerlingen.Rows[i].Cells[2].Value.ToString()));
-                    LijstLeerlingen[i].Reden = DataGridLeerlingen.Rows[i].Cells[3].Value.ToString();
-                }
-                */
 
                 //AUTO SAVE
                 if (AutosaveEnabled)
@@ -756,5 +708,14 @@ namespace Main
             }
         }
 
+        private void DataGridLeerlingen_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            blUnsavedWork = true;
+            lblSave.Visible = true;
+            DataGridLlnState.Visible = true;
+            btnUndo.Visible = true;
+            lblUndo.Visible = true;
+            DataGridLlnState.Image = SaveModificationRed;
+        }
     }
 }
